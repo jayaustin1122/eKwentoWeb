@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/dist/pages/admin/css/admin_pf.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/assets/admin logo.png" alt="Logo">
+            </div>
+            <nav>
+                <p class="admin-text">ADMIN PANEL</p>
+                <ul>
+                    <li><a href="/dist/pages/admin/admin_db.html">Dashboard</a></li>
+                    <li><a href="/dist/pages/admin/admin_books.html">Books</a></li>
+                    <li><a href="/dist/pages/admin/admin_authors.html">Authors</a></li>
+                    <li><a href="/dist/pages/admin/admin_pf.html" class="active">Proofreader</a></li>
+                </ul>
+            </nav>
+            <div class="logout">
+                <a href="#">Logout</a>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="header">
+                <div class="date">
+                    June 23, 2024 10:23 AM
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="header">
+                    <h2>Authors Table</h2>
+                    <input type="text" class="search-bar" id="searchInput" placeholder="Search">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                   
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Certificates</th>
+                            <th>Experiences</th>
+                            <th>Proofs</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                         
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="/dist/pages/admin/js/authors.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Table</title>
+    <link rel="stylesheet" href="/dist/pages/admin/css/admin_book.css">
+</head>
+<body>
+    <div class="admin-panel">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/assets/admin logo.png" alt="Logo">
+            </div>
+            <nav>
+                <p class="admin-text">ADMIN PANEL</p>
+                <ul>
+                    <li><a href="/dist/pages/admin/admin_db.html">Dashboard</a></li>
+                    <li><a href="/dist/pages/admin/admin_books.html">Books</a></li>
+                    <li><a href="/dist/pages/admin/admin_authors.html">Authors</a></li>
+                    <li><a href="/dist/pages/admin/admin_pf.html" class="active">Proofreader</a></li>
+                </ul>
+        
+            </nav>
+            <li class="logout">
+                <a href="javascript:void(0);" id="logout">
+                    <i class="lni lni-exit"></i> Logout
+                </a>
+            </li>
+        </div>
+
+        <div class="dashboard">
+            <div class="header">
+                <div class="date" id="currentDate">
+                  
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="header">
+                    <h2>Books</h2>
+                    <input type="text" class="search-bar" id="searchBar" placeholder="Search by Title or Author">
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Image</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookTableBody">
+                        <!-- Book data will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="/dist/pages/admin/js/books.js"></script>
+</body>
+</html>

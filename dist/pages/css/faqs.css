@@ -1,0 +1,284 @@
+/* General Style Adjustments */
+body {
+    animation: fadeIn 0.6s ease-in-out;
+    font-family: Arial, sans-serif;
+    background-color: #E7F6FC;
+    padding-top: 70px;
+}
+
+/* Navbar Styling */
+.navbar {
+    animation: fadeIn 0.6s ease-in-out;
+    background-color: #f8f9fa; /* Light grey background */
+    box-shadow: none;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: #0096A0; /* Teal color for the brand text */
+    font-weight: bold;
+    font-size: 1.25rem; /* Smaller font size */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+.navbar-brand:hover {
+    color: #007a7d; /* Darker teal on hover */
+}
+
+.navbar .form-control {
+    border: none;
+    border-bottom: 2px solid #0096A0; /* Teal underline */
+    border-radius: 0;
+    padding: 0; /* Remove padding for a compact look */
+    width: 150px; /* Reduced width */
+}
+
+.navbar .form-control:focus {
+    box-shadow: none; /* Remove focus shadow */
+    border-color: #007a7d; /* Slightly darker teal on focus */
+}
+
+.navbar .btn-outline-primary {
+    color: #0096A0;
+    border: none;
+    background: transparent; /* Transparent background */
+    font-size: 1.1rem;
+    padding: 0;
+}
+
+.navbar .btn-outline-primary:hover {
+    color: #007a7d; /* Darker teal on hover */
+    background-color: transparent;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    animation: fadeIn 0.6s ease-in-out;
+    padding: 60px 30px;
+    margin-top: 50px;
+    text-align: center;
+    background-color: #E7F6FC;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #3F7AA1;
+}
+
+.hero-content img {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.accordion-button {
+    background-color: transparent; /* Remove background */
+    color: #0096A0; /* Teal text color */
+    font-weight: bold;
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove any shadow */
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: transparent; 
+    color: #007a7d; /* Darker teal color when expanded */
+}
+
+.accordion-button:hover {
+    background-color: transparent; /* No hover background */
+    color: #007a7d; /* Darker teal on hover */
+}
+
+.accordion-body {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 15px;
+    background-color: #f8f9fa; /* Light background for the body */
+    border-top: 2px solid #007a7d;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Card Section Styling */
+.card-menu {
+    background: #e7eef0; /* Soft background color */
+    border-radius: 50px; /* Rounded corners */
+    padding: 5px 20px; /* Reduced padding for a more compact layout */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 60%; /* Adjust the width */
+    margin: 10px auto; /* Reduced margin for more compactness */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
+}
+
+.card-menu .menu-icon {
+    color: #3F7AA1;
+    font-size: 1.2rem; /* Slightly smaller icon for tighter spacing */
+    margin-right: 10px; /* Reduced margin between icon and links */
+}
+
+.card-menu a {
+    color: #69b7eb;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 10px; /* Reduced spacing between links */
+    font-size: 1.1rem; /* Slightly smaller text size */
+}
+
+.card-menu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.card-menu .signup-button {
+    background-color: #007a7d;
+    color: #ffffff;
+    border-radius: 30px; /* Rounded corners for the button */
+    padding: 5px 15px; /* Reduced padding for a smaller button */
+    border: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.card-menu .signup-button:hover {
+    background-color: #19c6cc;
+}
+
+.card-menu .signup-button i {
+    margin-right: 5px;
+    font-size: 0.9rem; /* Adjusted icon size for a more compact look */
+}
+
+
+/* Footer Styling */
+.footer {
+    animation: fadeIn 0.6s ease-in-out;
+    background-color: #f1f1f1; /* Light grey background */
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+.footer-logo, .footer-description {
+    font-size: 14px;
+    color: #3F7AA1;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3F7AA1;
+}
+
+.footer-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo-icon {
+    width: 40px; /* Adjust the size of the icon */
+    height: 40px;
+    margin-right: 10px; /* Adds space between the icon and the logo */
+}
+
+.footer p1 {
+    color: #03080c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-description {
+    font-size: 14px;
+}
+
+.footer .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer .col-md-4, .footer .col-md-2 {
+    padding: 10px;
+}
+
+.footer p {
+    color: #3F7AA1;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: #010305;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer a:hover {
+    color: #007a7d;
+}
+
+.footer .qr-code {
+    width: 100px; /* Size of the QR code */
+}
+
+.footer-bottom {
+    font-size: 14px;
+    color: #000000;
+    margin-top: 20px;
+    text-align: center;
+}

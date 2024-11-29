@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Book</title>
+    <link rel="stylesheet" href="/dist/pages/css/readbook.css">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <!-- Mascot popup -->
+    <div id="mascot-popup" class="mascot-popup">
+        <img src="/assets/lola.png" alt="Mascot" />
+        <p>Welcome! Read and Explore this book.</p>
+    </div>
+    
+    <!-- Book cover image -->
+    <img id="book-cover" class="book-cover" src="" alt="Book Cover" />
+
+    <!-- Book details and content -->
+    <div class="book-content">
+        <h1 id="book-title"></h1>
+        <p id="book-author"></p>
+        <p id="book-publication-date"></p>
+        <p id="book-genre"></p>
+        <div id="book-content"></div>
+    </div>
+
+    <script type="module" src="/dist/js/readbook.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

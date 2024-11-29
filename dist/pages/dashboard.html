@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-kwento</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/dist/pages/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdn.lineicons.com/3.0/lineicons.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/dist/index.html">E-kwento</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/dist/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/dashboard.html">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/tuklasin.html">Tuklasin</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/kagamitan.html">Mga Kagamitan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/faqs.html">FAQs</a></li>
+            
+                    <li class="nav-item"><a class="nav-link" href="/dist/pages/dashboard.html"><i class="fas fa-user"></i></a></li>
+                    <li class="logout">
+                        <a href="javascript:void(0);" id="logout">
+                            <i class="lni lni-exit"></i>
+                        </a>
+                    </li>
+                        
+                          
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4  pt-1 ms-8">
+        <div class="row">
+            <!-- Profile Card -->
+            <div class="col-sm-3">
+                <div class="profile-card">
+                    <img src="https://via.placeholder.com/80" alt="User Avatar" class="profile-avatar">
+                    <h4 class="username" id="profile-username">Username</h4>
+                    <p class="age-bio" id="profile-age-bio">Age: N/A <span class="separator">|</span> Bio: N/A</p>
+                   
+                    <p class="email" id="profile-email">Email: N/A</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <p id="profile-published">0</p>
+                            <span>Nalathala</span>
+                        </div>
+                        <div class="stat">
+                            <p id="profile-comments">0</p>
+                            <span>Mga Komento</span>
+                        </div>
+                        <div class="stat">
+                            <p id="profile-rating">0</p>
+                            <span>Reyting</span>
+                        </div>
+                    </div>
+                    <a href="/dist/pages/profile.html" class="profile-button">I-edit ang Profile</a>
+                </div>
+            </div>
+            
+
+            <div class="col-sm-8 ">
+                <!-- Buttons Section -->
+                <div class="content-section d-flex gap-4 mb-10 ms-30">
+                    <!-- Modal Trigger for "Mag sulat" -->
+                    <button class="book-box" data-bs-toggle="modal" data-bs-target="#writeModal">
+                        <i class="fas fa-pencil-alt icon"></i>
+                        <h5 class="box-title">Mag sulat</h5>
+                        <p>Create, build, and write your book from scratch using our writing platform.</p>
+                    </button>
+                    
+                    <!-- Modal Trigger for "Mag-Upload" -->
+                    <button class="book-box" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <i class="fas fa-upload icon"></i>
+                        <h5 class="box-title">Mag-Upload</h5>
+                        <p>Create, build, and upload your book using our publishing platform.</p>
+                    </button>
+                    <button class="book-box" data-bs-toggle="modal" data-bs-target="#bookModal">
+                        <i class="fas fa-pencil-alt icon"></i>
+                        <h5 class="box-title">Mag Sulat ng Akda</h5>
+                        <p>Create, build, and upload your book using our publishing platform.</p>
+                    </button>
+                 
+                </div>
+                <div class="nav-bar">
+                    <h4 class="nav-item" onclick="showCards('story-cards')">All</h4>
+                    <h4 class="nav-item" onclick="showCards('story-cards2')">My Books</h4>
+                    <h4 class="nav-item" onclick="showCards('story-cards3')">Library</h4>
+                </div>
+                <!--All Books-->
+                <div class="container story-cards">
+                    <div class="row g-10 "> 
+                        <!-- Dynamic Cards for 'All' will be inserted here -->
+                    </div>
+                </div>
+                               <!--My Books-->
+                <div class="container story-cards2" style="display: none;"> <!-- Initially hidden -->
+                    <div class="row g-10"> 
+                        <!-- Dynamic Cards for 'My Books' will be inserted here -->
+                    </div>
+                </div>
+                               <!--Library-->
+                <div class="container story-cards3" style="display: none;"> <!-- Initially hidden -->
+                    <div class="row g-10"> 
+                        <!-- Dynamic Cards for 'Library' will be inserted here -->
+                    </div>
+                </div>
+                
+                <!-- Writing Section -->
+               
+
+                <!-- Recommended Books Section -->
+                <h4 class="mt-10">Recommended Books for You</h4>
+                <div class="story-cardss">
+                    <div class="row g-10"> <!-- Adjust the gutter space -->
+                        <!-- Dynamic Cards will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- Modal for "Add a New Book" -->
+<div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-4" style="border-radius: 15px;">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="bookModalLabel">Add a New Book</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookForm">
+                    <!-- Book Title -->
+                    <div class="mb-4">
+                        <label for="bookTitle" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" id="bookTitle" placeholder="Enter your Book Title" required style="border-radius: 10px;">
+                    </div>
+                    <div class="mb-4">
+                        <label for="bookAuthor" class="form-label">Book Author</label>
+                        <input type="text" class="form-control" id="bookAuthor" placeholder="Enter your Book Author" required style="border-radius: 10px;">
+                    </div>
+                    <!-- Book Content -->
+                    <div class="mb-4">
+                        <label for="bookContent" class="form-label">Book Content</label>
+                        <textarea class="form-control" id="bookContent" rows="4" placeholder="Enter the Book Content" required style="border-radius: 10px;"></textarea>
+                    </div>
+                    <!-- Book Cover -->
+                    <div class="mb-4">
+                        <label for="bookCover" class="form-label">Book Cover</label>
+                        <input type="file" class="form-control" id="bookCover" accept="image/*" required style="border-radius: 10px;">
+                    </div>
+                    <div class="mb-4">
+                        <label for="genre" class="form-label d-block">Select your Genre</label>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Non-Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Mystery</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romance</button>
+                        </div>
+                    </div>
+                    <!-- Add Book Button -->
+                    <button type="submit" class="btn btn-primary" style="border-radius: 20px; background-color: #008080; border: none;">Submit Book</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Modal for "Mag sulat" -->
+<div class="modal fade" id="writeModal" tabindex="-1" aria-labelledby="writeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-4" style="border-radius: 15px;">
+            <div class="modal-header border-0">
+                <a href="#" class="text-decoration-none">
+                    <span class="text-muted">&larr; Back to dashboard</span>
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2 class="mb-4" style="color: #008080;">Mag sulat</h2>
+                <p class="mb-4">Welcome to your First step of writing your book.</p>
+                
+                <form>
+                    <!-- Book Title -->
+                    <div class="mb-4">
+                        <label for="bookTitle" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" id="bookTitle" placeholder="Enter your Book Name" style="border-radius: 10px;">
+                    </div>
+                    <!-- Pen Name -->
+                    <div class="mb-4">
+                        <label for="penName" class="form-label">Pangalan ng May-Akda</label>
+                        <input type="text" class="form-control" id="penName" placeholder="Enter your Pen Name" style="border-radius: 10px;">
+                    </div>
+                    <!-- Genre Selection -->
+                    <div class="mb-4">
+                        <label for="genre" class="form-label d-block">Select your Genre</label>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Non-Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Mystery</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romance</button>
+                        </div>
+                    </div>
+                    <!-- Public Checkbox -->
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="public" />
+                        <label class="form-check-label" for="public">Public</label>
+                    </div>
+                </form>
+            </div>
+            <!-- Save Details Button -->
+            <div class="modal-footer border-0 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" style="border-radius: 20px; background-color: #008080; border: none;">Save Details</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal for "Mag-Upload" -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content p-4" style="border-radius: 15px;">
+            <div class="modal-header border-0">
+                <a href="#" class="text-decoration-none">
+                    <span class="text-muted">&larr; Back to dashboard</span>
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h2 class="mb-4" style="color: #008080;">Mag-Upload</h2>
+                <p class="mb-4">Upload your book here.</p>
+                
+                <form id="uploadForm">
+                    <!-- Book Title -->
+                    <div class="mb-4">
+                        <label for="bookTitleUpload" class="form-label">Book Title</label>
+                        <input type="text" class="form-control" id="bookTitleUpload" placeholder="Enter your Book Name" style="border-radius: 10px;">
+                    </div>
+                    <!-- File Upload -->
+                    <div class="mb-4">
+                        <label for="fileUpload" class="form-label">Upload File</label>
+                        <input type="file" class="form-control" id="fileUpload" style="border-radius: 10px;">
+                    </div>
+                    <!-- Genre Selection -->
+                    <div class="mb-4">
+                        <label for="genre" class="form-label d-block">Select your Genre</label>
+                        <div class="d-flex gap-2">
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Non-Fiction</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Mystery</button>
+                            <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romance</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Public Checkbox -->
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="publicUpload" />
+                        <label class="form-check-label" for="publicUpload">Public</label>
+                    </div>
+                </form>
+            </div>
+            <!-- Save Details Button -->
+            <div class="modal-footer border-0 d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="submitBookBtn" style="border-radius: 20px; background-color: #008080; border: none;">Submit Book</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-placeholder"></div>  
+    <script type="module" src="/dist/index.js"></script>
+    <script type="module" src="/dist/js/dashboard.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showCards(cardClass) {
+            // Hide all story card containers
+            document.querySelector('.story-cards').style.display = 'none';
+            document.querySelector('.story-cards2').style.display = 'none';
+            document.querySelector('.story-cards3').style.display = 'none';
+        
+            // Show the selected container
+            document.querySelector('.' + cardClass).style.display = 'block';
+        }
+        
+        // Optionally, you can call `showCards('story-cards2')` initially
+        // to ensure that the 'My Books' section is visible when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            showCards('story-cards2'); // Show 'My Books' by default
+        });
+        
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

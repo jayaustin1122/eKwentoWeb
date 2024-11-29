@@ -1,0 +1,326 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* General Body Styles */
+body {
+    animation: fadeIn 0.6s ease-in-out;
+    font-family: Arial, sans-serif;
+    background-color: #E7F6FC;
+    padding-top: 80px; 
+}
+
+/* Navbar Styling */
+.navbar {
+    animation: fadeIn 0.6s ease-in-out;
+    background-color: #f1f1f1; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    padding: 15px 0; 
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0096A0; 
+    letter-spacing: 1px;
+    margin-right: 30px; 
+}
+
+.navbar-brand:hover {
+    color: #007a7d;
+}
+
+.navbar-nav .nav-link {
+    color: #0096A0; 
+    font-size: 1rem;
+    padding: 8px 15px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #007a7d; 
+}
+
+.navbar-nav .nav-item i {
+    font-size: 1.2rem; 
+    color: #0096A0; 
+}
+
+.navbar-nav .nav-item i:hover {
+    color: #007a7d; 
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: auto; 
+    gap: 30px; 
+}
+
+.navbar-toggler {
+    border: none;
+    color: #0096A0; 
+}
+
+.navbar-toggler-icon {
+    background-color: #0096A0;
+}
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+        width: 100%;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background-color: #E7F6FC;
+    padding: 60px 30px;
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Search Bar Styling */
+.search-bar {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.search-bar form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.search-bar .search-input {
+    width: 60%;
+    padding: 15px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    border: 1px solid #0096A0;
+}
+
+.search-bar .form-select {
+    width: 60%;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.search-bar button {
+    background-color: #0096A0;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #007a7d;
+}
+
+/* Hero Section Heading Styling */
+.hero-section h1 {
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-top: 20px;
+    color: #3F7AA1;
+    text-align: left;
+    margin-left: 10px; 
+}
+
+/* Filter Section Styling */
+.filter {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.filter select {
+    width: 200px;
+    background-color: transparent; 
+    color: rgb(0, 0, 0);
+    border: none; 
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 25px;
+    transition: background-color 0.3s ease; 
+}
+
+.filter select:hover {
+    background-color: #0056b3; 
+}
+
+
+.filter select:focus {
+    background-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+}
+
+
+.filter select:focus, .filter select:active {
+    background-color: transparent; 
+    color: #0096A0; 
+}
+.story-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: calc(25% - 20px); /* This ensures each card takes up 25% of the row, minus some margin */
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    .story-card {
+        width: calc(50% - 20px); /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .story-card {
+        width: 100%; /* Full width on very small screens */
+    }
+}
+/* Make sure to remove any unnecessary margins on the row */
+.row {
+    margin: 0;
+}
+
+
+
+
+.story-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.story-cards img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-details {
+    padding: 10px;
+}
+
+.card-details h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-details p {
+    font-size: 14px;
+    color: #666;
+}
+
+.heart-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.heart-button i {
+    font-size: 24px;
+    color: red;
+}
+
+
+/* Ensure the image scales well within the card */
+.card-image {
+    width: 100%;
+    height: 200px; /* Adjust the height according to your design needs */
+    object-fit: cover; /* This will ensure the image covers the space without distortion */
+}
+
+/* Add space between the image and the text details */
+.card-details {
+    padding: 15px;
+}
+
+/* Icons Styling for like/view counts at the top */
+.icon-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.9rem;
+    color: white; /* Ensures contrast on the background */
+}
+
+.icon-text img {
+    width: 15px;
+    margin-right: 5px;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
