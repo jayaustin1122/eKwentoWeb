@@ -1,4 +1,4 @@
-import { auth, db } from '../../../index.js';
+import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 function formatDate(date) {

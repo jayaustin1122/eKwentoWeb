@@ -1,4 +1,4 @@
-import { auth, db } from '../../../index.js';
+import { auth, db } from './index.js';
 import { collectionGroup, getDocs, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
 
