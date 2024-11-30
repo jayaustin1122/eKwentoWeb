@@ -16,7 +16,7 @@ import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/
         showLoadingSwal()
     } else {
         console.log("No user is authenticated, redirecting to login.");
-        window.location.href = '/dist/pages/index.html'; // Redirect to login if not authenticated
+        window.location.href = '../pages/index.html'; // Redirect to login if not authenticated
     }
 });
 function showLoadingSwal() {
@@ -331,7 +331,7 @@ async function fetchBooksToAll(userId) {
                 if (clickedBook) {
                     console.log('Clicked Book Found:', clickedBook.timestampEpoch);
                     localStorage.setItem('selectedBookTimestamp', String(clickedBook.timestampEpoch));
-                    window.location.href = 'readbook.html';
+                    window.location.href = "../pages/readbook.html";
                 } else {
                   
                 }
@@ -468,7 +468,7 @@ async function fetchBooks(userId) {
                     localStorage.setItem('selectedBookTimestamp', clickedBook.timestampEpoch);
 
                     // Navigate to the readbook.html page
-                    window.location.href = 'readbook.html';
+                    window.location.href = "../pages/readbook.html";
                 } else {
                     console.error('No book found for the clicked card.');
                 }
@@ -585,7 +585,7 @@ async function fetchBooksFromLibrary(userId) {
 
                         localStorage.setItem('selectedBookTimestamp', clickedBook.timestampEpoch);
 
-                        window.location.href = 'readbook.html';
+                        window.location.href = "../pages/readbook.html";
                     } else {
                         console.error('No book found for the clicked card.');
                     }
@@ -704,7 +704,7 @@ async function fetchBook(userId) {
                 if (clickedBook) {
                     console.log('Clicked Book Found:', clickedBook);
                     localStorage.setItem('selectedBookTimestamp', clickedBook.timestampEpoch);
-                    window.location.href = 'readbook.html';
+                    window.location.href ="../pages/readbook.html";
                 } else {
                     console.error('No book found for the clicked card.');
                 }
@@ -752,7 +752,7 @@ function fetchUserProfile(userId) {
             const username = userData.firstName && userData.lastName ? `${userData.firstName} ${userData.lastName}` : "N/A";
             const bio = userData.gender || "N/A";
             const email = userData.email || "N/A";
-            const profileImage = userData.profilePicture || "/assets/bg no.png"; // Default image if profile image is not provided
+            const profileImage = userData.profilePicture || "../assets/bg no.png"; // Default image if profile image is not provided
 
             // Fetch and calculate age if birthdate exists
             let age = "N/A"; // Default value

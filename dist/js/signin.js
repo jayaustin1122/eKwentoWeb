@@ -70,12 +70,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     confirmButtonText: 'OK'
                 }).then(() => {
                     if (userType === 'member') {
-                        window.location.href = "/dist/pages/dashboard.html"; // Redirect to member dashboard
+                        window.location.href = "../pages/dashboard.html"; // Redirect to member dashboard
                     } else if (userType === 'admin') {
-                        window.location.href = "/dist/pages/admin/admin_db.html"; // Redirect to admin dashboard
+                        window.location.href = "../pages/admin/admin_db.html"; // Redirect to admin dashboard
                     } else {
                         console.log("Unknown userType, defaulting to member dashboard");
-                        window.location.href = "/dist/pages/dashboard.html"; // Default to member dashboard
+                        window.location.href = "..pages/dashboard.html"; // Default to member dashboard
                     }
                 });
             } else {

@@ -81,7 +81,7 @@ async function fetchBooks() {
                 if (clickedBook) {
                     console.log('Clicked Book Found:', clickedBook);
                     localStorage.setItem('selectedBookTimestamp', clickedBook.timestampEpoch);
-                    window.location.href = 'readbook.html';
+                    window.location.href = "../pages/readbook.html";
                 } else {
                     console.error('No book found for the clicked card.');
                 }

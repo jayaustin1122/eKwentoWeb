@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 confirmButtonText: 'OK'
             }).then(() => {
     
-                window.location.href = "/dist/index.html";
+                window.location.href = "../index.html";
             });
 
         } catch (error) {

@@ -12,7 +12,7 @@ import { onAuthStateChanged,reauthenticateWithCredential, EmailAuthProvider, upd
         document.getElementById('changePasswordForm').addEventListener('submit', handleChangePassword);
     } else {
         console.log("No user is authenticated, redirecting to login.");
-        window.location.href = "/dist/pages/sign_in.html"; // Redirect to login if not authenticated
+        window.location.href = "../pages/sign_in.html"; // Redirect to login if not authenticated
     }
 });
 function fetchUserProfile(userId) {
@@ -111,7 +111,7 @@ async function handleProfileUpdate(event) {
                 confirmButtonText: 'OK'
             }).then(() => {
        
-                window.location.href = '/dist/pages/dashboard.html'; 
+                window.location.href = '../pages/dashboard.html'; 
             });
 
             form.reset();
@@ -181,7 +181,7 @@ async function handleChangePassword(event) {
                 confirmButtonText: 'OK'
             }).then(() => {
                 // Navigate to the dashboard after success
-                window.location.href = '/dist/pages/dashboard.html'; 
+                window.location.href = '../pages/dashboard.html'; 
             });
 
 
