@@ -26,7 +26,6 @@ function showLoadingSwal() {
         }
     });
 }
-
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
@@ -54,16 +53,21 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             content = "No Content",
                             publicationDate = "Unknown Date",
                             genre = "Unknown Genre",
-                            coverImageURL = ""
+                            coverImageURL = "",
+                            description = "No description available"
                         } = bookDetails;
 
                         console.log("Book details found:", bookDetails);
+
+                        // Set book details in HTML
                         document.getElementById('book-title').textContent = title;
                         document.getElementById('book-author').textContent = `By ${author}`;
                         document.getElementById('book-publication-date').textContent = `Publication Date: ${publicationDate}`;
-                        document.getElementById('book-genre').textContent = `Genre: ${genre}`;
-                        document.getElementById('book-content').textContent = content;
+                        document.getElementById('book-genre').textContent = genre;
+                        document.querySelector('.book-description p').textContent = description;
+                        document.querySelector('.book-content p').textContent = content;
 
+                        // Set cover image if available, otherwise hide the image
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;
@@ -83,13 +87,14 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
             }
 
             if (!bookFound) {
-                alert("No matching book found across all users.");
+                document.querySelector('#book-content').innerHTML = '<p>No matching book found across all users.</p>';
             }
         } else {
-            alert("No users found in the database.");
+            document.querySelector('#book-content').innerHTML = '<p>No users found in the database.</p>';
         }
     } catch (error) {
         console.error("Error querying the books across all users:", error);
+        document.querySelector('#book-content').innerHTML = '<p>Error fetching book details.</p>';
     } finally {
         Swal.close();
     }
