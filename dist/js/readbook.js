@@ -7,20 +7,14 @@ const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
     showLoadingSwal();
-    showMascotPopup();
+
     queryBookAcrossAllUsersByTimestamp(selectedBookTimestamp);
     console.log(`read ${selectedBookTimestamp}`);
 } else {
     document.querySelector('#book-content').innerHTML = '<p>No book data available.</p>';
 }
 
-function showMascotPopup() {
-    const mascotPopup = document.getElementById('mascot-popup');
-    mascotPopup.style.display = 'flex';
-    setTimeout(() => {
-        mascotPopup.style.display = 'none';
-    }, 3000); // Hide after 3 seconds
-}
+
 
 function showLoadingSwal() {
     Swal.fire({
