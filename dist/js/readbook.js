@@ -1,4 +1,3 @@
-
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
@@ -6,15 +5,21 @@ import { getDocs, collection, query, where } from 'https://www.gstatic.com/fireb
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
-    showLoadingSwal();
-
+    showLoadingSwal()
+    showMascotPopup() 
     queryBookAcrossAllUsersByTimestamp(selectedBookTimestamp);
-    console.log(`read ${selectedBookTimestamp}`);
+    console.log(`read ${selectedBookTimestamp}`)
 } else {
-    document.querySelector('#book-content').innerHTML = '<p>No book data available.</p>';
+    document.querySelector('.book-content').innerHTML = '<p>No book data available.</p>';
 }
 
-
+function showMascotPopup() {
+    const mascotPopup = document.getElementById('mascot-popup');
+    mascotPopup.style.display = 'flex';
+    setTimeout(() => {
+        mascotPopup.style.display = 'none';
+    }, 3000); // Hide after 3 seconds
+}
 
 function showLoadingSwal() {
     Swal.fire({
@@ -28,7 +33,9 @@ function showLoadingSwal() {
 }
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
+      
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
+
         const usersCollectionRef = collection(db, 'users'); 
         const usersSnapshot = await getDocs(usersCollectionRef);
 
@@ -40,11 +47,15 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                 const userId = userDoc.id;
                 console.log(`Checking books for user: ${userId}`);
 
+             
                 const booksCollectionRef = collection(db, `users/${userId}/books`);
+        
+      
                 const booksQuery = query(booksCollectionRef, where('timestampEpoch', '==', timestampInt));
                 const booksSnapshot = await getDocs(booksQuery);
 
                 if (!booksSnapshot.empty) {
+               
                     booksSnapshot.forEach((bookDoc) => {
                         const bookDetails = bookDoc.data();
                         const {
@@ -53,21 +64,17 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             content = "No Content",
                             publicationDate = "Unknown Date",
                             genre = "Unknown Genre",
-                            coverImageURL = "",
-                            description = "No description available"
+                            coverImageURL = ""
                         } = bookDetails;
 
+                  
                         console.log("Book details found:", bookDetails);
-
-                        // Set book details in HTML
                         document.getElementById('book-title').textContent = title;
                         document.getElementById('book-author').textContent = `By ${author}`;
                         document.getElementById('book-publication-date').textContent = `Publication Date: ${publicationDate}`;
-                        document.getElementById('book-genre').textContent = genre;
-                        document.querySelector('.book-description p').textContent = description;
-                        document.querySelector('.book-content p').textContent = content;
+                        document.getElementById('book-genre').textContent = `Genre: ${genre}`;
+                        document.getElementById('book-content').textContent = content;
 
-                        // Set cover image if available, otherwise hide the image
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;
@@ -79,6 +86,7 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                         bookFound = true;
                     });
 
+            
                     if (bookFound) {
                         console.log(`Book found for user: ${userId}`);
                         break;
@@ -87,14 +95,13 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
             }
 
             if (!bookFound) {
-                document.querySelector('#book-content').innerHTML = '<p>No matching book found across all users.</p>';
+                alert("No matching book found across all users.");
             }
         } else {
-            document.querySelector('#book-content').innerHTML = '<p>No users found in the database.</p>';
+            alert("No users found in the database.");
         }
     } catch (error) {
         console.error("Error querying the books across all users:", error);
-        document.querySelector('#book-content').innerHTML = '<p>Error fetching book details.</p>';
     } finally {
         Swal.close();
     }
