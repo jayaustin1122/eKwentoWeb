@@ -1,3 +1,4 @@
+
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
@@ -5,12 +6,12 @@ import { getDocs, collection, query, where } from 'https://www.gstatic.com/fireb
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
-    showLoadingSwal()
-    showMascotPopup() 
+    showLoadingSwal();
+    showMascotPopup();
     queryBookAcrossAllUsersByTimestamp(selectedBookTimestamp);
-    console.log(`read ${selectedBookTimestamp}`)
+    console.log(`read ${selectedBookTimestamp}`);
 } else {
-    document.querySelector('.book-content').innerHTML = '<p>No book data available.</p>';
+    document.querySelector('#book-content').innerHTML = '<p>No book data available.</p>';
 }
 
 function showMascotPopup() {
@@ -31,11 +32,10 @@ function showLoadingSwal() {
         }
     });
 }
+
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
-      
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
-
         const usersCollectionRef = collection(db, 'users'); 
         const usersSnapshot = await getDocs(usersCollectionRef);
 
@@ -47,15 +47,11 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                 const userId = userDoc.id;
                 console.log(`Checking books for user: ${userId}`);
 
-             
                 const booksCollectionRef = collection(db, `users/${userId}/books`);
-        
-      
                 const booksQuery = query(booksCollectionRef, where('timestampEpoch', '==', timestampInt));
                 const booksSnapshot = await getDocs(booksQuery);
 
                 if (!booksSnapshot.empty) {
-               
                     booksSnapshot.forEach((bookDoc) => {
                         const bookDetails = bookDoc.data();
                         const {
@@ -67,7 +63,6 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             coverImageURL = ""
                         } = bookDetails;
 
-                  
                         console.log("Book details found:", bookDetails);
                         document.getElementById('book-title').textContent = title;
                         document.getElementById('book-author').textContent = `By ${author}`;
@@ -86,7 +81,6 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                         bookFound = true;
                     });
 
-            
                     if (bookFound) {
                         console.log(`Book found for user: ${userId}`);
                         break;
