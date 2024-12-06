@@ -67,16 +67,6 @@ body {
 /* Card Section Styling */
 .card-menu {
   background: hsl(0, 0%, 100%); /* Soft background color */
-  border-radius: 200px; /* More rounded corners */
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 60%; /* Adjust the width */
-  margin: 10px auto; /* Reduced margin for more compactness */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Larger soft shadow for depth */
-  transition: all 0.3s ease-in-out;
 }
 
 .card-menu .menu-icon {
@@ -85,7 +75,7 @@ body {
 }
 
 .card-menu a {
-  color: #69b7eb;
+  color: #055f9b;
   font-weight: bold;
   text-decoration: none;
   margin: 0 10px;
@@ -100,7 +90,7 @@ body {
 }
 
 .card-menu .signup-button {
-  background-color: #007a7d;
+  background-color: #04787a;
   color: #ffffff;
   border-radius: 30px;
   padding: 5px 15px;
@@ -111,7 +101,7 @@ body {
 }
 
 .card-menu .signup-button:hover {
-  background-color: #19c6cc;
+  background-color: #01696d;
 }
 
 
