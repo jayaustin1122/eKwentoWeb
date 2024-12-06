@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         genre: selectedGenre,
                         createdAt: serverTimestamp(),
                         timestampEpoch: timestampEpoch,
-                        uploader: `${window.currentUserProfile.firstName} ${window.currentUserProfile.lastName}`,
+                    
                         bookStatus: "Pending"
                     }).then(() => {
                         loadingSwal.close();
