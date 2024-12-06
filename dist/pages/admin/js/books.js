@@ -263,3 +263,21 @@ function searchTable() {
 }
 
 fetchBooks();
+let selectedGenre = ''; // Variable to store the selected genre
+
+// Event listener for genre button clicks
+document.querySelectorAll('.genre-btn').forEach(button => {
+    button.addEventListener('click', function () {
+        // Remove active class from all buttons
+        document.querySelectorAll('.genre-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Add active class to the clicked button
+        this.classList.add('active');
+
+        // Update selected genre
+        selectedGenre = this.getAttribute('data-genre');
+        console.log('Selected genre:', selectedGenre);
+    });
+});
