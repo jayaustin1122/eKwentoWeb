@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         createdAt: serverTimestamp(),
                         timestampEpoch: timestampEpoch,
                     
-                        bookStatus: "Pending"
+                        bookStatus: "Approved"
                     }).then(() => {
                         loadingSwal.close();
                         Swal.fire({
