@@ -8,7 +8,7 @@ import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/
  onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log("User is logged in:", user);
-        fetchBooks(user.uid); 
+    
         fetchBook(user.uid)
         fetchUserProfile(user.uid)
         fetchBooksToAll(user.uid)
@@ -50,220 +50,8 @@ function attachLogoutEventListener() {
 // Attach listener when DOM is ready
 window.addEventListener('load', attachLogoutEventListener);
 
-    // Handle "Add a New Book" Modal Form Submission
-document.addEventListener("DOMContentLoaded", function () {
 
-
-    const bookForm = document.getElementById("bookForm");
-    bookForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const bookTitle = document.getElementById("bookTitle").value.trim();
-        const bookAuthor = document.getElementById("bookAuthor").value.trim();
-        const bookContent = document.getElementById("bookContent").value.trim();
-        const bookCover = document.getElementById("bookCover").files[0]; // File input
-        const sanitizedBookTitle = bookTitle.replace(/[^a-zA-Z0-9_]/g, '_');
-        // Check if there's a book cover to upload
-        if (bookCover) {
-            const storageRef = ref(getStorage(), `bookCovers/${auth.currentUser.uid}/${Date.now()}_${bookCover.name}`);
-            if (bookCover.size > 5000000) {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'File size is too large. Please upload a smaller file.',
-                    icon: 'error',
-                    confirmButtonText: 'Try Again'
-                });
-                return;
-            }
-
-            // Show loading Swal
-            const loadingSwal = Swal.fire({
-                title: 'Uploading... Please wait.',
-                text: 'Your book cover is being uploaded.',
-                allowOutsideClick: false,
-                didOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-
-            // Upload the file to Firebase Storage
-            uploadBytes(storageRef, bookCover).then((snapshot) => {
-                console.log("File uploaded successfully:", snapshot);
-
-                // Get the download URL after upload
-                getDownloadURL(snapshot.ref).then((downloadURL) => {
-                    console.log("Download URL:", downloadURL);
-                    const timestampEpoch = Date.now()
-                    const userBookRef = doc(db, "users", auth.currentUser.uid, "books",`${timestampEpoch}` );
-                    setDoc(userBookRef, {
-                        title: bookTitle,
-                        content: bookContent,
-                        author: bookAuthor,
-                        coverFileName: bookCover.name,
-                        coverImageURL: downloadURL,
-                        genre: selectedGenre, // Add the selected genre
-                        createdAt: serverTimestamp(),
-                        timestampEpoch: timestampEpoch,
-                        uploader: `${window.currentUserProfile.firstName} ${window.currentUserProfile.lastName}`,
-                        bookStatus: "Pending"
-                    }).then(() => {
-                        loadingSwal.close(); // Close loading Swal
-
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Your story has been submitted for proofreading. We will notify you once the review is complete.',
-                            icon: 'success',
-                            confirmButtonText: 'Okay'
-                        });
-
-                        // Clear the form and close modal
-                        bookForm.reset();
-                        closeModal("#bookModal");
-                    }).catch((error) => {
-                        loadingSwal.close();
-                        console.error('Error adding book to Firestore:', error);
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'There was an error adding the book: ' + error.message,
-                            icon: 'error',
-                            confirmButtonText: 'Try Again'
-                        });
-                    });
-                }).catch((error) => {
-                    loadingSwal.close();
-                    console.error('Error getting download URL:', error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'There was an error getting the file URL: ' + error.message,
-                        icon: 'error',
-                        confirmButtonText: 'Try Again'
-                    });
-                });
-            }).catch((error) => {
-                loadingSwal.close();
-                console.error('Error uploading file:', error);
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'There was an error uploading the file: ' + error.message,
-                    icon: 'error',
-                    confirmButtonText: 'Try Again'
-                });
-            });
-        } else {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Please select a cover image for the book.',
-                icon: 'error',
-                confirmButtonText: 'Try Again'
-            });
-        }
-    });
-
-    // Function to close modals
-  
-});
-//close modal function
-function closeModal(modalId) {
-    const modal = document.querySelector(modalId);
-    const modalInstance = bootstrap.Modal.getInstance(modal);
-    modalInstance.hide();
-}
-// upload a book with a file
-document.addEventListener("DOMContentLoaded", function () {
-   
-    const submitButton = document.getElementById("submitBookBtn");
-    submitButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        uploadBook(selectedGenre);
-    });
-});
-
-async function uploadBook() {
-    // Get the current authenticated user
-    const user = auth.currentUser;
-    if (!user) {
-        alert('Please log in to upload a book.');
-        return;
-    }
-
-    // Get input values from the form
-    const bookTitle = document.getElementById('bookTitleUpload').value.trim();
-    const fileInput = document.getElementById('fileUpload');
-    const file = fileInput ? fileInput.files[0] : null; // Ensure the file is selected
-    const isPublic = document.getElementById('publicUpload').checked ? 'all' : 'private';
-
-
-    // Validate form data
-    if (!bookTitle || !file || !selectedGenre) {
-        alert('Please provide all details: Title, file, and genre.');
-        return;
-    }
-
-    try {
-        // Show some loading feedback to the user (optional)
-        Swal.fire({
-            title: 'Uploading...',
-            text: 'Please wait while your book is being uploaded.',
-            allowOutsideClick: false,
-            didOpen: () => {
-                Swal.showLoading();
-            }
-        });
-
-        // Upload the file to Firebase Storage
-        const storageRef = ref(storage, `books/${user.uid}/${Date.now()}_${file.name}`);
-        const uploadResult = await uploadBytes(storageRef, file);
-
-        // Get the download URL of the uploaded file
-        const downloadURL = await getDownloadURL(uploadResult.ref);
-
-        // Save book details to Firestore under the user's uploaded books collection
-        const bookDocRef = doc(collection(db, "users", user.uid, 'uploadedBooks'));
-
-        await setDoc(bookDocRef, {
-            title: bookTitle,
-            filenamePath: downloadURL,
-            genre: selectedGenre,
-            bookStatus: isPublic,  // 'all' or 'private'
-            uploadedBy: `${user.displayName || user.email}`,  // Use the user's displayName or email
-            timestamp: serverTimestamp(),
-        });
-
-        // Close the modal after successful upload
-        closeModal("#uploadModal");
-
-        // Display success message
-        Swal.fire({
-            title: 'Success!',
-            text: 'Your book has been uploaded successfully.',
-            icon: 'success',
-            confirmButtonText: 'OK'
-        });
-
-    } catch (error) {
-        console.error('Error uploading book:', error);
-        Swal.fire({
-            title: 'Error!',
-            text: 'Failed to upload the book. Please try again.',
-            icon: 'error',
-            confirmButtonText: 'OK'
-        });
-    }
-}
-
-let selectedGenre = '';
-
-document.querySelectorAll('.genre-btn').forEach(button => {
-    button.addEventListener('click', function () {
-    
-        document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('active'));
-
-        this.classList.add('active');
-        selectedGenre = this.getAttribute('data-genre');
-        console.log("Selected Genre:", selectedGenre); // For debugging
-    });
-});
-
+//aa books
 async function fetchBooksToAll(userId) {
     try {
         const storyCardsContainer = document.querySelector('.story-cards .row');
@@ -384,102 +172,6 @@ async function fetchBooksToAll(userId) {
 
 let countsss = 0;
 
-//All Books
-async function fetchBooks(userId) {
-    try {
-        const storyCardsContainer = document.querySelector('.story-cards2');
-        storyCardsContainer.innerHTML = `
-            <div class="loading-spinner text-center">
-                <div class="spinner-border text-info" role="status">
-                    <span class="sr-only">Loading...</span>
-                </div>
-                <p>Loading books...</p>
-            </div>
-        `;
-
-        const booksRef = collection(db, 'users', userId, 'books');
-        const querySnapshot = await getDocs(booksRef);
-
-        storyCardsContainer.innerHTML = ''; 
-        const books = [];
-        let rowHTML = '<div class="row">'; 
-        let countbook = 0;
-
-        if (querySnapshot.empty) {
-            const emptyStateHTML = `
-                <div class="writing-section text-center" data-bs-toggle="modal" data-bs-target="#bookModal">
-                    <img src="/assets/bg no.png" alt="Illustration" class="section-illustration mb-3">
-                    <p>You still haven’t written anything.</p>
-                    <button class="btn btn-info">Isulat ang Iyong Unang Akda</button>
-                </div>
-            `;
-            storyCardsContainer.innerHTML = emptyStateHTML;
-            return;
-        }
-
-        querySnapshot.forEach((doc, index) => {
-            const book = doc.data();
-            const {
-                title = "Unknown Title",
-                author = "Unknown Author",
-                content = "No Content",
-                coverImageURL = null,
-                timestampEpoch = null
-            } = book;
-
-
-            books.push({ ...book, timestampEpoch });
-
-            const cardHTML = `
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
-                    <div class="story-cards" data-book-timestamp="${timestampEpoch}">
-                        <img src="${coverImageURL ? coverImageURL : '/assets/pc.png'}" alt="Book Cover" class="img-fluid book-cover">
-                        <div class="card-details">
-                            <h4>${title}</h4>
-                            <p class="author">${author}</p>
-                            <p class="content">${content.substring(0, 20)}...</p>
-                        </div>
-                    </div>
-                </div>
-            `;
-
-            rowHTML += cardHTML;
-            countbook++;
-
-            if ((index + 1) % 4 === 0) {
-                rowHTML += '</div><div class="row">'; // Start a new row after 4 books
-            }
-        });
-
-        rowHTML += '</div>'; // Close the last row
-        storyCardsContainer.innerHTML = rowHTML;
-        const storyCards = document.querySelectorAll('.story-cards');
-        storyCards.forEach((card) => {
-            card.addEventListener('click', () => {
-                const bookTimestamp = card.getAttribute('data-book-timestamp');
-                console.log('Card clicked! Timestamp All Books:', bookTimestamp);
-
-                const clickedBook = books.find(book => book.timestampEpoch == bookTimestamp);
-
-                if (clickedBook) {
-                    console.log('Clicked Book Found:', clickedBook);
-
-                    // Store the book timestamp in localStorage
-                    localStorage.setItem('selectedBookTimestamp', clickedBook.timestampEpoch);
-
-                    // Navigate to the readbook.html page
-                    window.location.href = "../pages/readbook.html";
-                } else {
-                    console.error('No book found for the clicked card.');
-                }
-            });
-        });
-
-    } catch (error) {
-        storyCardsContainer.innerHTML = '<p class="text-danger">Error fetching books. Please try again later.</p>';
-        console.error("Error fetching books from Firestore:", error);
-    }
-}
 
 async function fetchBooksFromLibrary(userId) {
     try {
@@ -610,7 +302,7 @@ async function fetchBooksFromLibrary(userId) {
         Swal.close();
     }
 }
-
+//recommended
 async function fetchBook(userId) {
     try {
         const storyCardsContainer = document.querySelector('.story-cardss .row');
@@ -722,7 +414,6 @@ async function fetchBook(userId) {
 
 
 
-
 // Function to calculate age based on birthdate
 function calculateAge(birthdate) {
     const birthDateObj = new Date(birthdate); // Convert birthdate to Date object
@@ -789,7 +480,6 @@ window.addEventListener('DOMContentLoaded', function() {
     const userId = auth.currentUser ? auth.currentUser.uid : null;
     if (userId) {
         fetchUserProfile(userId); 
-        fetchBooks(userId);
         fetchBook();
         fetchBooksToAll();
         attachLogoutEventListener();

@@ -39,9 +39,7 @@ async function fetchUsersData() {
             row.innerHTML = `
                 <td>${firstName} ${lastName}</td>
                 <td>${email}</td>
-                <td>${certificates}</td>
-                <td>${experience}</td>
-                <td>${proofs}</td>
+            
                 <td>${createdAt}</td>
                 <td><a href="#" class="status-link" data-id="${doc.id}">${status}</a></td>
             `;

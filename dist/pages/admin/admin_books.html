@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Table</title>
     <link rel="stylesheet" href="../../pages/admin/css/admin_book.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="admin-panel">
@@ -15,12 +17,10 @@
             <nav>
                 <p class="admin-text">ADMIN PANEL</p>
                 <ul>
-                    <li><a href="../../pages/admin/admin_db.html">Dashboard</a></li>
                     <li><a href="../../pages/admin/admin_books.html">Books</a></li>
-                    <li><a href="../../pages/admin/admin_authors.html">Authors</a></li>
-                    <li><a href="../../pages/admin/admin_pf.html" class="active">Proofreader</a></li>
+                    <li><a href="../../pages/admin/admin_authors.html">Accounts</a></li>
+         
                 </ul>
-        
             </nav>
             <li class="logout">
                 <a href="javascript:void(0);" id="logout">
@@ -31,10 +31,11 @@
 
         <div class="dashboard">
             <div class="header">
-                <div class="date" id="currentDate">
-                  
-                </div>
+                <div class="date" id="currentDate"></div>
             </div>
+
+            <button class="add-btn" data-bs-toggle="modal" data-bs-target="#bookModal">Add a New Book</button>
+
 
             <div class="table-container">
                 <div class="header">
@@ -57,11 +58,62 @@
                     </tbody>
                 </table>
             </div>
+
+            <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content p-4" style="border-radius: 15px;">
+                        <div class="modal-header border-0">
+                            <h5 class="modal-title" id="bookModalLabel">Add a New Book</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="bookForm">
+                                <!-- Book Title -->
+                                <div class="mb-4">
+                                    <label for="bookTitle" class="form-label">Book Title</label>
+                                    <input type="text" class="form-control" id="bookTitle" placeholder="Enter your Book Title" required style="border-radius: 10px;">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="bookAuthor" class="form-label">Book Author</label>
+                                    <input type="text" class="form-control" id="bookAuthor" placeholder="Enter your Book Author" required style="border-radius: 10px;">
+                                </div>
+                                <!-- Book Content -->
+                                <div class="mb-4">
+                                    <label for="bookContent" class="form-label">Book Content</label>
+                                    <textarea class="form-control" id="bookContent" rows="4" placeholder="Enter the Book Content" required style="border-radius: 10px;"></textarea>
+                                </div>
+                                <!-- Book Cover -->
+                                <div class="mb-4">
+                                    <label for="bookCover" class="form-label">Book Cover</label>
+                                    <input type="file" class="form-control" id="bookCover" accept="image/*" required style="border-radius: 10px;">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="genre" class="form-label d-block">Select your Genre</label>
+                                    <div class="d-flex gap-2">
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Fiction</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Non-Fiction</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Mystery</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romance</button>
+                                    </div>
+                                </div>
+                                
+                                
+                                <!-- Add Book Button -->
+                                <button type="submit" class="btn btn-primary" style="border-radius: 20px; background-color: #008080; border: none;">Submit Book</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- Include Bootstrap JS for modal functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Custom Script -->
     <script type="module" src="../../pages/admin/js/books.js"></script>
 </body>
 </html>

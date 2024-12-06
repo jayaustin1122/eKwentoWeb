@@ -6,20 +6,13 @@ const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
     showLoadingSwal()
-    showMascotPopup() 
+
     queryBookAcrossAllUsersByTimestamp(selectedBookTimestamp);
     console.log(`read ${selectedBookTimestamp}`)
 } else {
     document.querySelector('.book-content').innerHTML = '<p>No book data available.</p>';
 }
 
-function showMascotPopup() {
-    const mascotPopup = document.getElementById('mascot-popup');
-    mascotPopup.style.display = 'flex';
-    setTimeout(() => {
-        mascotPopup.style.display = 'none';
-    }, 3000); // Hide after 3 seconds
-}
 
 function showLoadingSwal() {
     Swal.fire({
@@ -62,19 +55,23 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             title = "Unknown Title",
                             author = "Unknown Author",
                             content = "No Content",
-                            publicationDate = "Unknown Date",
+                            createdAt = "Unknown Date",
                             genre = "Unknown Genre",
                             coverImageURL = ""
                         } = bookDetails;
-
-                  
+                        
+                        // Check if createdAt is a valid timestamp and format it into a date and time
+                        let formattedDate = "Unknown Date";
+                        if (createdAt && !isNaN(createdAt)) {
+                            const date = new Date(createdAt * 1000);  // Assuming createdAt is in seconds (Unix Epoch)
+                            formattedDate = date.toLocaleString();    // Formats to local date and time
+                        }
+                        
                         console.log("Book details found:", bookDetails);
                         document.getElementById('book-title').textContent = title;
-                        document.getElementById('book-author').textContent = `By ${author}`;
-                        document.getElementById('book-publication-date').textContent = `Publication Date: ${publicationDate}`;
+                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${formattedDate}`;
                         document.getElementById('book-genre').textContent = `Genre: ${genre}`;
                         document.getElementById('book-content').textContent = content;
-
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;
