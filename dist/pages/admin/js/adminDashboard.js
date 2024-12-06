@@ -159,15 +159,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
-let selectedGenre = '';
+document.addEventListener('DOMContentLoaded', () => {
+    // Ensure the event listeners are attached after the DOM is loaded
+    let selectedGenre = '';
 
-document.querySelectorAll('.genre-btn').forEach(button => {
-    button.addEventListener('click', function () {
-    
-        document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.genre-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            // Remove the active class from all buttons
+            document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('active'));
 
-        this.classList.add('active');
-        selectedGenre = this.getAttribute('data-genre');
-        console.log("Selected Genre:", selectedGenre); // For debugging
+            // Add the active class to the clicked button
+            this.classList.add('active');
+            selectedGenre = this.getAttribute('data-genre');
+            console.log("Selected Genre:", selectedGenre); // For debugging
+        });
     });
 });
+
