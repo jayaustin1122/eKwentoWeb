@@ -4,7 +4,15 @@ body {
     font-family: Arial, sans-serif;
     background-color: #E7F6FC;
     padding-top: 70px;
+    font-family: 'MyCustomFont';
+    background-image: url('/assets/Sign\ Up.png');
+    background-size: cover;
 }
+
+@font-face {
+    font-family: 'MyCustomFont'; 
+    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  }
 
 /* Navbar Styling */
 .navbar {
@@ -12,12 +20,13 @@ body {
     background-color: #f8f9fa; /* Light grey background */
     box-shadow: none;
     padding: 10px 20px;
+    margin-bottom: 20px;
 }
 
 .navbar-brand {
     color: #0096A0; /* Teal color for the brand text */
-    font-weight: bold;
-    font-size: 1.25rem; /* Smaller font size */
+    font-weight: bolder;
+    font-size: 1.5rem; /* Smaller font size */
 }
 
 @keyframes fadeIn {
@@ -100,7 +109,7 @@ body {
     padding: 60px 30px;
     margin-top: 50px;
     text-align: center;
-    background-color: #E7F6FC;
+    background-color: transparent;
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
@@ -109,7 +118,7 @@ body {
     font-size: 2rem;
     font-weight: bold;
     margin-top: 20px;
-    color: #3F7AA1;
+    color: black;
 }
 
 .hero-content img {
@@ -119,11 +128,13 @@ body {
 
 .accordion-button {
     background-color: transparent; /* Remove background */
-    color: #0096A0; /* Teal text color */
-    font-weight: bold;
+    color: #20acb6; /* Teal text color */
+    font-size: 25px;
+    font-weight: bolder;
     border: none; /* Remove border */
     box-shadow: none; /* Remove any shadow */
 }
+
 
 .accordion-button:not(.collapsed) {
     background-color: transparent; 
@@ -132,77 +143,99 @@ body {
 
 .accordion-button:hover {
     background-color: transparent; /* No hover background */
-    color: #007a7d; /* Darker teal on hover */
+    color: #014446; /* Darker teal on hover */
 }
 
 .accordion-body {
+    background-color: transparent;
     font-size: 1.1rem;
     color: #333;
     padding: 15px;
-    background-color: #f8f9fa; /* Light background for the body */
-    border-top: 2px solid #007a7d;
+    background-color: transparent; /* Light background for the body */
+    border-top: 2px solid #03cccf;
 }
 
 .accordion-item {
     margin-bottom: 10px;
+    background-color: transparent;
+}
+
+.accordion-item h4 {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.accordion-item p {
+    font-size: 1.2rem;
+    color: black;
 }
 
 .accordion-item:last-child {
     margin-bottom: 0;
 }
 
-/* Card Section Styling */
+
+
+/* Card Section (Menu Links) */
 .card-menu {
-    background: #e7eef0; /* Soft background color */
-    border-radius: 50px; /* Rounded corners */
-    padding: 5px 20px; /* Reduced padding for a more compact layout */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 60%; /* Adjust the width */
-    margin: 10px auto; /* Reduced margin for more compactness */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
+    font-family: 'MyCustomFont';
+    font-size: larger;
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: center; /* Centers the links horizontally */
+    gap: 50px; /* Space between the menu items */
+    padding: 12px 0; /* Top and bottom padding */
+    margin: 0 auto;
+    background-color: #f3f3f3; /* Light background for the entire card section */
+    border-radius: 45px; /* Slight rounding for the container */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+    width: 50%;
 }
 
-.card-menu .menu-icon {
-    color: #3F7AA1;
-    font-size: 1.2rem; /* Slightly smaller icon for tighter spacing */
-    margin-right: 10px; /* Reduced margin between icon and links */
-}
-
+/* Link Styling */
 .card-menu a {
-    color: #69b7eb;
-    font-weight: bold;
-    text-decoration: none;
-    margin: 0 10px; /* Reduced spacing between links */
-    font-size: 1.1rem; /* Slightly smaller text size */
+    color: #009BA6; /* Blue text color */
+    text-decoration: none; /* No underline */
+    font-size: 1.2rem;
+    font-weight: 600; /* Bold text for readability */
+    text-align: center; /* Center the text in each item */
+    padding: 10px 20px; /* Padding around the text */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+    border-radius: 5px; /* Slight rounding for each link */
 }
 
+/* Hover Effect */
 .card-menu a:hover {
-    color: #ffffff;
-    text-decoration: underline;
+    color: #fff; /* Change text color to white */
+    background-color: #0edae9; /* Blue background on hover */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
 
-.card-menu .signup-button {
-    background-color: #007a7d;
-    color: #ffffff;
-    border-radius: 30px; /* Rounded corners for the button */
-    padding: 5px 15px; /* Reduced padding for a smaller button */
-    border: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+.card-menu :last-child {
+    background-color: #009BA6;
+    color: #fff;
+    border-radius: 20px;
 }
 
-.card-menu .signup-button:hover {
-    background-color: #19c6cc;
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .card-menu {
+        gap: 20px; /* Reduce gap on smaller screens */
+    }
 }
 
-.card-menu .signup-button i {
-    margin-right: 5px;
-    font-size: 0.9rem; /* Adjusted icon size for a more compact look */
+@media (max-width: 768px) {
+    .card-menu {
+        flex-direction: column; /* Switch to vertical layout on mobile */
+        gap: 15px; /* Smaller gap */
+    }
+
+    .card-menu a {
+        font-size: 1rem; /* Smaller font size */
+    }
 }
+
 
 
 /* Footer Styling */
