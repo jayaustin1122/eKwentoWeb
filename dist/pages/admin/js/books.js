@@ -4,6 +4,67 @@ import { setDoc, serverTimestamp} from 'https://www.gstatic.com/firebasejs/9.0.0
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
 import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 
+function attachLogoutEventListener() {
+    const logoutButton = document.getElementById('logout');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', async () => {
+            // Ask the user if they are sure about logging out
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you really want to log out?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'Cancel'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Logging out...',
+                        text: 'Please wait...',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading(); // Show loading
+                        }
+                    });
+
+                    try {
+                        // Attempt to sign out
+                        await signOut(auth);
+                        console.log('Successfully signed out');
+
+                        // Show success message
+                        Swal.fire({
+                            title: 'Logged Out!',
+                            text: 'You have been successfully logged out.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            // Redirect to homepage after logout
+                            window.location.href = '../../index.html';
+                        });
+
+                    } catch (error) {
+                        console.error('Logout failed:', error.message);
+                        Swal.fire({
+                            title: 'Logout Failed',
+                            text: 'An error occurred while logging out. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'Okay'
+                        });
+                    }
+                }
+            });
+        });
+    } else {
+        console.error("Logout button not found!");
+    }
+}
+
+window.addEventListener('load', attachLogoutEventListener);
 const storage = getStorage();
 onAuthStateChanged(auth, (user) => {
    if (user) {
