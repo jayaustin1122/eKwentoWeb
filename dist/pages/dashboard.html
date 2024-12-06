@@ -160,9 +160,7 @@
         function showCards(cardClass) {
             // Hide all story card containers
             document.querySelector('.story-cards').style.display = 'none';
-            document.querySelector('.story-cards2').style.display = 'none';
             document.querySelector('.story-cards3').style.display = 'none';
-        
             // Show the selected container
             document.querySelector('.' + cardClass).style.display = 'block';
         }
@@ -170,7 +168,7 @@
         // Optionally, you can call `showCards('story-cards2')` initially
         // to ensure that the 'My Books' section is visible when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            showCards('story-cards2'); // Show 'My Books' by default
+            showCards('story-cards'); // Show 'My Books' by default
         });
         
     </script>
