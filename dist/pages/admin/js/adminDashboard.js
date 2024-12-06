@@ -159,3 +159,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 });
+let selectedGenre = '';
+
+document.querySelectorAll('.genre-btn').forEach(button => {
+    button.addEventListener('click', function () {
+    
+        document.querySelectorAll('.genre-btn').forEach(btn => btn.classList.remove('active'));
+
+        this.classList.add('active');
+        selectedGenre = this.getAttribute('data-genre');
+        console.log("Selected Genre:", selectedGenre); // For debugging
+    });
+});
