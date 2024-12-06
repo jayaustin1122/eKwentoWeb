@@ -55,7 +55,7 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             title = "Unknown Title",
                             author = "Unknown Author",
                             content = "No Content",
-                            publicationDate = "Unknown Date",
+                            createdAt = "Unknown Date",
                             genre = "Unknown Genre",
                             coverImageURL = ""
                         } = bookDetails;
@@ -63,7 +63,7 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                   
                         console.log("Book details found:", bookDetails);
                         document.getElementById('book-title').textContent = title;
-                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${publicationDate}`;
+                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${createdAt}`;
                         document.getElementById('book-genre').textContent = `Genre: ${genre}`;
                         document.getElementById('book-content').textContent = content;
 
