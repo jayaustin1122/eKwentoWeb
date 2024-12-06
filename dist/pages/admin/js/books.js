@@ -64,6 +64,7 @@ function attachLogoutEventListener() {
     }
 }
 
+
 window.addEventListener('load', attachLogoutEventListener);
 const storage = getStorage();
 onAuthStateChanged(auth, (user) => {
@@ -202,26 +203,7 @@ function updateDateTime() {
     const currentDate = new Date();
     document.getElementById('currentDate').textContent = formatDate(currentDate);
 }
-window.addEventListener('load', attachLogoutEventListener);
-function attachLogoutEventListener() {
-    document.addEventListener('DOMContentLoaded', () => {
-        const logoutButton = document.getElementById('logout');
 
-        if (logoutButton) {
-            logoutButton.addEventListener('click', async () => {
-                try {
-                    await signOut(auth);
-                    console.log('Successfully signed out');
-                    window.location.href = '../index.html';
-                } catch (error) {
-                    console.error('Logout failed:', error.message);
-                }
-            });
-        } else {
-            console.error("Logout button not found!");
-        }
-    });
-}
 updateDateTime();
 setInterval(updateDateTime, 1000);
 async function fetchBooks() {
