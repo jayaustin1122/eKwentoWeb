@@ -9,10 +9,14 @@
   }
 
 
-body {
-  animation: fadeIn 0.6s ease-in-out;
+  body {
+    animation: fadeIn 0.6s ease-in-out;
     font-family: Arial, sans-serif;
-    background-color: #E7F6FC;
+    background-color: #E7F6FC; /* fallback background color */
+    background-image: url('/assets/Sign\ Up.png'); /* Replace with the actual path to your PNG image */
+    background-size: cover; /* Ensures the image covers the entire body */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image from repeating */
 }
 
 /* Navbar Styling */
@@ -67,16 +71,17 @@ body {
 
 /* Card Section Styling */
 .card-menu {
-    background: #e7eef0; /* Soft background color */
-    border-radius: 50px; /* Rounded corners */
-    padding: 5px 20px; /* Reduced padding for a more compact layout */
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 60%; /* Adjust the width */
-    margin: 10px auto; /* Reduced margin for more compactness */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Soft shadow effect */
+  background: #e7eef0; /* Soft background color */
+  border-radius: 50px; /* More rounded corners, you can increase this value */
+  padding: 20px 40px; /* Adjusted padding for a more spacious card */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 60%; /* Adjust the width */
+  margin: 10px auto; /* Reduced margin for more compactness */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Larger soft shadow for depth */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
 .card-menu .menu-icon {
@@ -96,6 +101,8 @@ body {
 .card-menu a:hover {
     color: #ffffff;
     text-decoration: underline;
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .card-menu .signup-button {
