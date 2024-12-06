@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         loadingSwal.close();
                         Swal.fire({
                             title: 'Success!',
-                            text: 'Your story has been submitted for proofreading. We will notify you once the review is complete.',
+                            text: 'Your Book has been Uploaded.',
                             icon: 'success',
                             confirmButtonText: 'Okay'
                         });
