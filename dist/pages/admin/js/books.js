@@ -1,5 +1,125 @@
 import { auth, db } from './index.js';
 import { collectionGroup, getDocs, updateDoc, doc } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { setDoc, serverTimestamp} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
+import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+
+const storage = getStorage();
+onAuthStateChanged(auth, (user) => {
+   if (user) {
+       console.log("User is logged in:", user);
+     
+   } else {
+       console.log("No user is authenticated, redirecting to login.");
+
+   }
+});
+document.addEventListener("DOMContentLoaded", function () {
+
+    const bookForm = document.getElementById("bookForm");
+
+    // Form submission logic
+    bookForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const bookTitle = document.getElementById("bookTitle").value.trim();
+        const bookAuthor = document.getElementById("bookAuthor").value.trim();
+        const bookContent = document.getElementById("bookContent").value.trim();
+        const bookCover = document.getElementById("bookCover").files[0];
+        const sanitizedBookTitle = bookTitle.replace(/[^a-zA-Z0-9_]/g, '_');
+
+        if (bookCover) {
+            const storageRef = ref(getStorage(), `bookCovers/${auth.currentUser.uid}/${Date.now()}_${bookCover.name}`);
+            if (bookCover.size > 5000000) {
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'File size is too large. Please upload a smaller file.',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+                return;
+            }
+
+            const loadingSwal = Swal.fire({
+                title: 'Uploading... Please wait.',
+                text: 'Your book cover is being uploaded.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            uploadBytes(storageRef, bookCover).then((snapshot) => {
+                getDownloadURL(snapshot.ref).then((downloadURL) => {
+                    const timestampEpoch = Date.now();
+                    const userBookRef = doc(db, "users", auth.currentUser.uid, "books", `${timestampEpoch}`);
+                    setDoc(userBookRef, {
+                        title: bookTitle,
+                        content: bookContent,
+                        author: bookAuthor,
+                        coverFileName: bookCover.name,
+                        coverImageURL: downloadURL,
+                        genre: selectedGenre,
+                        createdAt: serverTimestamp(),
+                        timestampEpoch: timestampEpoch,
+                        uploader: `${window.currentUserProfile.firstName} ${window.currentUserProfile.lastName}`,
+                        bookStatus: "Pending"
+                    }).then(() => {
+                        loadingSwal.close();
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Your story has been submitted for proofreading. We will notify you once the review is complete.',
+                            icon: 'success',
+                            confirmButtonText: 'Okay'
+                        });
+
+                        // Clear the form and close modal
+                        bookForm.reset();
+                        closeModal("#bookModal");
+                    }).catch((error) => {
+                        loadingSwal.close();
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was an error adding the book: ' + error.message,
+                            icon: 'error',
+                            confirmButtonText: 'Try Again'
+                        });
+                    });
+                }).catch((error) => {
+                    loadingSwal.close();
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'There was an error getting the file URL: ' + error.message,
+                        icon: 'error',
+                        confirmButtonText: 'Try Again'
+                    });
+                });
+            }).catch((error) => {
+                loadingSwal.close();
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'There was an error uploading the file: ' + error.message,
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        } else {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Please select a cover image for the book.',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            });
+        }
+    });
+});
+
+// Close modal function
+function closeModal(modalId) {
+    const modal = document.querySelector(modalId);
+    const modalInstance = bootstrap.Modal.getInstance(modal);
+    modalInstance.hide();
+}
 
 
 function formatDate(date) {
