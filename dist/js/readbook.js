@@ -59,14 +59,19 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             genre = "Unknown Genre",
                             coverImageURL = ""
                         } = bookDetails;
-
-                  
+                        
+                        // Check if createdAt is a valid timestamp and format it into a date and time
+                        let formattedDate = "Unknown Date";
+                        if (createdAt && !isNaN(createdAt)) {
+                            const date = new Date(createdAt * 1000);  // Assuming createdAt is in seconds (Unix Epoch)
+                            formattedDate = date.toLocaleString();    // Formats to local date and time
+                        }
+                        
                         console.log("Book details found:", bookDetails);
                         document.getElementById('book-title').textContent = title;
-                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${createdAt}`;
+                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${formattedDate}`;
                         document.getElementById('book-genre').textContent = `Genre: ${genre}`;
                         document.getElementById('book-content').textContent = content;
-
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;
