@@ -53,9 +53,6 @@ body {
   height: auto;
 }
 
-.col-md-6 {
-  /* Removed margin-left to avoid overflow */
-}
 
 .e-kwento-button {
   font-family: 'MyCustomFont';
