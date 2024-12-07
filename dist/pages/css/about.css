@@ -177,6 +177,11 @@ footer {
   font-weight: bold;
 }
 
+.footer-logo-icon {
+  height: 50px;
+  width: 50px;
+}
+
 .footer-description {
   font-weight: bold;
   font-size: 16px;
