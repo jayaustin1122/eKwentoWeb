@@ -7,6 +7,7 @@ body {
   padding-top: 90px;
   opacity: 0;
   animation: fadeIn 0.5s forwards;
+  font-family: Arial, sans-serif; /* Ensure default font is legible */
 }
 
 @font-face {
@@ -34,13 +35,45 @@ body {
   font-size: 1.5rem;
 }
 
+.navbar .navbar-toggler {
+  border: 1px solid #0096A0;
+}
+
 /* Hero Section */
-.hero-section {
+.hero-content {
   position: relative;
   padding: 60px 10%;
   margin-top: 50px;
   overflow: hidden;
   text-align: center;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  margin-left: -1500px;
+  margin-bottom: -730px;
+} 
+
+.col-md-6 {
+  margin-left: 600px;
+}
+
+.e-kwento-button {
+  font-family: 'MyCustomFont';
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
+  padding-top: 23px;
+  padding-left: 30px;  
+  padding-right: 30px; 
+  display: inline-block; 
+  border: 3px solid #009BA6; 
+  box-sizing: border-box; 
+  margin-bottom: 20px;
 }
 
 .hero-content {
@@ -52,16 +85,11 @@ body {
   margin: 0 auto;
 }
 
-.hero-text h1 {
-  font-size: 36px;
-  color: #333;
+.hero-content p {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
 }
 
-.hero-text p {
-  font-size: 18px;
-  margin-top: 10px;
-  color: #555;
-}
 
 /* Card Container */
 .card-menu {
@@ -112,7 +140,7 @@ body {
 footer {
   background-color: #F3F3F3;
   color: #333;
-  padding: 10px; /* Reduce padding */
+  padding: 10px;
   font-family: Arial, sans-serif;
   margin-top: auto;
 }
@@ -129,31 +157,31 @@ footer {
   align-items: center;
   flex: 1;
   min-width: 200px;
-  margin-bottom: 10px; /* Reduce margin */
+  margin-bottom: 10px;
 }
 
 .footer-logo {
-  font-size: 20px; /* Smaller logo text */
+  font-size: 20px;
   color: #008b8b;
   font-weight: bolder;
-  margin-right: 15px; /* Adjust spacing */
+  margin-right: 15px;
 }
 
 .footer-logo-icon {
   width: 50px;
-  height: 50px; 
+  height: 50px;
 }
 
 .footer-description {
   color: #555;
-  font-size: 12px; /* Reduce text size */
+  font-size: 12px;
   max-width: 250px;
-  line-height: 1.4; /* Adjust line height */
+  line-height: 1.4;
 }
 
 .footer-sections {
   display: flex;
-  gap: 0px; /* Reduce spacing between sections */
+  gap: 0px;
   flex: 3;
   justify-content: flex-end;
   min-width: 300px;
@@ -162,15 +190,15 @@ footer {
 .footer-section {
   color: #008b8b;
   font-weight: bold;
-  font-size: 14px; /* Smaller section titles */
+  font-size: 14px;
 }
 
 .footer-section a {
   display: block;
   color: #333;
-  font-size: 12px; /* Smaller link text */
+  font-size: 12px;
   text-decoration: none;
-  margin-top: 3px; /* Reduce space between links */
+  margin-top: 3px;
 }
 
 .footer-section a:hover {
@@ -178,14 +206,14 @@ footer {
 }
 
 .qr-code {
-  width: 80px; /* Reduce size of the QR code */
-  margin-left: 10px; /* Adjust margin */
+  width: 80px;
+  margin-left: 10px;
 }
 
 .footer-bottom {
-  font-size: 10px; /* Smaller bottom text */
+  font-size: 10px;
   color: #aaa;
-  margin-top: 15px; /* Adjust top margin */
+  margin-top: 15px;
   text-align: center;
   width: 100%;
 }
@@ -220,44 +248,157 @@ body {
 /* Keyframes */
 @keyframes fadeIn {
   0% {
-      opacity: 0;
-      transform: translateY(-20px);
+    opacity: 0;
+    transform: translateY(-20px);
   }
   100% {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes slideIn {
   0% {
-      opacity: 0;
-      transform: translateX(-100%);
+    opacity: 0;
+    transform: translateX(-100%);
   }
   100% {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes zoomIn {
   0% {
-      opacity: 0;
-      transform: scale(0.9);
+    opacity: 0;
+    transform: scale(0.9);
   }
   100% {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 @keyframes fadeInUp {
   0% {
-      opacity: 0;
-      transform: translateY(20px);
+    opacity: 0;
+    transform: translateY(20px);
   }
   100% {
-      opacity: 1;
-      transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 40px 5%;
+  }
+
+  .hero-text h1 {
+    font-size: 30px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .card-menu {
+    width: 70%;
+    gap: 3%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-sections {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .hero-section {
+    padding: 30px 10%;
+  }
+
+  .hero-text h1 {
+    font-size: 24px;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+
+  .card-menu {
+    width: 90%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-logo-section {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .footer-sections {
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-section {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .hero-section {
+    padding: 20px 5%;
+  }
+
+  .hero-text h1 {
+    font-size: 20px;
+  }
+
+  .hero-text p {
+    font-size: 12px;
+  }
+
+  .card-menu {
+    width: 100%;
+    gap: 15px;
+  }
+
+  .footer-logo {
+    font-size: 16px;
+  }
+
+  .footer-description {
+    font-size: 10px;
+  }
+
+  .footer-bottom {
+    font-size: 8px;
   }
 }
