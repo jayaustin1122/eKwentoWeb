@@ -1,6 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #cecece;
+    background-color: #bad4df;
     margin: 0;
     padding: 0;
     color: #333;
@@ -13,7 +13,7 @@ body {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto; /* Centering the container */
-    background-color: #cecece;
+    background-color: #bad4df;
     justify-content: center; /* Centering content horizontally */
 }
 
