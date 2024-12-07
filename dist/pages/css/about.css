@@ -1,12 +1,12 @@
 body {
   animation: fadeIn 0.6s ease-in-out;
-  font-family: Arial, sans-serif;
+  font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
   padding-top: 90px;
-  font-family: 'MyCustomFont';
   background-image: url('/assets/Sign\ Up.png');
   background-size: cover;
-  box-sizing: border-box; /* Ensure padding is included in the width */
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 @font-face {
@@ -14,12 +14,16 @@ body {
   src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
-/* Navbar Styling */
+@font-face {
+  font-family: 'Font2'; 
+  src: url('/dist/assets/fonts/Kanit-Regular.ttf') format('truetype'); 
+}
+
 .navbar {
   animation: fadeIn 0.6s ease-in-out;
-  background-color: #f8f9fa; 
+  background-color: #f8f9fa;
   box-shadow: none;
-  padding: 10px 5%;
+  padding: 10px 20px;
   margin-bottom: 20px;
 }
 
@@ -29,15 +33,34 @@ body {
   font-size: 1.5rem;
 }
 
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
+.navbar-brand:hover {
+  color: #007a7d;
+}
+
+.navbar .form-control {
+  border: none;
+  border-bottom: 2px solid #0096A0;
+  border-radius: 0;
+  padding: 0;
+  width: 150px;
+}
+
+.navbar .form-control:focus {
+  box-shadow: none;
+  border-color: #007a7d;
+}
+
+.navbar .btn-outline-primary {
+  color: #0096A0;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  padding: 0;
+}
+
+.navbar .btn-outline-primary:hover {
+  color: #007a7d;
+  background-color: transparent;
 }
 
 /* Hero Section Styling */
@@ -80,19 +103,19 @@ body {
 
 /* Card Section (Menu Links) */
 .card-menu {
+  font-family: 'Font2';
   font-size: large;
   display: flex;
   justify-content: center;
+  padding: 10px 0;
   gap: 5%;
-  padding-top: 16px;
   margin: 0 auto;
   background-color: #f3f3f3;
   border-radius: 45px;
   box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
-  width: 80%; /* Changed from 50% to 80% */
+  width: 50%;
 }
 
-/* Link Styling */
 .card-menu a {
   color: #009BA6;
   text-decoration: none;
@@ -107,7 +130,7 @@ body {
 .card-menu a:hover {
   color: #fff;
   background-color: #0edae9;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -123,24 +146,6 @@ body {
   border-radius: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .card-menu {
-      gap: 5%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card-menu {
-      flex-direction: column;
-      gap: 15px;
-  }
-
-  .card-menu a {
-      font-size: 1rem;
-  }
-}
-
 /* Footer */
 footer {
   background-color: #F3F3F3;
@@ -148,6 +153,7 @@ footer {
   padding: 30px;
   font-family: 'MyCustomFont';
   margin-top: auto;
+  height: 30%;
   width: 100%;
   box-sizing: border-box;
 }
@@ -172,8 +178,9 @@ footer {
 }
 
 .footer-description {
-  font-size: 14px;
-  color: #555;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000000;
   line-height: 1.5;
   max-width: 300px;
 }
@@ -216,61 +223,98 @@ footer {
   margin-left: 20px;
 }
 
+.col-md-2 {
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+}
+
+.col-md-2 p {
+  font-size: 18px ;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #009BA6;
+}
+
+.col-md-2 a {
+  font-weight: bold;
+  color: #010305;
+  text-decoration: none;
+  margin-right: 20px; /* Space between the links */
+  display: block; /* Ensures the links are inline and horizontal */
+}
+
+.col-md-2 a:hover {
+  color: #007a7d;
+}
+
+
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
   .footer-container {
-    
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .footer-logo-section, .footer-sections {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-sections {
-      gap: 20px;
+    gap: 20px;
   }
 
   .qr-code {
-      margin-top: 20px;
-      margin-left: 0;
+    margin-top: 20px;
+    margin-left: 0;
   }
 
   .footer-bottom {
-      text-align: center;
-      width: 100%;
+    text-align: center;
+    width: 100%;
   }
 
   .hero-section {
-      padding: 40px 20px;
+    padding: 40px 20px;
   }
 
   .hero-content h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   .hero-content p {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
   .card-menu {
-      max-width: 90%;
-      padding: 15px;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 90%;
+    padding: 15px;
   }
 
   .footer-logo {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .footer-description {
-      font-size: 12px;
-      max-width: 250px;
+    font-size: 12px;
+    max-width: 250px;
   }
 
   .footer-section a {
-      font-size: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 40px 10%;
+  }
+
+  .card-menu {
+    width: 75%;
+    gap: 15px;
   }
 }
