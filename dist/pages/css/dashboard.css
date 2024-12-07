@@ -524,6 +524,17 @@
 }
 
 /* Standard size for the book cover */
+/* Style for the book card container */
+.story-cards, .story-cards3, .story-cardss {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+}
+
+/* Standard size for the book cover */
 .book-cover {
   width: 100%;           /* Full width within its container */
   height: 250px;          /* Fixed height for the image */
@@ -595,10 +606,10 @@
   margin-top: 5px;
 }
 
-/* Enhance hover effect for the book box */
+/* Hover effect for the book box */
 .book-box:hover {
   transform: scale(1.05);  /* Slight zoom effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Add stronger shadow on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Stronger shadow on hover */
   background-color: #ffffff; /* Lighter background on hover */
 }
 
@@ -606,20 +617,21 @@
 .books-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px; /* Increased gap for better separation between cards */
+  gap: 15px; /* Adjust gap between the cards */
   justify-content: center;
-  margin: 20px auto; /* Centering books section */
+  margin: 20px auto;
   padding: 20px;
 }
 
 /* Each individual book card */
 .book {
-  width: 250px;           /* Adjust width for better layout */
+  width: calc(33.333% - 20px);   /* 3 cards per row with space between */
+  margin-bottom: 20px;  /* Space between rows */
   text-align: center;
-  transition: transform 0.3s ease-in-out;  /* Smooth transition effect */
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;  /* Smooth hover transition */
 }
 
 /* Add hover effect on individual book */
@@ -631,17 +643,13 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .book {
-      width: 45%;           /* Adjust width on smaller screens */
-  }
-
-  .book-box {
-      max-width: 100%;  /* Full width for book box on smaller screens */
+      width: calc(50% - 20px);  /* 2 cards per row */
   }
 }
 
 @media (max-width: 480px) {
   .book {
-      width: 100%;         /* Full width for cards on very small screens */
+      width: 100%;  /* Full width on small screens */
   }
 }
 
