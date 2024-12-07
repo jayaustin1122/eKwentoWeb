@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'MyCustomFont', sans-serif;
   }
   
   /* Font Face */
@@ -80,29 +80,66 @@
     gap: 30px;
   }
   
-  .navbar-toggler {
-    border: none;
-    color: #0096A0;
+/* Navbar Toggler Icon Styles */
+.navbar-toggler {
+  border: none;
+  color: #0096A0;
+  background-color: transparent;  /* Ensure transparent background */
+}
+
+.navbar-toggler-icon {
+  transition: all 0.3s ease-in-out; /* Smooth transition on click */
+}
+
+/* Animation for the shuffle effect (horizontal movement) */
+@keyframes shuffle {
+  0% {
+    transform: translateX(0); /* Starting position */
   }
-  
-  .navbar-toggler-icon {
-    background-color: #0096A0;
+  25% {
+    transform: translateX(-5px); /* Slightly to the left */
   }
-  
-  .navbar-collapse {
-    justify-content: flex-end;
+  50% {
+    transform: translateX(5px); /* Slightly to the right */
   }
-  
-  .navbar .nav-item:last-child {
-    order: 99;
+  75% {
+    transform: translateX(-5px); /* Back to the left */
   }
-  
-  .navbar .nav-item .nav-link i.fas.fa-user {
-    font-size: 1.5rem;
-    color: #0096A0;
-    padding-left: 10px;
-    padding-right: 10px;
+  100% {
+    transform: translateX(0); /* Back to the center */
   }
+}
+
+/* Apply shuffle animation on click (when toggled) */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  animation: shuffle 0.5s ease forwards; /* Trigger shuffle animation */
+}
+
+/* When the navbar is open (collapsed state), change the icon appearance */
+/* On hover, the icon should also slightly animate */
+.navbar-toggler-icon:hover {
+  transform: scale(1.1); /* Slightly larger icon when hovered */
+}
+
+/* Ensure navbar items are correctly aligned */
+.navbar-collapse {
+  justify-content: flex-end;
+  background-color: #ececec;
+}
+
+/* Align the last nav item to the right */
+.navbar .nav-item:last-child {
+  order: 99;
+}
+
+/* FontAwesome User Icon Style */
+.navbar .nav-item .nav-link i.fas.fa-user {
+  font-size: 1.5rem;
+  color: #0096A0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
   
   /* Mobile Responsiveness for Navbar */
   @media (max-width: 768px) {
