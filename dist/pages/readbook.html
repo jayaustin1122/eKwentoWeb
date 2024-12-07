@@ -6,51 +6,62 @@
     <title>Read Book</title>
     <link rel="stylesheet" href="../pages/css/readbook.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
 </head>
 <body>
     <div class="container">
-        <!-- Left Section: Author Info -->
-        <div class="author-section">
-            
-            <div class="other-books">
-                <h4>Other Books</h4>
-                <p>View All</p>
-            </div>
-        </div>
+ 
+    
 
-        <!-- Right Section: Book Details -->
+        <div id="mascot-popup" class="mascot-popup">
+            <img src="/assets/lola.png" alt="Mascot" />
+            <p>Welcome! Read and Explore this book.</p>
+        </div>
         <div class="book-details-section">
-            <!-- Book Cover -->
+
             <div class="book-cover-wrapper">
                 <img id="book-cover" class="book-cover" src="" alt="Book Cover" />
             </div>
 
-            <!-- Book details -->
             <div class="book-details">
                 <h1 id="book-title">Bald Bearded Boss</h1>
                 <p id="book-author">By Elliott Holt | Feb 2020</p>
                 <p id="book-genre"><span>Time Travel</span> | <span>Fast Paced</span> | <span>Debut Writer</span></p>
                 
-                <!-- Action Buttons -->
-                <div class="action-buttons">
+                <!-- <div class="action-buttons">
                     <button class="save-btn">Save</button>
                     <button class="hide-btn">Hide</button>
                     <button class="mark-read-btn">Mark Read</button>
-    
+                </div> -->
+
+                <div id="book-content" class="book-content">
+                    <h4>Book Description</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
                 </div>
-
-                  <!-- Book content -->
-            <div id="book-content" class="book-content">
-                <h4>Book Description</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</p>
             </div>
-            </div>
-
-          
         </div>
+        <div id="mascot-popup2" class="mascot-popup">
+            <img src="/assets/lola.png" alt="Mascot" />
+            <p>Welcome! Read andsss Explore this book.</p>
+        </div>
+        
     </div>
 
     <script type="module" src="../js/readbook.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+
+        window.onload = function() {
+            Swal.fire({
+                title: 'Hello! I am lola Basyang',
+                text: 'I am here to help you with the book information.',
+                imageUrl:  "../../assets/lola.png", 
+                imageWidth: 100,
+                imageHeight: 100,
+                imageAlt: 'Bot Mascot',
+                confirmButtonText: 'Got it!'
+            });
+        };
+    </script>
 </body>
 </html>

@@ -64,7 +64,6 @@ function attachLogoutEventListener() {
     }
 }
 
-
 window.addEventListener('load', attachLogoutEventListener);
 const storage = getStorage();
 onAuthStateChanged(auth, (user) => {
