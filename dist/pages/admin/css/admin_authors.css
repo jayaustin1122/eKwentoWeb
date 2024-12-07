@@ -2,18 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'MyCustomFont', sans-serif;
 }
 
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'MyCustomFont', sans-serif;
 }
 
+@font-face {
+    font-family: 'MyCustomFont'; 
+    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal;  
+  }
+
+/* Admin Panel */
 .admin-panel {
     display: flex;
     height: 100vh;
+    flex-direction: row; /* Flexbox for easy alignment */
 }
 
+/* Sidebar Styling */
 .sidebar {
+    
     width: 250px;
     background-color: #007B7F;
     color: white;
@@ -22,58 +37,98 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Adds a shadow effect */
 }
 
+/* Logo */
 .logo img {
-    width: 210px;  
-    margin-bottom: 20px;
+    width: 210px;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
 }
 
+.logo img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Admin Text */
 .admin-text {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: bold;
     margin-bottom: 20px;
-    border-bottom: 2px solid white; 
-    padding-bottom: 10px;  
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
 }
 
+
+/* Navigation */
 nav ul li {
-    margin-bottom: 20px;
+    margin-bottom: 20px;  /* Space between menu items */
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
+    text-decoration: none;  /* Remove underlines from links */
+    color: #ddd;  /* Lighter default color */
+    font-size: 18px;  /* Font size */
+    font-weight: 500;  /* Slightly less bold for better readability */
+    transition: all 0.3s ease;  /* Smooth transition on hover */
+    padding: 10px 15px;  /* Add some padding for a larger clickable area */
+    border-radius: 6px;  /* Slight rounding of corners */
 }
 
+/* Hover Effect */
+nav ul li a:hover {
+    color: #fff;  /* Change text color on hover */
+    background-color: #4CAF50;  /* Add a smooth background color on hover */
+    transform: translateX(5px);  /* Slightly move the text to the right */
+    transform: scale(1.1);
+}
+
+/* Active Link Style */
 nav ul li.active a {
-    color: #4CAF50;  
-    font-weight: bold;
-    border-bottom: 2px solid #4CAF50;  
+    color: #4CAF50;  /* Active link color */
+    font-weight: bold;  /* Make active link bold */
+    border-bottom: 3px solid #4CAF50;  /* Add underline with bold color */
+    background-color: rgba(76, 175, 80, 0.1);  /* Slight background highlight on active */
+    transform: scale(1.05);  /* Slightly scale the active link */
 }
 
-.sidebar {
-    width: 250px;
-    background-color: #007B7F;
-    color: white;
-    padding: 20px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
+/* Logout Section */
 .logout {
-    margin-top: auto;  
+    margin-top: auto;  /* Push logout button to the bottom */
+    padding-top: 30px;  /* Space from other elements */
 }
 
 .logout a {
-    display: block;
-    margin-top: 30px;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+    display: block;  /* Make link a block element */
+    margin-top: 20px;  /* Slight top margin for spacing */
+    color: white;  /* Text color */
+    text-decoration: none;  /* Remove underline */
+    font-size: 16px;  /* Font size */
+    font-weight: 600;  /* Slightly bolder text */
+    padding: 12px 20px;  /* Add padding for better click area */
+    background-color: #ff3131;  /* Pinkish-red background */
+    border-radius: 6px;  /* Rounded corners for better visuals */
+    transition: all 0.3s ease;  /* Smooth transition for effects */
+    text-align: center;  /* Center the logout text */
+}
+
+/* Hover Effect for Logout */
+.logout a:hover {
+    background-color: #ff6a6a;  /* Darker pink on hover */
+    color: white;  /* Ensure text stays white */
+    transform: scale(1.1);  /* Slight scale effect on hover */
+}
+
+/* Additional subtle hover effects */
+.logout a:active {
+    transform: scale(1);  /* Slightly reset the scale when clicked */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow on click */
+}
+
+/* Optional: Box shadow effect for better depth */
+nav ul li a:hover, .logout a:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Adds depth to hover */
 }
 
 .dashboard {
