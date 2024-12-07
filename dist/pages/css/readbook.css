@@ -245,7 +245,8 @@ body {
   }
 }
 
-/* Footer Styling */
+  
+/* Footer */
 footer {
   background-color: #F3F3F3;
   color: #333;
@@ -333,7 +334,7 @@ footer {
 }
 
 .col-md-2 p {
-  font-size: 18px;
+  font-size: 18px ;
   font-weight: 900;
   margin-bottom: 12px;
   color: #009BA6;
@@ -351,31 +352,63 @@ footer {
   color: #007a7d;
 }
 
+
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
   .footer-container {
-      flex-direction: column; /* Stack footer sections vertically */
-      align-items: flex-start;
-      text-align: left;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 
   .footer-logo-section, .footer-sections {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .footer-sections {
-      gap: 20px;
+    gap: 20px;
   }
 
   .qr-code {
-      margin-top: 20px;
-      margin-left: 0;
+    margin-top: 20px;
+    margin-left: 0;
   }
 
   .footer-bottom {
-      text-align: center;
-      width: 100%;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-section {
+    padding: 40px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .card-menu {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .footer-logo {
+    font-size: 20px;
+  }
+
+  .footer-description {
+    font-size: 12px;
+    max-width: 250px;
+  }
+
+  .footer-section a {
+    font-size: 12px;
   }
 }
-  
