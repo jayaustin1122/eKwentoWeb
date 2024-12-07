@@ -154,6 +154,50 @@
     }
   }
 
+  .logout {
+    position: relative;
+    margin-left: 20px; /* Space between other list items */
+  }
+  
+  .logout a {
+    display: flex; /* Aligns the icon properly */
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Removes default underline */
+    color: #0096A0; /* Color for the icon */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    font-size: 1.5rem; /* Icon size */
+    padding: 10px; /* Space around the icon */
+    border-radius: 50%; /* Circular background */
+    background-color: transparent; /* No background unless hovered */
+  }
+  
+  .logout a:hover {
+    color: #fff; /* Change icon color on hover */
+    background-color: #0096A0; /* Background color on hover */
+    transform: scale(1.1); /* Slightly increase size on hover */
+  }
+  
+  .logout a i {
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for transformations */
+  }
+  
+  /* Hover effect: make icon slightly rotate when hovered */
+  .logout a:hover i {
+    transform: rotate(15deg); /* Slight rotation effect */
+  }
+  
+  /* Media Query for responsiveness (optional) */
+  @media (max-width: 768px) {
+    .logout {
+      margin-left: 0; /* Adjust margin for smaller screens */
+    }
+  
+    .logout a {
+      font-size: 1.25rem; /* Slightly smaller icon on mobile */
+    }
+  }
+
 /* Profile Card Styling */
 .profile-card {
     background: linear-gradient(135deg, #a3e5f1, #0096A0);
