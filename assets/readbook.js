@@ -4,7 +4,7 @@ const messages = [
     { text: "Welcome! Read and Explore this book.", image: "/assets/lola.png" },
     { text: "Did you know? This book has some fun facts.", image: "/assets/lolakausap.png" },
     { text: "Keep going, you're doing great!", image: "/assets/lola2.png" },
-    { text: "Take a break, and enjoy the story!", image: "/assets/lolawithsimangut.png" },
+    { text: "Take a break, and enjoy the story!", image: "/assets/lolasimangut.png" },
 
 ];
 
