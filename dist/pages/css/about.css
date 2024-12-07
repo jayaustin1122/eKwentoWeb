@@ -1,27 +1,32 @@
-
 body {
   animation: fadeIn 0.6s ease-in-out;
   font-family: Arial, sans-serif;
   background-color: #E7F6FC;
-  padding-top: 70px;
+  padding-top: 90px;
   font-family: 'MyCustomFont';
   background-image: url('/assets/Sign\ Up.png');
   background-size: cover;
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+@font-face {
+  font-family: 'MyCustomFont'; 
+  src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
 /* Navbar Styling */
 .navbar {
   animation: fadeIn 0.6s ease-in-out;
-  background-color: #f8f9fa; /* Light grey background */
+  background-color: #f8f9fa; 
   box-shadow: none;
-  padding: 10px 20px;
+  padding: 10px 5%;
   margin-bottom: 20px;
 }
 
 .navbar-brand {
-  color: #0096A0; /* Teal color for the brand text */
+  color: #0096A0;
   font-weight: bolder;
-  font-size: 1.5rem; /* Smaller font size */
+  font-size: 1.5rem;
 }
 
 @keyframes fadeIn {
@@ -35,89 +40,26 @@ body {
   }
 }
 
-@keyframes slideIn {
-  0% {
-      opacity: 0;
-      transform: translateX(-100%);
-  }
-  100% {
-      opacity: 1;
-      transform: translateX(0);
-  }
-}
-
-@keyframes zoomIn {
-  0% {
-      opacity: 0;
-      transform: scale(0.9);
-  }
-  100% {
-      opacity: 1;
-      transform: scale(1);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-.navbar-brand:hover {
-  color: #007a7d; /* Darker teal on hover */
-}
-
-.navbar .form-control {
-  border: none;
-  border-bottom: 2px solid #0096A0; /* Teal underline */
-  border-radius: 0;
-  padding: 0; /* Remove padding for a compact look */
-  width: 150px; /* Reduced width */
-}
-
-.navbar .form-control:focus {
-  box-shadow: none; /* Remove focus shadow */
-  border-color: #007a7d; /* Slightly darker teal on focus */
-}
-
-.navbar .btn-outline-primary {
-  color: #0096A0;
-  border: none;
-  background: transparent; /* Transparent background */
-  font-size: 1.1rem;
-  padding: 0;
-}
-
-.navbar .btn-outline-primary:hover {
-  color: #007a7d; /* Darker teal on hover */
-  background-color: transparent;
-}
-
 /* Hero Section Styling */
 .hero-section {
   position: relative;
-  padding: 60px 30px;
-  margin-top: 50px; /* Adjusted to avoid navbar overlap */
-  border-radius: 30px; /* Rounded corners */
+  padding: 60px 10%;
+  margin-top: 50px; 
+  border-radius: 30px; 
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
 .hero-content {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #3F7AA1;
 }
 
 .hero-content h1 {
-  font-size: 2.0rem;
+  font-size: 2rem;
   color: #000000;
   font-weight: bold;
   margin-bottom: 10px;
@@ -138,37 +80,41 @@ body {
 
 /* Card Section (Menu Links) */
 .card-menu {
-  font-family: 'MyCustomFont';
-  font-size: larger;
-  display: flex; /* Flexbox for horizontal layout */
-  justify-content: center; /* Centers the links horizontally */
-  gap: 50px; /* Space between the menu items */
-  padding: 12px 0; /* Top and bottom padding */
+  font-size: large;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+  padding-top: 16px;
   margin: 0 auto;
-  background-color: #f3f3f3; /* Light background for the entire card section */
-  border-radius: 45px; /* Slight rounding for the container */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
-  width: 50%;
+  background-color: #f3f3f3;
+  border-radius: 45px;
+  box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
+  width: 80%; /* Changed from 50% to 80% */
 }
 
 /* Link Styling */
 .card-menu a {
-  color: #009BA6; /* Blue text color */
-  text-decoration: none; /* No underline */
+  color: #009BA6;
+  text-decoration: none;
   font-size: 1.2rem;
-  font-weight: 600; /* Bold text for readability */
-  text-align: center; /* Center the text in each item */
-  padding: 10px 20px; /* Padding around the text */
-  transition: all 0.3s ease; /* Smooth transition on hover */
-  border-radius: 5px; /* Slight rounding for each link */
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-radius: 20px;
 }
 
-/* Hover Effect */
 .card-menu a:hover {
-  color: #fff; /* Change text color to white */
-  background-color: #0edae9; /* Blue background on hover */
-  transform: translateY(-2px); /* Lift effect */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+  color: #fff;
+  background-color: #0edae9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn.signup-button {
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
 }
 
 .card-menu :last-child {
@@ -180,31 +126,30 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
   .card-menu {
-      gap: 20px; /* Reduce gap on smaller screens */
+      gap: 5%;
   }
 }
 
 @media (max-width: 768px) {
   .card-menu {
-      flex-direction: column; /* Switch to vertical layout on mobile */
-      gap: 15px; /* Smaller gap */
+      flex-direction: column;
+      gap: 15px;
   }
 
   .card-menu a {
-      font-size: 1rem; /* Smaller font size */
+      font-size: 1rem;
   }
 }
-
 
 /* Footer */
 footer {
   background-color: #F3F3F3;
   color: #333;
   padding: 30px;
-  font-family: Arial, sans-serif;
+  font-family: 'MyCustomFont';
   margin-top: auto;
-  width: 100%; /* Ensure footer spans full width */
-  box-sizing: border-box; /* Prevents overflow issues */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-container {
@@ -217,7 +162,7 @@ footer {
 
 .footer-logo-section, .footer-sections {
   flex: 1;
-  min-width: 250px;  /* Ensures proper wrapping on smaller screens */
+  min-width: 250px;
 }
 
 .footer-logo {
@@ -274,6 +219,7 @@ footer {
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
   .footer-container {
+    
       flex-direction: column;
       align-items: flex-start;
       text-align: left;
@@ -299,43 +245,32 @@ footer {
   }
 
   .hero-section {
-      padding: 40px 20px; /* Adjust padding for smaller screens */
+      padding: 40px 20px;
   }
 
   .hero-content h1 {
-      font-size: 1.5rem; /* Adjust heading font size for smaller screens */
+      font-size: 1.5rem;
   }
 
   .hero-content p {
-      font-size: 1rem; /* Adjust paragraph font size for smaller screens */
+      font-size: 1rem;
   }
 
   .card-menu {
-      max-width: 90%; /* Make cards larger on smaller screens */
-      padding: 15px; /* Adjust padding for smaller screens */
+      max-width: 90%;
+      padding: 15px;
   }
 
   .footer-logo {
-      font-size: 20px; /* Smaller logo size */
+      font-size: 20px;
   }
 
   .footer-description {
-      font-size: 12px; /* Adjust font size */
+      font-size: 12px;
       max-width: 250px;
   }
 
   .footer-section a {
-      font-size: 12px; /* Adjust link font size */
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  100% {
-      opacity: 1;
-      transform: translateY(0);
+      font-size: 12px;
   }
 }

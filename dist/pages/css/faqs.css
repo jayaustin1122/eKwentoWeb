@@ -188,7 +188,7 @@ body {
     margin: 0 auto;
     background-color: #f3f3f3; /* Light background for the entire card section */
     border-radius: 45px; /* Slight rounding for the container */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow around the container */
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
     width: 50%;
 }
 
@@ -211,6 +211,13 @@ body {
     transform: translateY(-2px); /* Lift effect */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
 }
+
+.btn.signup-button {
+    background-color: #009BA6;
+    color: #fff;
+    border-radius: 20px;
+  }
+  
 
 .card-menu :last-child {
     background-color: #009BA6;
@@ -244,6 +251,7 @@ body {
     background-color: #f1f1f1; /* Light grey background */
     padding: 20px 0;
     margin-top: 50px;
+    font-family: 'MyCustomFont';
 }
 
 .footer-logo, .footer-description {
