@@ -157,7 +157,7 @@
   .logout {
     position: relative;
     margin-left: 20px; /* Space between other list items */
-    margin-top: 20px;
+    margin-top: 10px;
   }
   
   .logout a {
@@ -207,6 +207,7 @@
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
 }
 
 .profile-avatar {
@@ -253,6 +254,7 @@
     margin: 0 15px; 
     color: #0096A0;
     border-radius: 15px;
+    background-color: transparent;
 }
 .nav-item:hover {
     color: #007BFF; /* Change to desired hover color (blue in this case) */
@@ -285,6 +287,8 @@
 .add-to-library-btn:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
+
+
 .story-cards {
     display: flex;
     flex-direction: column;
@@ -525,15 +529,6 @@
 }
 
 /* Style for the book card container */
-.story-cards {
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-}
-
-/* Standard size for the book cover */
-/* Style for the book card container */
 .story-cards, .story-cards3, .story-cardss {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -554,6 +549,10 @@
 /* Card details for book info */
 .card-details {
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space evenly */
+  height: 100%;  /* Ensures this section takes up all available space */
 }
 
 .card-details h4 {
@@ -589,6 +588,7 @@
   flex-direction: column;
   align-items: flex-start;
   transition: all 0.3s ease-in-out;  /* Smooth hover transition */
+  min-height: 350px;  /* Ensure consistent height across all cards */
 }
 
 /* Icon Styling within Book Box */
@@ -641,12 +641,20 @@
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;  /* Smooth hover transition */
+  min-height: 350px;  /* Ensures consistent height of all cards */
+  display: flex;
+  flex-direction: column;
 }
 
 /* Add hover effect on individual book */
 .book:hover {
   transform: scale(1.05);  /* Slight zoom effect */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Increase shadow on hover */
+}
+
+/* Ensure the content area takes full height within the card */
+.book .card-details {
+  flex-grow: 1;  /* Allow the details section to expand and fill the space */
 }
 
 /* Responsive Adjustments */
@@ -661,6 +669,7 @@
       width: 100%;  /* Full width on small screens */
   }
 }
+
 
 
 /* Footer */
