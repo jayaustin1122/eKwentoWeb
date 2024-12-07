@@ -514,100 +514,137 @@
 .horizontal-titles h4 {
     margin: 0; /* Remove default margins for even spacing */
 }
+
 /* Style for the book card container */
 .story-cards {
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
 }
 
 /* Standard size for the book cover */
 .book-cover {
-    width: 100%;           /* Full width within its container */
-    height: 250px;          /* Fixed height for the image */
-    object-fit: cover;      /* Ensures the image maintains aspect ratio while covering the area */
-    border-bottom: 1px solid #ddd; /* Optional, for card separation */
+  width: 100%;           /* Full width within its container */
+  height: 250px;          /* Fixed height for the image */
+  object-fit: cover;      /* Ensures the image maintains aspect ratio while covering the area */
+  border-bottom: 1px solid #ddd; /* Optional, for card separation */
 }
 
 /* Card details for book info */
 .card-details {
-    padding: 10px;
+  padding: 10px;
 }
 
 .card-details h4 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-    color: #333;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .card-details .author {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 /* Limit content to one line with ellipsis */
 .card-details .content {
-    font-size: 0.85rem;
-    white-space: nowrap;    /* Makes the text stay on a single line */
-    overflow: hidden;       /* Hides overflowing text */
-    text-overflow: ellipsis; /* Adds ellipsis to indicate more content */
-}
-.book-box {
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 20px;
-    width: 100%;
-    max-width: 600px;
-    text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  font-size: 0.85rem;
+  white-space: nowrap;    /* Makes the text stay on a single line */
+  overflow: hidden;       /* Hides overflowing text */
+  text-overflow: ellipsis; /* Adds ellipsis to indicate more content */
 }
 
+/* Book Box Styling */
+.book-box {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;  /* Adjust width for better layout control */
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.3s ease-in-out;  /* Smooth hover transition */
+}
+
+/* Icon Styling within Book Box */
 .book-box .icon {
-    font-size: 2rem;
-    color: #0096A0;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  color: #0096A0;
+  margin-bottom: 10px;
 }
 
+/* Title within Book Box */
 .box-title {
-    font-size: 1.4rem;
-    color: #0096A0;
-    font-weight: bold;
-    margin: 0;
-    width: 100%;
-    height: 70px;
+  font-size: 1.4rem;
+  color: #0096A0;
+  font-weight: bold;
+  margin: 0;
+  width: 100%;
+  height: 70px;
 }
 
+/* Text inside the Book Box */
 .book-box p {
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 5px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 5px;
 }
 
-.book-box {
-    margin-left: 5%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    text-align: center;
-    color: #555;
+/* Enhance hover effect for the book box */
+.book-box:hover {
+  transform: scale(1.05);  /* Slight zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Add stronger shadow on hover */
+  background-color: #ffffff; /* Lighter background on hover */
 }
 
+/* Styling for Books Section container */
 .books-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Increased gap for better separation between cards */
+  justify-content: center;
+  margin: 20px auto; /* Centering books section */
+  padding: 20px;
 }
 
+/* Each individual book card */
 .book {
-    width: 150px;
-    text-align: center;
+  width: 250px;           /* Adjust width for better layout */
+  text-align: center;
+  transition: transform 0.3s ease-in-out;  /* Smooth transition effect */
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Add hover effect on individual book */
+.book:hover {
+  transform: scale(1.05);  /* Slight zoom effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Increase shadow on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .book {
+      width: 45%;           /* Adjust width on smaller screens */
+  }
+
+  .book-box {
+      max-width: 100%;  /* Full width for book box on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .book {
+      width: 100%;         /* Full width for cards on very small screens */
+  }
+}
+
 
 /* Footer */
 footer {

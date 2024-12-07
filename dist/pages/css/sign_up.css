@@ -7,6 +7,11 @@
     --text-light: #f8f9fa;
 }
 
+@font-face {
+    font-family: 'MyCustomFont'; 
+    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+}
+
 /* Genre row style */
 .genre-row {
     margin-top: 20px;
@@ -50,7 +55,7 @@
 /* General Style Adjustments */
 body {
     animation: fadeIn 0.6s ease-in-out;
-    font-family: Arial, sans-serif;
+    font-family: 'MyCustomFont', sans-serif;
     background: url('/assets/Sign%20Up.png') no-repeat center center;
     background-size: cover;
     padding-top: 70px;
@@ -120,6 +125,39 @@ body {
     color: #007a7d; 
 }
 
+.signin-icon {
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signin-form h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-signin {
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.btn-signin:hover {
+    opacity: 0.9;
+    transform: scale(1.05); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    background-color: #007bff; 
+    color: #fff; 
+}
+
+
+
 /* Sign up Form */
 .signup-form {
     padding: 20px;
@@ -185,6 +223,7 @@ body {
     margin-top: 15px;
     text-transform: uppercase;
 }
+
 
 .separator {
     margin: 15px 0;
