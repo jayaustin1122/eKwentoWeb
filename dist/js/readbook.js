@@ -28,7 +28,7 @@ function showLoadingSwal() {
         allowOutsideClick: false, 
         didOpen: () => {
             Swal.showLoading(); 
-            startShowingMascotPopup()
+            startShowingMascotPopup();
         }
     });
 }
