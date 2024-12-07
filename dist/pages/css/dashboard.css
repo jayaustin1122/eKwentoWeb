@@ -201,102 +201,225 @@
 
 /* Profile Card Styling */
 .profile-card {
-    background: linear-gradient(135deg, #a3e5f1, #0096A0);
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
+  background: linear-gradient(135deg, #a3e5f1, #0096A0);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 70px;
+  height: auto;
+  width: 100%;
+  max-width: 400px;  /* Maximum width */
+  margin-left: auto; /* Center the card horizontally */
+  margin-right: auto; /* Center the card horizontally */
 }
 
+/* Avatar Styling */
 .profile-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: #4a4a4a;
-    margin-bottom: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #4a4a4a;
+  margin-bottom: 10px;
 }
 
+/* Username Styling */
 .username {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-    font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
+/* Age and Bio Styling */
 .age-bio {
-    font-size: 0.9rem;
-    color: #f0f0f0;
-    margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #f0f0f0;
+  margin-bottom: 10px;
 }
 
+/* Separator Styling */
 .separator {
-    margin: 0 8px;
-    color: #ddd;
+  margin: 0 8px;
+  color: #ddd;
 }
 
+/* Bio Styling */
 .bio {
-    font-size: 0.85rem;
-    color: #050000;
-    margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: #050000;
+  margin-bottom: 20px;
 }
 
+/* Stats Section */
 .stats {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
-
-.nav-item { 
-    cursor: pointer; /* Makes the h4 look clickable */
-    transition: color 0.3s ease; /* Smooth transition for hover effect */
-    margin: 0 15px; 
-    color: #0096A0;
-    border-radius: 15px;
-    background-color: transparent;
-}
-.nav-item:hover {
-    color: #007BFF; /* Change to desired hover color (blue in this case) */
-    transform: scale(1.1); /* Slightly increase size on hover */
-    background-color: #02848d;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-.nav-bar {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    margin-bottom: 15px;
-}
+/* Stat Box Styling */
 .stat {
-    background-color: #a3e5f1;
-    border-radius: 8px;
-    width: 70px;
-    padding: 5px;
+  background-color: #a3e5f1;
+  border-radius: 8px;
+  width: 70px;
+  padding: 5px;
 }
 
+/* Add to Library Button */
 .add-to-library-btn {
-    background-color: #007bff; /* Blue background */
-    color: white; /* White text */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #007bff; /* Blue background */
+  color: white; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .add-to-library-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small Screens (Mobile) */
+@media (max-width: 576px) {
+  .profile-card {
+      padding: 15px;
+      margin-top: 50px;
+  }
+
+  .profile-avatar {
+      width: 60px;
+      height: 60px;
+  }
+
+  .username {
+      font-size: 1.3rem;
+  }
+
+  .age-bio, .bio {
+      font-size: 0.8rem;
+  }
+
+  .stats {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .stat {
+      margin-bottom: 10px;
+      width: 60px;
+  }
+
+  .add-to-library-btn {
+      padding: 8px 16px;
+  }
+}
+
+/* Medium Screens (Tablets and Small Desktops) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .profile-card {
+      padding: 18px;
+  }
+
+  .profile-avatar {
+      width: 70px;
+      height: 70px;
+  }
+
+  .username {
+      font-size: 1.4rem;
+  }
+
+  .age-bio, .bio {
+      font-size: 0.85rem;
+  }
+
+  .stats {
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .stat {
+      width: 80px;
+  }
+
+  .add-to-library-btn {
+      padding: 9px 18px;
+  }
+}
+
+/* Large Screens (Desktops) */
+@media (min-width: 769px) {
+  .profile-card {
+      padding: 20px;
+  }
+
+  .profile-avatar {
+      width: 80px;
+      height: 80px;
+  }
+
+  .username {
+      font-size: 1.5rem;
+  }
+
+  .age-bio, .bio {
+      font-size: 0.9rem;
+  }
+
+  .stats {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .stat {
+      width: 70px;
+  }
+
+  .add-to-library-btn {
+      padding: 10px 20px;
+  }
 }
 
 
+.nav-item1 { 
+  cursor: pointer; /* Makes the h4 look clickable */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+  margin: 0 15px; 
+  color: #0096A0;
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+
+.nav-bar1 {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.nav-bar1 h4:hover {
+transform: translateY(-4px);
+text-decoration: underline;
+}
+
 .story-cards {
-    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    height: 450px;
+} 
+
+.story-cards :hover {
+    transform: translateY(-8px); /* Slight lift on hover */
+    cursor: pointer;
 }
 
 .story-card {
@@ -307,6 +430,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    height: 100%;
 }
 
 
@@ -319,13 +443,26 @@
 
 .story-cards img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
 
+.story-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.story-cardss :hover {
+  transform: translateY(-8px); /* Slight lift on hover */
+  cursor: pointer;
+}
+
+
 .card-details {
     padding: 10px;
+    height: 100%;
 }
 
 .card-details h4 {
@@ -352,11 +489,12 @@
 
 
 /* Ensure the image scales well within the card */
-.card-image {
+.profile-card-image {
     width: 100%;
     height: 200px; /* Adjust the height according to your design needs */
     object-fit: cover; /* This will ensure the image covers the space without distortion */
 }
+
 
 /* Add space between the image and the text details */
 .card-details {
@@ -395,33 +533,6 @@
     }
 }
 
-.stat p {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #000000;
-}
-
-.stat span {
-    font-size: 0.75rem;
-    color: #333;
-}
-
-.profile-button {
-    background-color: #07bdc4;
-    color: white;
-    border: 2px solid #03969e;
-    padding: 8px 16px;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    font-weight: bolder;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.profile-button:hover {
-    background-color: #05a2a9;
-    border-color: #038f94;
-}
 
 .modal-body h6 {
     color: #333;
@@ -444,6 +555,32 @@
     text-align: center;
 }
 
+.mt-10 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.container.story-cards {
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    max-height: 100%;
+}
+
+.row.g-10 {
+    max-height: 500px;
+    
+}
+
+
+.story-cardss {
+    background-color: transparent;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
 /* Navigation Bar Styling */
 .navigation-bar {
     width: 100%;
@@ -453,6 +590,7 @@
     border-bottom: 2px solid #bdbaba;
     padding-bottom: 10px;
 }
+
 
 /* Other Styles Remain the Same */
 .nav-links {
@@ -527,149 +665,6 @@
 .horizontal-titles h4 {
     margin: 0; /* Remove default margins for even spacing */
 }
-
-/* Style for the book card container */
-.story-cards, .story-cards3, .story-cardss {
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-  padding: 15px;
-}
-
-/* Standard size for the book cover */
-.book-cover {
-  width: 100%;           /* Full width within its container */
-  height: 250px;          /* Fixed height for the image */
-  object-fit: cover;      /* Ensures the image maintains aspect ratio while covering the area */
-  border-bottom: 1px solid #ddd; /* Optional, for card separation */
-}
-
-/* Card details for book info */
-.card-details {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribute space evenly */
-  height: 100%;  /* Ensures this section takes up all available space */
-}
-
-.card-details h4 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.card-details .author {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-/* Limit content to one line with ellipsis */
-.card-details .content {
-  font-size: 0.85rem;
-  white-space: nowrap;    /* Makes the text stay on a single line */
-  overflow: hidden;       /* Hides overflowing text */
-  text-overflow: ellipsis; /* Adds ellipsis to indicate more content */
-}
-
-/* Book Box Styling */
-.book-box {
-  background-color: #f1f1f1;
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%;
-  max-width: 300px;  /* Adjust width for better layout control */
-  text-align: left;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: all 0.3s ease-in-out;  /* Smooth hover transition */
-  min-height: 350px;  /* Ensure consistent height across all cards */
-}
-
-/* Icon Styling within Book Box */
-.book-box .icon {
-  font-size: 2rem;
-  color: #0096A0;
-  margin-bottom: 10px;
-}
-
-/* Title within Book Box */
-.box-title {
-  font-size: 1.4rem;
-  color: #0096A0;
-  font-weight: bold;
-  margin: 0;
-  width: 100%;
-  height: 70px;
-}
-
-/* Text inside the Book Box */
-.book-box p {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 5px;
-}
-
-/* Hover effect for the book box */
-.book-box:hover {
-  transform: scale(1.05);  /* Slight zoom effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Stronger shadow on hover */
-  background-color: #ffffff; /* Lighter background on hover */
-}
-
-/* Styling for Books Section container */
-.books-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px; /* Adjust gap between the cards */
-  justify-content: center;
-  margin: 20px auto;
-  padding: 20px;
-}
-
-/* Each individual book card */
-.book {
-  width: calc(33.333% - 20px);   /* 3 cards per row with space between */
-  margin-bottom: 20px;  /* Space between rows */
-  text-align: center;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;  /* Smooth hover transition */
-  min-height: 350px;  /* Ensures consistent height of all cards */
-  display: flex;
-  flex-direction: column;
-}
-
-/* Add hover effect on individual book */
-.book:hover {
-  transform: scale(1.05);  /* Slight zoom effect */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Increase shadow on hover */
-}
-
-/* Ensure the content area takes full height within the card */
-.book .card-details {
-  flex-grow: 1;  /* Allow the details section to expand and fill the space */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .book {
-      width: calc(50% - 20px);  /* 2 cards per row */
-  }
-}
-
-@media (max-width: 480px) {
-  .book {
-      width: 100%;  /* Full width on small screens */
-  }
-}
-
 
 
 /* Footer */
