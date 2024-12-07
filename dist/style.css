@@ -2,14 +2,13 @@
 body {
   background: linear-gradient(#cae4ee, #12B8BD);
   color: #2a2a2a;
-  animation: fadeIn 0.6s ease-in-out;
+  animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
   padding-top: 90px;
-  opacity: 0;
-  animation: fadeIn 0.5s forwards;
-  font-family: Arial, sans-serif; /* Ensure default font is legible */
+  font-family: Arial, sans-serif;
 }
 
+/* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 
   src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
@@ -46,17 +45,16 @@ body {
   margin-top: 50px;
   overflow: hidden;
   text-align: center;
+  width: 100%;
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 100%; /* Ensure image scales correctly */
   height: auto;
-  margin-left: -1500px;
-  margin-bottom: -730px;
-} 
+}
 
 .col-md-6 {
-  margin-left: 600px;
+  /* Removed margin-left to avoid overflow */
 }
 
 .e-kwento-button {
@@ -76,10 +74,6 @@ body {
   margin-bottom: 20px;
 }
 
-.hero-content {
-  width: 100%;
-}
-
 .hero-text {
   max-width: 500px;
   margin: 0 auto;
@@ -89,7 +83,6 @@ body {
   font-size: 1.4rem;
   margin-bottom: 20px;
 }
-
 
 /* Card Container */
 .card-menu {
@@ -140,9 +133,12 @@ body {
 footer {
   background-color: #F3F3F3;
   color: #333;
-  padding: 10px;
-  font-family: Arial, sans-serif;
+  padding: 30px;
+  font-family: 'MyCustomFont';
   margin-top: auto;
+  height: 30%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer-container {
@@ -150,38 +146,43 @@ footer {
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  width: 100%;
 }
 
-.footer-logo-section {
-  display: flex;
-  align-items: center;
+.footer-logo-section, .footer-sections {
   flex: 1;
-  min-width: 200px;
-  margin-bottom: 10px;
+  min-width: 250px;
 }
 
 .footer-logo {
-  font-size: 20px;
+  font-size: 24px;
   color: #008b8b;
-  font-weight: bolder;
-  margin-right: 15px;
+  font-weight: bold;
 }
 
 .footer-logo-icon {
-  width: 50px;
   height: 50px;
+  width: 50px;
 }
 
 .footer-description {
-  color: #555;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.5;
+  max-width: 300px;
+}
+
+.footer-bottom {
+  text-align: center;
   font-size: 12px;
-  max-width: 250px;
-  line-height: 1.4;
+  color: #aaa;
+  margin-top: 20px;
 }
 
 .footer-sections {
   display: flex;
-  gap: 0px;
+  gap: 40px;
   flex: 3;
   justify-content: flex-end;
   min-width: 300px;
@@ -190,15 +191,15 @@ footer {
 .footer-section {
   color: #008b8b;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .footer-section a {
   display: block;
   color: #333;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 .footer-section a:hover {
@@ -206,16 +207,32 @@ footer {
 }
 
 .qr-code {
-  width: 80px;
-  margin-left: 10px;
+  width: 100px;
+  margin-left: 20px;
 }
 
-.footer-bottom {
-  font-size: 10px;
-  color: #aaa;
-  margin-top: 15px;
-  text-align: center;
-  width: 100%;
+.col-md-2 {
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+}
+
+.col-md-2 p {
+  font-size: 18px ;
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #009BA6;
+}
+
+.col-md-2 a {
+  font-weight: bold;
+  color: #010305;
+  text-decoration: none;
+  margin-right: 20px; /* Space between the links */
+  display: block; /* Ensures the links are inline and horizontal */
+}
+
+.col-md-2 a:hover {
+  color: #007a7d;
 }
 
 /* Apply Animations */
@@ -241,7 +258,6 @@ footer {
 
 /* Ensure smooth appearance */
 body {
-  opacity: 0;
   animation: fadeIn 0.5s forwards;
 }
 
@@ -290,125 +306,83 @@ body {
   }
 }
 
-/* Media Queries for Responsiveness */
-@media (max-width: 1024px) {
-  .hero-section {
-    padding: 40px 5%;
+/* Small screens (mobile devices) */
+@media (max-width: 767px) {
+  .hero-content {
+    padding: 20px;
+    margin-top: 30px;
   }
-
-  .hero-text h1 {
-    font-size: 30px;
-  }
-
-  .hero-text p {
-    font-size: 16px;
-  }
-
-  .card-menu {
-    width: 70%;
-    gap: 3%;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-sections {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .navbar {
-    padding: 8px;
-  }
-
-  .footer-logo {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 10px;
-  }
-
-  .hero-section {
-    padding: 30px 10%;
-  }
-
-  .hero-text h1 {
-    font-size: 28px; 
-  }
-
-  .hero-text p {
-    font-size: 16px;
-  }
-
-  .img-fluid {
-    margin-left: 0;
-    margin-bottom: 0;
-  }
-
-  .card-menu {
-    width: 90%;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-  }
-
-  .footer-logo-section {
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-
-  .footer-logo {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .footer-sections {
-    gap: 20px;
-    text-align: center;
-  }
-
-  .footer-section {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
+  
   .navbar-brand {
     font-size: 1.2rem;
   }
 
-  .hero-section {
-    padding: 20px 5%;
+  .hero-text {
+    width: 80%;
+    margin: 0 auto;
   }
 
-  .hero-text h1 {
-    font-size: 20px; /* Even smaller on mobile */
-  }
-
-  .hero-text p {
-    font-size: 12px;
+  .e-kwento-button {
+    font-size: 2rem;
+    padding: 15px;
   }
 
   .card-menu {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .card-menu a {
+    margin-bottom: 10px;
     width: 100%;
-    padding: 10px;
+    text-align: center;
   }
 
   .footer-container {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .footer-logo {
-    font-size: 16px;
+  .footer-sections {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-section {
+    margin-top: 10px;
+  }
+
+  /* Image visibility on mobile */
+  .hero-content img {
+    display: block;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-content {
+    padding: 40px 15%;
+  }
+  
+  .card-menu {
+    width: 80%;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .footer-sections {
+    justify-content: flex-start;
+  }
+}
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+  .card-menu {
+    width: 50%;
   }
 }
