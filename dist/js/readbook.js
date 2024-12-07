@@ -138,11 +138,17 @@ function showMascotPopup2() {
     }, 3000); // Hide after 3 seconds
 }
 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+
 function startShowingMascotPopup() {
     setInterval(() => {
         const randomDelay = getRandomInt(10000, 20000); 
         showMascotPopup2();
     }, getRandomInt(10000, 20000)); // Repeat every 10-20 seconds
 }
-
 
