@@ -338,11 +338,16 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 24px;
+    font-size: 28px; 
   }
 
   .hero-text p {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .img-fluid {
+    margin-left: 0;
+    margin-bottom: 0;
   }
 
   .card-menu {
@@ -386,7 +391,7 @@ body {
   }
 
   .hero-text h1 {
-    font-size: 20px;
+    font-size: 20px; /* Even smaller on mobile */
   }
 
   .hero-text p {
