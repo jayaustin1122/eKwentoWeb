@@ -1,111 +1,158 @@
-/* General Styles */
-html, body {
+/* General Resets */
+* {
     margin: 0;
     padding: 0;
-    height: 100%; /* Ensure full height for the body */
-}
-.sidebar-item {
-    position: relative;
-}
-
-@media (min-width: 768px) {
-    .story-card {
-        padding: 15px;
-        width: 220px; /* Increase width on larger screens */
-        height: 400px; /* Increase height */
-    }
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    box-sizing: border-box;
+    font-family: 'MyCustomFont', sans-serif;
   }
   
-  @keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  /* Font Face */
+  @font-face {
+    font-family: 'MyCustomFont'; 
+    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal;  
   }
   
-  @keyframes zoomIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-  }
-  
-  @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-  }
-  
-body {
+  /* General Body Styles */
+  body {
     animation: fadeIn 0.6s ease-in-out;
-    font-family: Arial, sans-serif;
-    background-color: #C2F2F5;
-}
-
-/* Navbar Styling */
-.navbar {
-    animation: fadeIn 0.6s ease-in-out;
+    background-color: #bad4df;
+    padding-top: 80px;
+    font-family: 'MyCustomFont', sans-serif;
+  }
+  
+  /* Navbar Styles */
+  .navbar {
+    font-family: 'MyCustomFont', sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
     background-color: #f1f1f1;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px; /* Reduced padding */
-    position: relative;
-}
-#sidebar {
-    width: 70px;
-    min-width: 70px;
-    z-index: 1000;
-    transition: all .25s ease-in-out;
-    background-color: #0e2238;
-    display: flex;
-    flex-direction: column;
-}
-
-.navbar-brand {
-    font-size: 1.5rem;
+    padding: 12px 0;
+    height: 75px;
+  }
+  
+  .navbar-brand {
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 2.0rem;
     font-weight: bold;
     color: #0096A0;
-    letter-spacing: 1px;
-}
-
-.navbar-brand:hover {
+    letter-spacing: 2px;
+    margin-right: 30px;
+    margin-top: 13px;
+  }
+  
+  .navbar-brand:hover {
     color: #007a7d;
-}
-
-.navbar-nav .nav-link {
-    color: #0096A0;
-    font-size: 1rem;
+  }
+  
+  .navbar-nav .nav-link {
+    font-weight: 500;
+    font-family: 'MyCustomFont', sans-serif;
+    color: #0db3be;
+    font-size: 22px;
     padding: 8px 15px;
     text-transform: uppercase;
-    transition: color 0.3s ease;
+    margin-right: 50px;
+    margin-top: 10px;
+    border-radius: 15px;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #fff;
+    background-color: #02848d;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .navbar-nav .nav-item i {
+    font-size: 1.2rem;
+    color: #0096A0;
+  }
+  
+  .navbar-nav .nav-item i:hover {
+    color: #007a7d;
+  }
+  
+  .navbar-nav {
+    margin-left: auto;
+    margin-right: auto;
+    gap: 30px;
+  }
+  
+/* Navbar Toggler Icon Styles */
+.navbar-toggler {
+  border: none;
+  color: #0096A0;
+  background-color: transparent;  /* Ensure transparent background */
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-item i:hover {
-    color: #007a7d;
+.navbar-toggler-icon {
+  transition: all 0.3s ease-in-out; /* Smooth transition on click */
 }
+
+/* Animation for the shuffle effect (horizontal movement) */
+@keyframes shuffle {
+  0% {
+    transform: translateX(0); /* Starting position */
+  }
+  25% {
+    transform: translateX(-5px); /* Slightly to the left */
+  }
+  50% {
+    transform: translateX(5px); /* Slightly to the right */
+  }
+  75% {
+    transform: translateX(-5px); /* Back to the left */
+  }
+  100% {
+    transform: translateX(0); /* Back to the center */
+  }
+}
+
+/* Apply shuffle animation on click (when toggled) */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+  animation: shuffle 0.5s ease forwards; /* Trigger shuffle animation */
+}
+
+/* When the navbar is open (collapsed state), change the icon appearance */
+/* On hover, the icon should also slightly animate */
+.navbar-toggler-icon:hover {
+  transform: scale(1.1); /* Slightly larger icon when hovered */
+}
+
+/* Ensure navbar items are correctly aligned */
+.navbar-collapse {
+  justify-content: flex-end;
+  background-color: #ececec;
+}
+
+/* Align the last nav item to the right */
+.navbar .nav-item:last-child {
+  order: 99;
+}
+
+/* FontAwesome User Icon Style */
+.navbar .nav-item .nav-link i.fas.fa-user {
+  font-size: 1.5rem;
+  color: #0096A0;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+  
+  /* Mobile Responsiveness for Navbar */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+      width: 100%;
+    }
+  
+    .navbar-nav .nav-item {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
 
 /* Profile Card Styling */
 .profile-card {
@@ -518,85 +565,169 @@ body {
     text-align: center;
 }
 
-/* Footer Styling */
-.footer {
-    animation: fadeIn 0.6s ease-in-out;
+/* Footer */
+footer {
     background-color: #F3F3F3;
     color: #333;
     padding: 30px;
-}
-
-.footer-container {
+    font-family: 'MyCustomFont';
+    margin-top: auto;
+    height: 30%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 30px;
-}
-
-.footer-logo {
+    width: 100%;
+  }
+  
+  .footer-logo-section, .footer-sections {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .footer-logo {
     font-size: 24px;
     color: #008b8b;
     font-weight: bold;
-    margin-right: 20px;
-}
-
-.footer-logo::before {
-    content: "📘";
-    font-size: 24px;
-    margin-right: 8px;
-}
-
-.footer-description {
-    color: #555;
-    font-size: 14px;
+  }
+  
+  .footer-logo-icon {
+    height: 50px;
+    width: 50px;
+  }
+  
+  .footer-description {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+    line-height: 1.5;
     max-width: 300px;
-}
-
-.footer-sections {
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+  }
+  
+  .footer-sections {
     display: flex;
     gap: 40px;
+    flex: 3;
     justify-content: flex-end;
-}
-
-.footer-section a {
-    color: #333;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.footer-section a:hover {
+    min-width: 300px;
+  }
+  
+  .footer-section {
     color: #008b8b;
-}
-
-.qr-code {
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  .footer-section a {
+    display: block;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 5px;
+  }
+  
+  .footer-section a:hover {
+    color: #008b8b;
+  }
+  
+  .qr-code {
     width: 100px;
-    transition: transform 0.3s ease;
-}
-
-.qr-code:hover {
-    transform: scale(1.1);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .navbar-nav {
-        text-align: center;
-        width: 100%;
-    }
-
+    margin-left: 20px;
+  }
+  
+  .col-md-2 {
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+  }
+  
+  .col-md-2 p {
+    font-size: 18px ;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #009BA6;
+  }
+  
+  .col-md-2 a {
+    font-weight: bold;
+    color: #010305;
+    text-decoration: none;
+    margin-right: 20px; /* Space between the links */
+    display: block; /* Ensures the links are inline and horizontal */
+  }
+  
+  .col-md-2 a:hover {
+    color: #007a7d;
+  }
+  
+  
+  /* Media Queries for Mobile */
+  @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
-        text-align: center;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
-
+  
+    .footer-logo-section, .footer-sections {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
     .footer-sections {
-        flex-direction: column;
-        align-items: center;
+      gap: 20px;
     }
-
+  
     .qr-code {
-        width: 80px;
-        margin-top: 20px;
+      margin-top: 20px;
+      margin-left: 0;
     }
-}
+  
+    .footer-bottom {
+      text-align: center;
+      width: 100%;
+    }
+  
+    .hero-section {
+      padding: 40px 20px;
+    }
+  
+    .hero-content h1 {
+      font-size: 1.5rem;
+    }
+  
+    .hero-content p {
+      font-size: 1rem;
+    }
+  
+    .card-menu {
+      flex-direction: column;
+      gap: 10px;
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    .footer-logo {
+      font-size: 20px;
+    }
+  
+    .footer-description {
+      font-size: 12px;
+      max-width: 250px;
+    }
+  
+    .footer-section a {
+      font-size: 12px;
+    }
+  }
