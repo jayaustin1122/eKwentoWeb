@@ -25,58 +25,58 @@
         <!-- Main -->
         <div class="main container-fluid px-5 py-4">
             <div class="row flex-nowrap mb-3">
-                <h4 class="fw-bold">Profile Settings</h4>
+                <h4 class="fw-bold">Settings ng Profile</h4>
             </div>
 
             <div class="row">
                 <!-- Update Profile Card -->
                 <div class="col-md-6">
                     <div class="card p-4 mb-4">
-                        <h5 class="fw-bold border-bottom mb-3 pb-2">Update Profile</h5>
+                        <h5 class="fw-bold border-bottom mb-3 pb-2">I-Update ang Profile</h5>
                         <form id="profileForm" class="needs-validation mx-2" novalidate>
                             <div class="mb-3">
                                 <img src="../assets/Vector (1).png" alt="Profile Placeholder" class="img-fluid mt-2" style="max-width: 50px; height: auto;">
-                                <label for="profilePicture" class="form-label">Profile Picture</label>
-                                <input type="file" class="form-control" id="profilePicture" accept="image/*" placeholder="Choose a profile picture">
+                                <label for="profilePicture" class="form-label">Larawan sa Profile</label>
+                                <input type="file" class="form-control" id="profilePicture" accept="image/*" placeholder="Pumili ng larawan sa profile">
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="firstName" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required>
-                                    <div class="invalid-feedback">Please enter your first name.</div>
+                                    <label for="firstName" class="form-label">Unang Pangalan</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="Ilagay ang iyong pangalan" required>
+                                    <div class="invalid-feedback">Pakilagay ang iyong pangalan.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="lastName" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required>
-                                    <div class="invalid-feedback">Please enter your last name.</div>
+                                    <label for="lastName" class="form-label">Apelyido</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Ilagay ang iyong apelyido" required>
+                                    <div class="invalid-feedback">Pakilagay ang iyong apelyido.</div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="birthdate" class="form-label">Birthdate</label>
+                                <label for="birthdate" class="form-label">Kapanganakan</label>
                                 <input type="date" class="form-control" id="birthdate" required>
-                                <div class="invalid-feedback">Please select your birthdate.</div>
+                                <div class="invalid-feedback">Mangyaring piliin ang iyong petsa ng kapanganakan.</div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="gender" class="form-label">Gender</label>
+                                <label for="gender" class="form-label">Kasarian</label>
                                 <select class="form-select" id="gender" required>
-                                    <option value="">Select your gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
+                                    <option value="">Piliin ang iyong kasarian</option>
+                                    <option value="male">Lalaki</option>
+                                    <option value="female">Babae</option>
+                                    <option value="other">Iba pa</option>
                                 </select>
-                                <div class="invalid-feedback">Please select your gender.</div>
+                                <div class="invalid-feedback">Mangyaring piliin ang iyong kasarian.</div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
-                                <div class="invalid-feedback">Please enter your address.</div>
+                                <input type="text" class="form-control" id="address" placeholder="Ilagay ang iyong address" required>
+                                <div class="invalid-feedback">Pakilagay ang iyong address.</div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="submit" class="btn btn-primary">I-save ang Mga Pagbabago</button>
                         </form>
                     </div>
                 </div>
@@ -84,24 +84,24 @@
                 <!-- Change Password Card -->
                 <div class="col-md-6">
                     <div class="card p-4 mb-4">
-                        <h5 class="fw-bold border-bottom mb-3 pb-2">Change Password</h5>
+                        <h5 class="fw-bold border-bottom mb-3 pb-2">Baguhin ang Password</h5>
                         <form id="changePasswordForm" class="needs-validation mx-2" novalidate>
                             <div class="mb-3">
-                                <label for="oldPassword" class="form-label">Old Password</label>
-                                <input type="password" class="form-control" id="oldPassword" placeholder="Enter your old password" required>
-                                <div class="invalid-feedback">Please enter your old password.</div>
+                                <label for="oldPassword" class="form-label">Lumang Password</label>
+                                <input type="password" class="form-control" id="oldPassword" placeholder="Ilagay ang iyong lumang password" required>
+                                <div class="invalid-feedback">Mangyaring ipasok ang iyong lumang password.</div>
                             </div>
                             <div class="mb-3">
-                                <label for="newPassword" class="form-label">New Password</label>
-                                <input type="password" class="form-control" id="newPassword" placeholder="Enter your new password" required>
-                                <div class="invalid-feedback">Please enter your new password.</div>
+                                <label for="newPassword" class="form-label">Bagong Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Ilagay ang iyong bagong password" required>
+                                <div class="invalid-feedback">Mangyaring ipasok ang iyong bagong password.</div>
                             </div>
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm your new password" required>
-                                <div class="invalid-feedback">Please confirm your new password.</div>
+                                <label for="confirmPassword" class="form-label">Kumpirmahin ang Bagong Password</label>
+                                <input type="password" class="form-control" id="confirmPassword" placeholder="Kumpirmahin ang iyong bagong password" required>
+                                <div class="invalid-feedback">Pakikumpirma ang iyong bagong password.</div>
                             </div>
-                            <button type="submit" class="btn btn-secondary">Change Password</button>
+                            <button type="submit" class="btn btn-secondary">Baguhin ang Password</button>
                         </form>
                     </div>
                 </div>
