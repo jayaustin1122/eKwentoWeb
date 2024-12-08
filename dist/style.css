@@ -70,6 +70,11 @@ body {
   margin-bottom: 5vh;
 }
 
+.fw-bold {
+  font-weight: bolder;
+  color: #009BA6;
+}
+
 .hero-text {
   max-width: 80%; /* Updated to be more responsive */
   margin: 0 auto;
