@@ -3,7 +3,7 @@ body {
     animation: fadeIn 0.6s ease-in-out;
     font-family: 'MyCustomFont', Arial, sans-serif;
     background-color: #E7F6FC;
-    padding-top: 90px;
+    padding-top: 10vh;
     background-image: url('/assets/Sign\ Up.png');
     background-size: cover;
     background-position: center center;
@@ -25,7 +25,7 @@ body {
     animation: fadeIn 0.6s ease-in-out;
     background-color: #f8f9fa;
     box-shadow: none;
-    padding: 10px 20px;
+    padding: 0.5% 1%;
     margin-bottom: 20px;
 }
 
@@ -139,29 +139,30 @@ body {
 /* Card Section (Menu Links) */
 .card-menu {
     font-family: 'Font2';
-    font-size: larger;
+    font-size: 1.2rem;
     display: flex;
     justify-content: center;
     gap: 50px;
-    padding: 10px 0;
+    padding: 0.5vw 0;
     margin: 0 auto;
     background-color: #f3f3f3;
     border-radius: 45px;
     box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
-    width: 50%;
+    width: 75%;
+    margin-top: 1vh;
 }
 
 /* Link Styling */
 .card-menu a {
     color: #009BA6;
     text-decoration: none;
-    font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
     padding: 10px 20px;
     transition: all 0.3s ease;
-    border-radius: 15px;
-}
+    border-radius: 20px;
+    font-size: 1rem;
+  }
 
 /* Hover Effect */   
 .card-menu a:hover {

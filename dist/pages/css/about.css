@@ -2,7 +2,7 @@ body {
   animation: fadeIn 0.6s ease-in-out;
   font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
-  padding-top: 90px;
+  padding-top: 10vh;
   background-image: url('/assets/Sign\ Up.png');
   background-size: cover;
   background-position: center center;
@@ -23,7 +23,7 @@ body {
   animation: fadeIn 0.6s ease-in-out;
   background-color: #f8f9fa;
   box-shadow: none;
-  padding: 10px 20px;
+  padding: 0.5% 1%;
   margin-bottom: 20px;
 }
 
@@ -104,27 +104,28 @@ body {
 /* Card Section (Menu Links) */
 .card-menu {
   font-family: 'Font2';
-  font-size: large;
+  font-size: 1.2rem;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 0.5vw 0;
   gap: 5%;
   margin: 0 auto;
   background-color: #f3f3f3;
   border-radius: 45px;
   box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
-  width: 50%;
+  width: 75%;
+  margin-top: 1vh;
 }
 
 .card-menu a {
   color: #009BA6;
   text-decoration: none;
-  font-size: 1.2rem;
   font-weight: 600;
   text-align: center;
   padding: 10px 20px;
   transition: all 0.3s ease;
   border-radius: 20px;
+  font-size: 1rem;
 }
 
 .card-menu a:hover {
@@ -172,7 +173,7 @@ footer {
 }
 
 .footer-logo {
-  font-size: 24px;
+  font-size: 2rem;
   color: #008b8b;
   font-weight: bold;
 }
@@ -184,7 +185,7 @@ footer {
 
 .footer-description {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
   color: #000000;
   line-height: 1.5;
   max-width: 300px;
@@ -208,13 +209,13 @@ footer {
 .footer-section {
   color: #008b8b;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .footer-section a {
   display: block;
   color: #333;
-  font-size: 14px;
+  font-size: 0.9rem;
   text-decoration: none;
   margin-top: 5px;
 }
@@ -230,11 +231,12 @@ footer {
 
 .col-md-2 {
   display: flex;
-  flex-direction: column; /* Stack the content vertically */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .col-md-2 p {
-  font-size: 18px ;
+  font-size: 1.2rem;
   font-weight: 900;
   margin-bottom: 12px;
   color: #009BA6;
@@ -244,17 +246,20 @@ footer {
   font-weight: bold;
   color: #010305;
   text-decoration: none;
-  margin-right: 20px; /* Space between the links */
-  display: block; /* Ensures the links are inline and horizontal */
+  margin-right: 20px;
+  display: block;
 }
 
 .col-md-2 a:hover {
   color: #007a7d;
 }
 
-
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Reduced top padding for mobile */
+  }
+
   .footer-container {
     flex-direction: column;
     align-items: flex-start;
@@ -300,16 +305,16 @@ footer {
   }
 
   .footer-logo {
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   .footer-description {
-    font-size: 12px;
+    font-size: 1rem;
     max-width: 250px;
   }
 
   .footer-section a {
-    font-size: 12px;
+    font-size: 0.8rem;
   }
 }
 
@@ -321,5 +326,18 @@ footer {
   .card-menu {
     width: 75%;
     gap: 15px;
+  }
+
+  .footer-logo {
+    font-size: 1.75rem;
+  }
+
+  .footer-description {
+    font-size: 1rem;
+    max-width: 270px;
+  }
+
+  .footer-sections {
+    gap: 30px;
   }
 }

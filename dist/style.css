@@ -4,8 +4,9 @@ body {
   color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
-  padding-top: 90px;
+  padding-top: 10vh; /* Changed to vh for more responsiveness */
   font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Ensure padding and borders don't overflow */
 }
 
 /* Custom Fonts */
@@ -24,8 +25,8 @@ body {
   animation: fadeIn 0.6s ease-in-out;
   background-color: #f8f9fa; 
   box-shadow: none;
-  padding: 10px 5%;
-  margin-bottom: 20px;
+  padding: 0.5% 1%; /* Adjusted for better responsiveness */
+  margin-bottom: 5%;
 }
 
 .navbar-brand {
@@ -41,8 +42,8 @@ body {
 /* Hero Section */
 .hero-content {
   position: relative;
-  padding: 60px 10%;
-  margin-top: 50px;
+  padding: 5vw 10%; /* Adjusted to use vw for more responsiveness */
+  margin-top: 10vh;
   overflow: hidden;
   text-align: center;
   width: 100%;
@@ -56,53 +57,52 @@ body {
 
 .e-kwento-button {
   font-family: 'MyCustomFont';
-  font-size: 3rem;
+  font-size: 3vw; /* Adjusted for better scalability */
   font-weight: bold;
   text-transform: uppercase;
   background-color: #009BA6;
   color: #fff;
   border-radius: 20px;
-  padding-top: 23px;
-  padding-left: 30px;  
-  padding-right: 30px; 
+  padding: 3vh 5vw; /* Adjusted for responsive padding */
   display: inline-block; 
   border: 3px solid #009BA6; 
   box-sizing: border-box; 
-  margin-bottom: 20px;
+  margin-bottom: 5vh;
 }
 
 .hero-text {
-  max-width: 500px;
+  max-width: 80%; /* Updated to be more responsive */
   margin: 0 auto;
 }
 
 .hero-content p {
-  font-size: 1.4rem;
-  margin-bottom: 20px;
+  font-size: 2rem; /* Adjusted for better scaling */
+  margin-bottom: 2vh;
 }
 
 /* Card Container */
 .card-menu {
   font-family: 'Font2';
-  font-size: large;
+  font-size: 1.8rem; /* Adjusted font-size for responsiveness */
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 0.5vw 0;
   gap: 5%;
   margin: 0 auto;
+  margin-top: 1vh;
   background-color: #f3f3f3;
   border-radius: 45px;
   box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
-  width: 50%;
+  width: 75%; /* Adjusted to be more responsive */
 }
 
 .card-menu a {
   color: #009BA6;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem; /* Adjusted for better readability */
   font-weight: 600;
   text-align: center;
-  padding: 10px 20px;
+  padding: 8px 13px;
   transition: all 0.3s ease;
   border-radius: 20px;
 }
@@ -130,10 +130,10 @@ body {
 footer {
   background-color: #F3F3F3;
   color: #333;
-  padding: 30px;
+  padding: 5vw;
   font-family: 'MyCustomFont';
   margin-top: auto;
-  height: 30%;
+  height: auto;
   width: 100%;
   box-sizing: border-box;
 }
@@ -152,7 +152,7 @@ footer {
 }
 
 .footer-logo {
-  font-size: 24px;
+  font-size: 2rem;
   color: #008b8b;
   font-weight: bold;
 }
@@ -164,7 +164,7 @@ footer {
 
 .footer-description {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1.6rem; /* Adjusted font size */
   color: #000000;
   line-height: 1.5;
   max-width: 300px;
@@ -172,7 +172,7 @@ footer {
 
 .footer-bottom {
   text-align: center;
-  font-size: 12px;
+  font-size: 1rem;
   color: #aaa;
   margin-top: 20px;
 }
@@ -188,13 +188,13 @@ footer {
 .footer-section {
   color: #008b8b;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .footer-section a {
   display: block;
   color: #333;
-  font-size: 14px;
+  font-size: 1.4rem;
   text-decoration: none;
   margin-top: 5px;
 }
@@ -214,7 +214,7 @@ footer {
 }
 
 .col-md-2 p {
-  font-size: 18px ;
+  font-size: 1.8rem; /* Adjusted font size */
   font-weight: 900;
   margin-bottom: 12px;
   color: #009BA6;
@@ -306,22 +306,22 @@ body {
 /* Small screens (mobile devices) */
 @media (max-width: 767px) {
   .hero-content {
-    padding: 20px;
-    margin-top: 30px;
+    padding: 10vw 10%;
+    margin-top: 20vh;
   }
   
   .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .hero-text {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
   }
 
   .e-kwento-button {
     font-size: 2rem;
-    padding: 15px;
+    padding: 5vw;
   }
 
   .card-menu {
@@ -359,7 +359,7 @@ body {
 /* Medium screens (tablets) */
 @media (min-width: 768px) and (max-width: 991px) {
   .hero-content {
-    padding: 40px 15%;
+    padding: 5vw 15%;
   }
   
   .card-menu {
@@ -370,16 +370,5 @@ body {
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-  }
-
-  .footer-sections {
-    justify-content: flex-start;
-  }
-}
-
-/* Large screens (desktops) */
-@media (min-width: 1200px) {
-  .card-menu {
-    width: 50%;
   }
 }
