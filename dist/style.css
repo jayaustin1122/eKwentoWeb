@@ -4,7 +4,7 @@ body {
   color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
-  background-image: url('../assets/giphy.gif'); 
+  background-image: url('/pages/assets/giphy.gif'); 
   background-repeat: no-repeat;
   background-size: cover; /* Ensures the GIF covers the body */
   background-position: center center; /* Centers the GIF */
@@ -17,12 +17,12 @@ body {
 /* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 
-  src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  src: url('/pages/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
 @font-face {
   font-family: 'Font2'; 
-  src: url('../assets/fonts/Kanit-Light.ttf') format('truetype'); 
+  src: url('/pages/assets/fonts/Kanit-Light.ttf') format('truetype'); 
 }
 
 /* Navbar */
