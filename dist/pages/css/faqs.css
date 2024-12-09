@@ -4,10 +4,7 @@ body {
     font-family: 'MyCustomFont', Arial, sans-serif;
     background-color: #E7F6FC;
     padding-top: 10vh;
-    background-image: url('/assets/Sign\ Up.png');
     background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 @font-face {
