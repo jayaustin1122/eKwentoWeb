@@ -1,23 +1,28 @@
 /* Body Background */
 body {
-  background: linear-gradient(#cae4ee, #12B8BD);
+  background: linear-gradient(#cae4ee, #12B8BD); /* This can be adjusted for overlay effect */
   color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
+  background-image: url('../assets/sky5.gif'); 
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the GIF covers the body */
+  background-position: center center; /* Centers the GIF */
   padding-top: 10vh; /* Changed to vh for more responsiveness */
   font-family: Arial, sans-serif;
   box-sizing: border-box; /* Ensure padding and borders don't overflow */
 }
 
+
 /* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 
-  src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
 @font-face {
   font-family: 'Font2'; 
-  src: url('/dist/assets/fonts/Kanit-Light.ttf') format('truetype'); 
+  src: url('../assets/fonts/Kanit-Light.ttf') format('truetype'); 
 }
 
 /* Navbar */
@@ -47,7 +52,7 @@ body {
   overflow: hidden;
   text-align: center;
   width: 100%;
-  background-image: url('/dist/assets/giphy.gif'); 
+ 
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
