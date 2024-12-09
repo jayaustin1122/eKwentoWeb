@@ -47,6 +47,11 @@ body {
   overflow: hidden;
   text-align: center;
   width: 100%;
+  background-image: url('/assets/giphy.gif'); 
+  background-size: cover;
+  background-attachment: fixed; 
+  background-position: center; 
+  max-width: 100%;
 }
 
 .img-fluid {
