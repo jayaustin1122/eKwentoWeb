@@ -17,7 +17,6 @@
   /* General Body Styles */
   body {
     animation: fadeIn 0.6s ease-in-out;
-    background-color: #bad4df;
     padding-top: 80px;
     font-family: 'MyCustomFont', sans-serif;
   }

@@ -3,10 +3,10 @@ body {
   font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
   padding-top: 10vh;
-  background-image: url('/assets/Sign\ Up.png');
+  background-image: url('/assets/sky.jpg'); 
   background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-position: center; 
 }
 
 @font-face {
