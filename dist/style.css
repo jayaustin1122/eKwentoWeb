@@ -47,7 +47,7 @@ body {
   overflow: hidden;
   text-align: center;
   width: 100%;
-  background-image: url('/assets/sky5.gif'); 
+  background-image: url('/dist/assets/giphy.gif'); 
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
