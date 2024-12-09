@@ -11,20 +11,20 @@ function attachLogoutEventListener() {
         logoutButton.addEventListener('click', async () => {
             // Ask the user if they are sure about logging out
             Swal.fire({
-                title: 'Are you sure?',
-                text: 'Do you really want to log out?',
-                icon: 'warning',
+                title: 'Sigurado ka ba?',
+                text: 'Gusto mo ba talagang mag log out?',
+                icon: 'babala',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes',
-                cancelButtonText: 'Cancel'
+                confirmButtonText: 'Oo',
+                cancelButtonText: 'Kanselahin'
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
                     Swal.fire({
-                        title: 'Logging out...',
-                        text: 'Please wait...',
+                        title: 'Nagla-log out...',
+                        text: 'Mangyaring maghintay...',
                         allowOutsideClick: false,
                         didOpen: () => {
                             Swal.showLoading(); // Show loading
@@ -34,13 +34,13 @@ function attachLogoutEventListener() {
                     try {
                         // Attempt to sign out
                         await signOut(auth);
-                        console.log('Successfully signed out');
+                        console.log('Matagumpay na naka-sign out');
 
                         // Show success message
                         Swal.fire({
                             title: 'Logged Out!',
-                            text: 'You have been successfully logged out.',
-                            icon: 'success',
+                            text: 'Matagumpay kang na-log out.',
+                            icon: 'tagumpay',
                             confirmButtonText: 'OK'
                         }).then(() => {
                             // Redirect to homepage after logout
@@ -124,13 +124,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         createdAt: serverTimestamp(),
                         timestampEpoch: timestampEpoch,
                     
-                        bookStatus: "Approved"
+                        bookStatus: "Naaprubahan"
                     }).then(() => {
                         loadingSwal.close();
                         Swal.fire({
                             title: 'Success!',
-                            text: 'Your Book has been Uploaded.',
-                            icon: 'success',
+                            text: 'Na-upload na ang iyong Aklat.',
+                            icon: 'tagumpay',
                             confirmButtonText: 'Okay'
                         });
 
@@ -244,12 +244,12 @@ function addBookRow(tableBody, index, bookData, bookPath) {
 async function handleStatusClick(bookPath, currentStatus) {
     // Prompt the user to update the status regardless of the current one
     const { isConfirmed, isDenied } = await Swal.fire({
-        title: `Current status: ${currentStatus}`,
-        text: 'Do you want to update the status?',
-        icon: 'question',
+        title: `Kasalukuyang katayuan: ${currentStatus}`,
+        text: 'Gusto mo bang i-update ang status?',
+        icon: 'tanong',
         showDenyButton: true,
         confirmButtonText: 'Approve',
-        denyButtonText: 'Reject',
+        denyButtonText: 'Tanggihan',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         denyButtonColor: '#d33',

@@ -14,7 +14,7 @@ async function fetchUsersData() {
     try {
         const querySnapshot = await getDocs(usersCollectionRef);
         if (querySnapshot.empty) {
-            console.log("No users found.");
+            console.log("Walang nakitang mga user.");
             return;
         }
 
@@ -91,18 +91,18 @@ async function handleStatusClick(event) {
     const currentStatus = event.target.innerText;
 
     // Determine the action based on the current status
-    const action = currentStatus === "Approved" ? "Reject" : "Approve";
+    const action = currentStatus === "Naaprubahan" ? "Tanggihan" : "Aprubahan";
 
     // Show confirmation dialog
     const { value } = await Swal.fire({
-        title: `Do you want to ${action} this user?`,
+        title: `Gusto mo ba ${action} ang gumagamit na ito?`,
         showCancelButton: true,
         confirmButtonText: action,
     });
 
     if (value) {
         try {
-            const newStatus = action === "Approve" ? "Approved" : "Rejected";
+            const newStatus = action === "Aprubahan" ? "Naaprubahan" : "Tinanggihan";
             // Update Firestore with the new status
             await setDoc(doc(db, 'users', userId), {
                 status: newStatus,
@@ -114,16 +114,16 @@ async function handleStatusClick(event) {
 
             // Show success message
             Swal.fire({
-                icon: 'success',
-                title: 'Status Updated!',
-                text: `The user has been ${newStatus.toLowerCase()}.`
+                icon: 'tagumpay',
+                title: 'Na-update ang Katayuan!',
+                text: `Ang gumagamit ay naging ${newStatus.toLowerCase()}.`
             });
         } catch (error) {
-            console.error("Error updating user status: ", error);
+            console.error("Error sa pag-update ng status ng user: ", error);
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'There was an error updating the status.'
+                text: 'Nagkaroon ng error sa pag-update ng status.'
             });
         }
     }

@@ -17,14 +17,14 @@
             <nav>
                 <p class="admin-text">ADMIN PANEL</p>
                 <ul>
-                    <li><a href="../../pages/admin/admin_books.html">Books</a></li>
-                    <li><a href="../../pages/admin/admin_authors.html">Accounts</a></li>
+                    <li><a href="../../pages/admin/admin_books.html">Mga libro</a></li>
+                    <li><a href="../../pages/admin/admin_authors.html">Mga Account</a></li>
          
                 </ul>
             </nav>
             <li class="logout">
                 <a href="javascript:void(0);" id="logout">
-                    <i class="lni lni-exit"></i> Logout
+                    <i class="lni lni-exit"></i> Mag-logout
                 </a>
             </li>
         </div>
@@ -39,18 +39,18 @@
 
             <div class="table-container">
                 <div class="header">
-                    <h2>Books</h2>
-                    <input type="text" class="search-bar" id="searchBar" placeholder="Search by Title or Author">
+                    <h2>Mga Libro</h2>
+                    <input type="text" class="search-bar" id="searchBar" placeholder="Maghanap ayon sa Pamagat o May-akda">
                 </div>
                 <table>
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>Title</th>
-                            <th>Author</th>
-                            <th>Image</th>
-                            <th>Date</th>
-                            <th>Status</th>
+                            <th>Pamagat</th>
+                            <th>May-akda</th>
+                            <th>Imahe</th>
+                            <th>Petsa</th>
+                            <th>Katayuan</th>
                         </tr>
                     </thead>
                     <tbody id="bookTableBody">
@@ -70,36 +70,36 @@
                             <form id="bookForm">
                                 <!-- Book Title -->
                                 <div class="mb-4">
-                                    <label for="bookTitle" class="form-label">Book Title</label>
-                                    <input type="text" class="form-control" id="bookTitle" placeholder="Enter your Book Title" required style="border-radius: 10px;">
+                                    <label for="bookTitle" class="form-label">Pamagat ng Aklat</label>
+                                    <input type="text" class="form-control" id="bookTitle" placeholder="Ilagay ang iyong Pamagat ng Aklat" required style="border-radius: 10px;">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="bookAuthor" class="form-label">Book Author</label>
-                                    <input type="text" class="form-control" id="bookAuthor" placeholder="Enter your Book Author" required style="border-radius: 10px;">
+                                    <label for="bookAuthor" class="form-label">May-akda ng Aklat</label>
+                                    <input type="text" class="form-control" id="bookAuthor" placeholder="Ipasok ang iyong May-akda ng Aklat" required style="border-radius: 10px;">
                                 </div>
                                 <!-- Book Content -->
                                 <div class="mb-4">
-                                    <label for="bookContent" class="form-label">Book Content</label>
-                                    <textarea class="form-control" id="bookContent" rows="4" placeholder="Enter the Book Content" required style="border-radius: 10px;"></textarea>
+                                    <label for="bookContent" class="form-label">Nilalaman ng Aklat</label>
+                                    <textarea class="form-control" id="bookContent" rows="4" placeholder="Ipasok ang Nilalaman ng Aklat" required style="border-radius: 10px;"></textarea>
                                 </div>
                                 <!-- Book Cover -->
                                 <div class="mb-4">
-                                    <label for="bookCover" class="form-label">Book Cover</label>
+                                    <label for="bookCover" class="form-label">Pabalat ng Aklat</label>
                                     <input type="file" class="form-control" id="bookCover" accept="image/*" required style="border-radius: 10px;">
                                 </div>
                                 <div class="mb-4">
-                                    <label for="genre" class="form-label d-block">Select your Genre</label>
+                                    <label for="genre" class="form-label d-block">Piliin ang iyong Genre</label>
                                     <div class="d-flex gap-2">
-                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Fiction</button>
-                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Non-Fiction</button>
-                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Mystery</button>
-                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romance</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Fiction" style="border-radius: 20px;">Piksyon</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Non-Fiction" style="border-radius: 20px;">Hindi Piksyon</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Mystery" style="border-radius: 20px;">Misteryo</button>
+                                        <button type="button" class="btn btn-outline-primary genre-btn" data-genre="Romance" style="border-radius: 20px;">Romansa</button>
                                     </div>
                                 </div>
                                 
                                 
                                 <!-- Add Book Button -->
-                                <button type="submit" class="btn btn-primary" style="border-radius: 20px; background-color: #008080; border: none;">Submit Book</button>
+                                <button type="submit" class="btn btn-primary" style="border-radius: 20px; background-color: #008080; border: none;">Isumite ang Aklat</button>
                             </form>
                         </div>
                     </div>
