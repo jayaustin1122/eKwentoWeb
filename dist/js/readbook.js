@@ -1,12 +1,33 @@
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 const messages = [
-    { text: "Welcome! Read and Explore this book.", image: "/assets/lola.png" },
-    { text: "Did you know? This book has some fun facts.", image: "/assets/lolakausap.png" },
-    { text: "Keep going, you're doing great!", image: "/assets/lola2.png" },
-    { text: "Take a break, and enjoy the story!", image: "/assets/lolawithsimangut.png" },
-
+    { text: "Maligayang pagdating! Basahin at tuklasin ang aklat na ito.", image: "/assets/lola.png" },
+    { text: "Alam mo ba? Ang aklat na ito ay may mga nakakatuwang impormasyon.", image: "/assets/lolakausap.png" },
+    { text: "Magpatuloy ka lang, magaling ka!", image: "/assets/lola2.png" },
+    { text: "Magpahinga ka muna, at tamasahin ang kwento!", image: "/assets/lolawithsimangut.png" },
+    { text: "Huwag titigil, ang bawat pahina ay may bagong aral.", image: "/assets/lola2.png" },
+    { text: "Bawat kabanata ay puno ng kasiyahan. Basahin mo na!", image: "/assets/lola.png" },
+    { text: "Nasa tamang landas ka, patuloy lang sa pagbabasa.", image: "/assets/lola2.png" },
+    { text: "Ang aklat na ito ay magdadala sa iyo sa bagong mundo.", image: "/assets/lola.png" },
+    { text: "Tandaan, ang bawat kwento ay may aral na matutunan.", image: "/assets/lolakausap.png" },
+    { text: "Napakahalaga ng bawat salita sa kwentong ito.", image: "/assets/lola.png" },
+    { text: "Bawat pahina ay may kasamang sorpresa!", image: "/assets/lola2.png" },
+    { text: "Laging may bagong bagay na matutuklasan sa bawat kabanata.", image: "/assets/lola.png" },
+    { text: "Ang mga karakter sa kwento ay magpapakita ng tunay na tapang.", image: "/assets/lolakausap.png" },
+    { text: "Huwag matakot sa mga pagsubok, dahil lahat ay may solusyon.", image: "/assets/lolawithsimangut.png" },
+    { text: "Sumubok ng bagong bagay sa bawat pag-pihit ng pahina.", image: "/assets/lolawithsimangut.png" },
+    { text: "Makakahanap ka ng kasiyahan sa bawat kwento.", image: "/assets/lolawithsimangut.png" },
+    { text: "Ang aklat na ito ay isang biyaya na magdadala ng saya.", image: "/assets/lolawithsimangut.png" },
+    { text: "Ang bawat kwento ay may tagpo ng pag-asa at saya.", image: "/assets/lolakausap.png" },
+    { text: "Huwag kalimutang magpahinga at mag-relax habang nagbabasa.", image: "/assets/lolakausap.png" },
+    { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/assets/lolawithsimangut.png" },
 ];
+
+
+
+
+
+
 
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
@@ -135,7 +156,7 @@ function showMascotPopup2() {
 
     setTimeout(() => {
         mascotPopup.style.display = 'none';
-    }, 3000); // Hide after 3 seconds
+    }, 5000); // Hide after 3 seconds
 }
 
 function getRandomInt(min, max) {
@@ -149,6 +170,6 @@ function startShowingMascotPopup() {
     setInterval(() => {
         const randomDelay = getRandomInt(10000, 20000); 
         showMascotPopup2();
-    }, getRandomInt(10000, 20000)); // Repeat every 10-20 seconds
+    }, getRandomInt(10000, 10000)); // Repeat every 10-20 seconds
 }
 
