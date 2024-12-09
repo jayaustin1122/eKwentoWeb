@@ -3,7 +3,7 @@ body {
   font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
   padding-top: 10vh;
-  background-image: url('assets/sky.jpg'); 
+  background-image: url('../assets/sky.jpg'); 
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
@@ -11,12 +11,12 @@ body {
 
 @font-face {
   font-family: 'MyCustomFont'; 
-  src: url('assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
 @font-face {
   font-family: 'Font2'; 
-  src: url('assets/fonts/Kanit-Regular.ttf') format('truetype'); 
+  src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
 }
 
 .navbar {
