@@ -170,6 +170,6 @@ function startShowingMascotPopup() {
     setInterval(() => {
         const randomDelay = getRandomInt(10000, 20000); 
         showMascotPopup2();
-    }, getRandomInt(10000, 10000)); // Repeat every 10-20 seconds
+    }, getRandomInt(10000, 20000)); // Repeat every 10-20 seconds
 }
 
