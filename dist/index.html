@@ -10,6 +10,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 
+    <style>
+        body {
+            background-image: url('/assets/giphy.gif'); 
+            background-size: cover;
+            background-attachment: fixed; 
+            background-position: center; 
+        }
+
+        .hero-section {
+            position: relative; 
+            z-index: 1;
+        }
+        
+        .hero-content {
+            z-index: 2; 
+            color: white; 
+        }
+
+        .hero-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+
+
 </head>
 <body>
 
@@ -54,7 +84,7 @@
                     <h1 class="fw-bold">
                         "Magbasa at matuto sa mundo ng maikling kuwento, kahit saan, kahit kailan!"
                     </h1>
-                    <p class="text-white">
+                    <p class="text-black" style="font-size: 1.2rem;">
                         Ang AI-BASYANG ay nagbibigay daan para sa mga mambabasa na mapalawak ang kanilang kaalaman at imahinasyon gamit ang makabagong teknolohiya sa pagbabasa.
                     </p>
                 </div>
