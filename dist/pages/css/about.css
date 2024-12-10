@@ -7,6 +7,7 @@ body {
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
+  margin-bottom: 80px;
 }
 
 @font-face {
@@ -147,16 +148,17 @@ body {
   border-radius: 20px;
 }
 
-/* Footer */
 footer {
+  position: fixed;       /* Fixes it at the bottom */
+  bottom: 0;             /* Positions at the bottom of the viewport */
+  left: 0;               /* Full width across the screen */
+  width: 100%;
   background-color: #F3F3F3;
   color: #333;
   padding: 30px;
   font-family: 'MyCustomFont';
-  margin-top: auto;
-  height: 30%;
-  width: 100%;
   box-sizing: border-box;
+  z-index: 1000;         /* Ensures footer is above other content */
 }
 
 .footer-container {
