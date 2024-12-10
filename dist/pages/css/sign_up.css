@@ -7,10 +7,26 @@
     --text-light: #f8f9fa;
 }
 
+body {
+    animation: fadeIn 0.6s ease-in-out;
+    font-family: 'MyCustomFont', Arial, sans-serif;
+    background-color: #E7F6FC;
+    padding-top: 15vh;
+    background-image: url('../assets/giphy.gif'); 
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+  }
+
 @font-face {
     font-family: 'MyCustomFont'; 
-    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
-}
+    src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  }
+  
+  @font-face {
+    font-family: 'Font2'; 
+    src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
+  }
 
 /* Genre row style */
 .genre-row {
@@ -50,16 +66,6 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
-}
-
-/* General Style Adjustments */
-body {
-    animation: fadeIn 0.6s ease-in-out;
-    font-family: 'MyCustomFont', sans-serif;
-    background: url('/assets/Sign%20Up.png') no-repeat center center;
-    background-size: cover;
-    padding-top: 70px;
-    position: relative;
 }
 
 @keyframes fadeIn {
