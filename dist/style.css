@@ -10,15 +10,14 @@ body {
   background-position: center; 
 }
 
-/* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 
-  src: url('/pages/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
+  src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
 }
 
 @font-face {
   font-family: 'Font2'; 
-  src: url('/pages/assets/fonts/Kanit-Light.ttf') format('truetype'); 
+  src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
 }
 
 /* Navbar */
