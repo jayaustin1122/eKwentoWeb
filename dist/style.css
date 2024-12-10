@@ -1,18 +1,14 @@
 /* Body Background */
 body {
-  background: linear-gradient(#cae4ee, #12B8BD); /* This can be adjusted for overlay effect */
-  color: #2a2a2a;
-  animation: fadeIn 0.5s forwards;
+  animation: fadeIn 0.6s ease-in-out;
+  font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
+  padding-top: 10vh;
   background-image: url('../assets/giphy.gif'); 
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the GIF covers the body */
-  background-position: center center; /* Centers the GIF */
-  padding-top: 10vh; /* Changed to vh for more responsiveness */
-  font-family: Arial, sans-serif;
-  box-sizing: border-box; /* Ensure padding and borders don't overflow */
+  background-size: cover;
+  background-attachment: fixed; 
+  background-position: center; 
 }
-
 
 /* Custom Fonts */
 @font-face {
