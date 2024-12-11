@@ -36,13 +36,24 @@ async function fetchUsersData() {
 
             // Create a row and append it to the table body
             const row = document.createElement('tr');
+            let statusInTagalog;
+            if (status === "Pending") {
+                statusInTagalog = "Naghihintay";
+            } else if (status === "Approved") {
+                statusInTagalog = "Naaprubahan";
+            } else if (status === "Rejected") {
+                statusInTagalog = "Tinanggihan";
+            } else {
+                statusInTagalog = status; // Keep original status for other cases
+            }
+            
             row.innerHTML = `
                 <td>${firstName} ${lastName}</td>
                 <td>${email}</td>
-            
                 <td>${createdAt}</td>
-                <td><a href="#" class="status-link" data-id="${doc.id}">${status}</a></td>
+                <td><a href="#" class="status-link" data-id="${doc.id}">${statusInTagalog}</a></td>
             `;
+            
             usersTableBody.appendChild(row);
 
             // Store row and user data for later use in search
