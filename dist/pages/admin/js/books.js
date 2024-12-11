@@ -227,13 +227,24 @@ async function fetchBooks() {
 
 function addBookRow(tableBody, index, bookData, bookPath) {
     const row = document.createElement('tr');
+    
+    // Translate book status to Tagalog
+    let statusInTagalog;
+    if (bookData.bookStatus === "Approved") {
+        statusInTagalog = "Naaprubahan";
+    } else if (bookData.bookStatus === "Rejected") {
+        statusInTagalog = "Tinanggihan";
+    } else {
+        statusInTagalog = bookData.bookStatus; // Keep original status if it's neither "Approved" nor "Rejected"
+    }
+
     row.innerHTML = `
         <td>${index}</td>
         <td class="book-title">${bookData.title}</td>
         <td class="book-author">${bookData.author}</td>
         <td><img src="${bookData.coverImageURL}" alt="Book Image" width="50"></td>
         <td>${new Date(bookData.createdAt.seconds * 1000).toLocaleDateString()}</td>
-        <td><span class="book-status clickable">${bookData.bookStatus}</span></td>
+        <td><span class="book-status clickable">${statusInTagalog}</span></td>
     `;
     tableBody.appendChild(row);
 
@@ -241,6 +252,7 @@ function addBookRow(tableBody, index, bookData, bookPath) {
     const statusElement = row.querySelector('.book-status');
     statusElement.addEventListener('click', () => handleStatusClick(bookPath, bookData.bookStatus));
 }
+
 async function handleStatusClick(bookPath, currentStatus) {
     // Prompt the user to update the status regardless of the current one
     const { isConfirmed, isDenied } = await Swal.fire({
