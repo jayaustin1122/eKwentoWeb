@@ -347,7 +347,7 @@ async function fetchBook(userId) {
                 author = "Unknown Author",
                 content = "No Content",
                 genre = "Unknown Genre", 
-                cover = null,
+                coverImageURL = null,
                 timestampEpoch = null,
                 bookStatus = "Pending"  
             } = book;
@@ -366,7 +366,7 @@ async function fetchBook(userId) {
                 const cardHTML = `
                     <div class="col-6 col-sm-4 col-md-3 col-lg-2-4 mb-3">
                         <div class="story-cardss" data-book-timestamp="${timestampEpoch}">
-                            <img src="${cover ? cover : '/assets/pc.png'}" alt="Book Cover" class="img-fluid">
+                            <img src="${coverImageURL ? coverImageURL : '/assets/pc.png'}" alt="Book Cover" class="img-fluid">
                             <div class="card-details">
                                 <h4>${title}</h4>
                                 <p class="author">${author ? `By ${author}` : 'Unknown Author'}</p>
