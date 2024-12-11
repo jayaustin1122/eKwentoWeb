@@ -96,49 +96,49 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             formattedDate = date.toLocaleString();    // Formats to local date and time
                         }
                         
-                        let genreTagalog = '';
-                        switch (genre.toLowerCase()) {
-                            case 'Fiction':
-                                genreTagalog = 'Piksyon';
-                                break;
-                            case 'Non-fiction':
-                            case 'Nonfiction':
-                                genreTagalog = 'Di-Piksyon';
-                                break;
-                            case 'Romance':
-                                genreTagalog = 'Romansa';
-                                break;
-                            case 'Science Fiction':
-                                genreTagalog = 'Agham-Piksyon';
-                                break;
-                            case 'Fantasy':
-                                genreTagalog = 'Pantasya';
-                                break;
-                            case 'Horror':
-                                genreTagalog = 'Katatakutan';
-                                break;
-                            case 'Mystery':
-                                genreTagalog = 'Misteryo';
-                                break;
-                            case 'Thriller':
-                                genreTagalog = 'Kapana-panabik';
-                                break;
-                            case 'Biography':
-                                genreTagalog = 'Talambuhay';
-                                break;
-                            case 'History':
-                                genreTagalog = 'Kasaysayan';
-                                break;
-                            // Add more genres here as needed
-                            default:
-                                genreTagalog = genre; // If no translation, use the original genre
-                                break;
-                        }
-                        
-                        document.getElementById('book-title').textContent = title;
-                        document.getElementById('book-author').textContent = `Ni ${author} | Petsa ng Pagkakalathala : ${formattedDate}`;
-                        document.getElementById('book-genre').textContent = `Genre: ${genreTagalog}`;
-                        document.getElementById('book-content').textContent = content;
+                     let genreTagalog = '';
+switch (genre.toLowerCase()) {
+    case 'fiction':
+        genreTagalog = 'Piksyon';
+        break;
+    case 'non-fiction':
+    case 'nonfiction':
+        genreTagalog = 'Di-Piksyon';
+        break;
+    case 'romance':
+        genreTagalog = 'Romansa';
+        break;
+    case 'science fiction':
+        genreTagalog = 'Agham-Piksyon';
+        break;
+    case 'fantasy':
+        genreTagalog = 'Pantasya';
+        break;
+    case 'horror':
+        genreTagalog = 'Katatakutan';
+        break;
+    case 'mystery':
+        genreTagalog = 'Misteryo';
+        break;
+    case 'thriller':
+        genreTagalog = 'Kapana-panabik';
+        break;
+    case 'biography':
+        genreTagalog = 'Talambuhay';
+        break;
+    case 'history':
+        genreTagalog = 'Kasaysayan';
+        break;
+    // Add more genres here as needed
+    default:
+        genreTagalog = genre; // If no translation, use the original genre
+        break;
+}
+
+document.getElementById('book-title').textContent = title;
+document.getElementById('book-author').textContent = `Ni ${author} | Petsa ng Pagkakalathala : ${formattedDate}`;
+document.getElementById('book-genre').textContent = `Genre: ${genreTagalog}`;
+document.getElementById('book-content').textContent = content;
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;

@@ -1,47 +1,88 @@
 import { auth, db } from './index.js';
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 import { setDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-
 document.addEventListener("DOMContentLoaded", () => {
     const signupForm = document.querySelector("form");
+
+    // Custom validation messages in Tagalog
+    const firstNameInput = signupForm.querySelector("input[placeholder='Pangalan']");
+    const lastNameInput = signupForm.querySelector("input[placeholder='Apelyido']");
+    const emailInput = signupForm.querySelector("input[placeholder='Email']");
+    const passwordInput = signupForm.querySelector("input[placeholder='Password']");
+    const confirmPasswordInput = signupForm.querySelector("input[placeholder='Confirm Password']");
+
+    // Add validation message in Tagalog
+    firstNameInput.addEventListener("invalid", () => {
+        firstNameInput.setCustomValidity("Paki-punan ang pangalan.");
+    });
+    firstNameInput.addEventListener("input", () => {
+        firstNameInput.setCustomValidity(""); // Reset message on valid input
+    });
+
+    lastNameInput.addEventListener("invalid", () => {
+        lastNameInput.setCustomValidity("Paki-punan ang apelyido.");
+    });
+    lastNameInput.addEventListener("input", () => {
+        lastNameInput.setCustomValidity(""); // Reset message on valid input
+    });
+
+    emailInput.addEventListener("invalid", () => {
+        emailInput.setCustomValidity("Paki-punan ang tamang email.");
+    });
+    emailInput.addEventListener("input", () => {
+        emailInput.setCustomValidity(""); // Reset message on valid input
+    });
+
+    passwordInput.addEventListener("invalid", () => {
+        passwordInput.setCustomValidity("Paki-punan ang password.");
+    });
+    passwordInput.addEventListener("input", () => {
+        passwordInput.setCustomValidity(""); // Reset message on valid input
+    });
+
+    confirmPasswordInput.addEventListener("invalid", () => {
+        confirmPasswordInput.setCustomValidity("Paki-ulit ang password.");
+    });
+    confirmPasswordInput.addEventListener("input", () => {
+        confirmPasswordInput.setCustomValidity(""); // Reset message on valid input
+    });
 
     signupForm.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const firstName = signupForm.querySelector("input[placeholder='Pangalan']").value;
-        const lastName = signupForm.querySelector("input[placeholder='Apelyido']").value;
-        const email = signupForm.querySelector("input[placeholder='Email']").value;
-        const password = signupForm.querySelector("input[placeholder='Password']").value;
-        const confirmPassword = signupForm.querySelector("input[placeholder='Confirm Password']").value;
+        const firstName = firstNameInput.value;
+        const lastName = lastNameInput.value;
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        const confirmPassword = confirmPasswordInput.value;
 
- 
         const genresCheckboxes = document.querySelectorAll("#genres input[type='checkbox']:checked");
         const selectedGenres = Array.from(genresCheckboxes).map(checkbox => checkbox.value);
 
-   
         if (password !== confirmPassword) {
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Passwords do not match!',
+                text: 'Passwords hindi parehas!',
                 confirmButtonText: 'OK'
             });
             return;
         }
+
         if (selectedGenres.length === 0) {
             Swal.fire({
                 icon: 'error',
-                title: 'Genre Required',
-                text: 'Please select at least one genre.',
+                title: 'Genre ay Kailangan',
+                text: 'Pumili ng ibang Genre.',
                 confirmButtonText: 'OK'
             });
             return;
         }
-        try {
 
+        try {
             Swal.fire({
-                title: 'Creating your account...',
-                text: 'Please wait while we create your account.',
+                title: 'Nagloload...',
+                text: '.......',
                 allowOutsideClick: false,
                 didOpen: () => {
                     Swal.showLoading();
@@ -61,19 +102,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 status : 'Pending'
             });
 
-      
             Swal.fire({
-                icon: 'success',
-                title: 'Account Created!',
-                text: 'Your account has been successfully created.',
+                icon: 'success', 
+                title: 'Account Nalikha!',
+                text: 'Matagumpay na nalikha ang iyong account.',
                 confirmButtonText: 'OK'
             }).then(() => {
-    
                 window.location.href = "../index.html";
             });
 
         } catch (error) {
-   
             Swal.fire({
                 icon: 'error',
                 title: 'Sign-up Failed',
