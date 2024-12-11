@@ -5,22 +5,26 @@
     font-family: 'MyCustomFont', sans-serif;
   }
   
-  /* Font Face */
   @font-face {
     font-family: 'MyCustomFont'; 
-    src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
-    font-weight: normal; 
-    font-style: normal;  
+    src: url('../assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 
   }
   
-  /* General Body Styles */
+  @font-face {
+    font-family: 'Font2'; 
+    src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
+  }
+  
   body {
     animation: fadeIn 0.6s ease-in-out;
-    background-color: #bad4df;
-    padding-top: 80px;
-    font-family: 'MyCustomFont', sans-serif;
+    font-family: 'MyCustomFont', Arial, sans-serif;
+    background-color: #E7F6FC;
+    padding-top: 10vh;
+    background-image: url('../assets/giphy.gif'); 
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
   }
-  
   /* Navbar Styles */
   .navbar {
     font-family: 'MyCustomFont', sans-serif;
