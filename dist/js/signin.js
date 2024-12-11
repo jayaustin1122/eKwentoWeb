@@ -10,7 +10,6 @@ onAuthStateChanged(auth, (user) => {
         console.log('User is still signed in');
     }
 });
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById("loginForm").addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -22,16 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!email || !password) {
             Swal.fire({
                 icon: 'error',
-                title: 'Input Error',
-                text: 'Please enter both email and password!',
+                title: 'Error sa Input',
+                text: 'Paki-punan ang email at password!',
                 confirmButtonText: 'OK'
             });
             return;
         }
 
         Swal.fire({
-            title: 'Logging you in...',
-            text: 'Please wait...',
+            title: 'Naglo-login...',
+            text: 'Paki-hintay...',
             allowOutsideClick: false,
             didOpen: () => {
                 Swal.showLoading();
@@ -55,8 +54,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (userStatus !== 'Approved') {
                     Swal.fire({
                         icon: 'warning',
-                        title: 'Account Not Approved',
-                        text: 'Your account is still under review by the admin. Please wait until it is approved.',
+                        title: 'Account Hindi Pa-Naaprubahan',
+                        text: 'Ang iyong account ay kasalukuyang sinusuri ng admin. Mangyaring maghintay hanggang ito ay maaprubahan.',
                         confirmButtonText: 'OK'
                     });
                     return;
@@ -65,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // If the account is approved, proceed to check the userType
                 Swal.fire({
                     icon: 'success',
-                    title: 'Login Successful!',
-                    text: 'Welcome back, ' + (user.displayName || 'User'),
+                    title: 'Matagumpay na Login!',
+                    text: 'Maligayang pagbabalik, ' + (user.displayName || 'Gumagamit'),
                     confirmButtonText: 'OK'
                 }).then(() => {
                     if (userType === 'member') {
@@ -74,12 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else if (userType === 'admin') {
                         window.location.href = "../pages/admin/admin_books.html"; // Redirect to admin dashboard
                     } else {
-                        console.log("Unknown userType, defaulting to member dashboard");
+                        console.log("Hindi kilalang userType, defaulting to member dashboard");
                         window.location.href = "..pages/dashboard.html"; // Default to member dashboard
                     }
                 });
             } else {
-                throw new Error('User data not found in Firestore');
+                throw new Error('Hindi nahanap ang data ng user sa Firestore');
             }
 
         } catch (error) {
@@ -87,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             Swal.fire({
                 icon: 'error',
-                title: 'Login Failed',
+                title: 'Nabigo ang Login',
                 text: `Error: ${error.message}`,
                 confirmButtonText: 'OK'
             });

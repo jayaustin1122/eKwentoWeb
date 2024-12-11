@@ -114,8 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             Swal.fire({
                 icon: 'error',
-                title: 'Sign-up Failed',
-                text: `Error: ${error.message}`,
+                title: 'Lagyan lahat ng Iyong Detalye',
+                text: `Para makagawa ng Account`,
                 confirmButtonText: 'OK'
             });
         }
