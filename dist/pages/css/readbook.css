@@ -250,7 +250,7 @@ body {
 }
 
 .book-content {
-  background-image: url('./assets/v805-kul-12.jpg');
+  background-image: url('../assets/v805-kul-12.jpg');
   background-size: cover;
   padding: 25px;
   border-radius: 10px;
