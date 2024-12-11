@@ -59,7 +59,7 @@ async function fetchBooks() {
                         <img src="${coverImageURL ? coverImageURL : '/assets/pc.png'}" alt="Book Cover" class="img-fluid">
                         <div class="card-details">
                             <h4>${title}</h4>
-                            <p class="author">${author ? `By ${author}` : 'Unknown Author'}</p>
+                            <p class="author">${author ? `Ni ${author}` : 'Unknown Author'}</p>
                             <p class="content">${content.substring(0, 20)}...</p>
                         </div>
                     </div>

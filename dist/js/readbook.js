@@ -98,7 +98,7 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                         
                         console.log("Book details found:", bookDetails);
                         document.getElementById('book-title').textContent = title;
-                        document.getElementById('book-author').textContent = `By ${author} | Publication Date: ${formattedDate}`;
+                        document.getElementById('book-author').textContent = `Ni ${author} | Petsa ng Pagkakalathala : ${formattedDate}`;
                         document.getElementById('book-genre').textContent = `Genre: ${genre}`;
                         document.getElementById('book-content').textContent = content;
                         if (coverImageURL) {
