@@ -9,6 +9,9 @@
 </head>
 
 <body>
+    <div class="back-navigation">
+        <button id="back-button" class="back-nav-btn">Go Back</button>
+    </div>
     <div class="container">
         <div class="book-details-section">
             <div class="book-cover-wrapper">
@@ -47,6 +50,9 @@
                 confirmButtonText: 'Got it!'
             });
         };
+        document.getElementById("back-button").addEventListener("click", function() {
+            window.history.back(); // Navigate back to the previous page
+        });
     </script>
 </body>
 </html>
