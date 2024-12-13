@@ -53,34 +53,52 @@ function showLoadingSwal() {
         }
     });
 }
+let bookContentChunks = [];
+let currentPage = 0;
+const wordsPerPage = 300; 
+function splitContentIntoPages(content) {
+    const words = content.split(' ');
+    let pages = [];
+    
+    for (let i = 0; i < words.length; i += wordsPerPage) {
+        const pageContent = words.slice(i, i + wordsPerPage).join(' ');
+        pages.push(pageContent);
+    }
+
+    return pages;
+}
+function displayPage(pageIndex) {
+    const bookContentElement = document.getElementById('book-content');
+    if (bookContentChunks.length > 0) {
+        bookContentElement.innerHTML = `
+            <h4>Pahina ${pageIndex + 1}</h4>
+            <p>${bookContentChunks[pageIndex]}</p>
+        `;
+    }
+
+    // Enable or disable buttons based on current page
+    document.querySelector('.back-btn').disabled = (pageIndex === 0);
+    document.querySelector('.next-btn').disabled = (pageIndex === bookContentChunks.length - 1);
+}
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
-      
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
-
-        const usersCollectionRef = collection(db, 'users'); 
+        const usersCollectionRef = collection(db, 'users');
         const usersSnapshot = await getDocs(usersCollectionRef);
 
         if (!usersSnapshot.empty) {
             let bookFound = false;
 
-            // Iterate through each user's books
             for (const userDoc of usersSnapshot.docs) {
                 const userId = userDoc.id;
-                console.log(`Checking books for user: ${userId}`);
-
-             
                 const booksCollectionRef = collection(db, `users/${userId}/books`);
-        
-      
                 const booksQuery = query(booksCollectionRef, where('timestampEpoch', '==', timestampInt));
                 const booksSnapshot = await getDocs(booksQuery);
 
                 if (!booksSnapshot.empty) {
-               
                     booksSnapshot.forEach((bookDoc) => {
                         const bookDetails = bookDoc.data();
-                        const {
+                        const { 
                             title = "Unknown Title",
                             author = "Unknown Author",
                             content = "No Content",
@@ -88,57 +106,56 @@ async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
                             genre = "Unknown Genre",
                             coverImageURL = ""
                         } = bookDetails;
-                        
-                        // Check if createdAt is a valid timestamp and format it into a date and time
+
                         let formattedDate = "Unknown Date";
                         if (createdAt && !isNaN(createdAt)) {
-                            const date = new Date(createdAt * 1000);  // Assuming createdAt is in seconds (Unix Epoch)
-                            formattedDate = date.toLocaleString();    // Formats to local date and time
+                            const date = new Date(createdAt * 1000);
+                            formattedDate = date.toLocaleString();
                         }
-                        
-                     let genreTagalog = '';
-switch (genre.toLowerCase()) {
-    case 'fiction':
-        genreTagalog = 'Piksyon';
-        break;
-    case 'non-fiction':
-    case 'nonfiction':
-        genreTagalog = 'Di-Piksyon';
-        break;
-    case 'romance':
-        genreTagalog = 'Romansa';
-        break;
-    case 'science fiction':
-        genreTagalog = 'Agham-Piksyon';
-        break;
-    case 'fantasy':
-        genreTagalog = 'Pantasya';
-        break;
-    case 'horror':
-        genreTagalog = 'Katatakutan';
-        break;
-    case 'mystery':
-        genreTagalog = 'Misteryo';
-        break;
-    case 'thriller':
-        genreTagalog = 'Kapana-panabik';
-        break;
-    case 'biography':
-        genreTagalog = 'Talambuhay';
-        break;
-    case 'history':
-        genreTagalog = 'Kasaysayan';
-        break;
-    // Add more genres here as needed
-    default:
-        genreTagalog = genre; // If no translation, use the original genre
-        break;
-}
 
-document.getElementById('book-title').textContent = title;
-document.getElementById('book-author').textContent = `Ni ${author} | Petsa ng Pagkakalathala : ${formattedDate}`;
-document.getElementById('book-genre').textContent = `Genre: ${genreTagalog}`;
-document.getElementById('book-content').textContent = content;
+                        // Translate the genre to Tagalog
+                        let genreTagalog = '';
+                        switch (genre.toLowerCase()) {
+                            case 'fiction':
+                                genreTagalog = 'Piksyon';
+                                break;
+                            case 'non-fiction':
+                            case 'nonfiction':
+                                genreTagalog = 'Di-Piksyon';
+                                break;
+                            case 'romance':
+                                genreTagalog = 'Romansa';
+                                break;
+                            case 'science fiction':
+                                genreTagalog = 'Agham-Piksyon';
+                                break;
+                            case 'fantasy':
+                                genreTagalog = 'Pantasya';
+                                break;
+                            case 'horror':
+                                genreTagalog = 'Katatakutan';
+                                break;
+                            case 'mystery':
+                                genreTagalog = 'Misteryo';
+                                break;
+                            case 'thriller':
+                                genreTagalog = 'Kapana-panabik';
+                                break;
+                            case 'biography':
+                                genreTagalog = 'Talambuhay';
+                                break;
+                            case 'history':
+                                genreTagalog = 'Kasaysayan';
+                                break;
+                            default:
+                                genreTagalog = genre;
+                                break;
+                        }
+
+                        document.getElementById('book-title').textContent = title;
+                        document.getElementById('book-author').textContent = `Ni ${author} | Petsa ng Pagkakalathala: ${formattedDate}`;
+                        document.getElementById('book-genre').textContent = `Genre: ${genreTagalog}`;
+                        
                         if (coverImageURL) {
                             const coverElement = document.getElementById('book-cover');
                             coverElement.src = coverImageURL;
@@ -147,12 +164,16 @@ document.getElementById('book-content').textContent = content;
                             document.getElementById('book-cover').style.display = 'none';
                         }
 
+                        // Split content into pages
+                        bookContentChunks = splitContentIntoPages(content);
+
+                        // Display the first page
+                        displayPage(0);
+
                         bookFound = true;
                     });
 
-            
                     if (bookFound) {
-                        console.log(`Book found for user: ${userId}`);
                         break;
                     }
                 }
@@ -171,6 +192,20 @@ document.getElementById('book-content').textContent = content;
     }
 }
 
+// Event listeners for navigation buttons
+document.querySelector('.next-btn').addEventListener('click', () => {
+    if (currentPage < bookContentChunks.length - 1) {
+        currentPage++;
+        displayPage(currentPage);
+    }
+});
+
+document.querySelector('.back-btn').addEventListener('click', () => {
+    if (currentPage > 0) {
+        currentPage--;
+        displayPage(currentPage);
+    }
+});
 function showMascotPopup2() {
     const mascotPopup = document.getElementById('mascot-popup');
     const messageElement = mascotPopup.querySelector('p');

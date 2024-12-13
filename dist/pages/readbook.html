@@ -6,15 +6,11 @@
     <title>Read Book</title>
     <link rel="stylesheet" href="../pages/css/readbook.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   
 </head>
 
 <body>
     <div class="container">
-
-
         <div class="book-details-section">
-
             <div class="book-cover-wrapper">
                 <img id="book-cover" class="book-cover" src="" alt="Book Cover" />
             </div>
@@ -22,37 +18,29 @@
             <div class="book-details">
                 <h1 id="book-title">Nag loload...</h1>
                 <p id="book-author">......</p>
-                <p id="book-genre"><span>.....</span>  <span>....</span>  <span>....</span></p>
-                
-                <!-- <div class="action-buttons">
-                    <button class="save-btn">Save</button>
-                    <button class="hide-btn">Hide</button>
-                    <button class="mark-read-btn">Mark Read</button>
-                </div> -->
+                <p id="book-genre"><span>.....</span></p>
 
                 <div id="book-content" class="book-content">
                     <h4>....</h4>
                     <p>...</p>
                 </div>
+
+                <div class="pagination-buttons">
+                    <button class="back-btn" disabled>Previous Page</button>
+                    <button class="next-btn">Next Page</button>
+                </div>
             </div>
         </div>
-        <div id="mascot-popup2" class="mascot-popup">
-            <img src="/assets/lola.png" alt="Mascot" />
-            <p>Maligayang pagdating! Basahin andsss Galugarin ang aklat na ito.</p>
-        </div>
-        
     </div>
 
-    
     <script type="module" src="../js/readbook.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-
         window.onload = function() {
             Swal.fire({
                 title: 'Kamusta! Ako si Lola Basyang',
                 text: 'Narito ako upang tulungan ka sa impormasyon tungkol sa aklat.',
-                imageUrl:  "./assets/lola.png",                
+                imageUrl:  "./assets/lola.png",
                 imageWidth: 100,
                 imageHeight: 100,
                 imageAlt: 'Bot Mascot',
