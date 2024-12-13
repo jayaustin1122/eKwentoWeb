@@ -1,9 +1,9 @@
 /* General body and font styling */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #bad4df;
+  background-image: url('../assets/sky.jpg');
   margin: 0;
-  padding: 0;
+  padding: 0; 
   color: #333;
   line-height: 1.8; /* Increased line-height for readability */
 }
