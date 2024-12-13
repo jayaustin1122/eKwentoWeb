@@ -87,8 +87,8 @@ document.querySelector('.publish-button').addEventListener('click', async () => 
         // If user is not logged in, show login prompt
         Swal.fire({
             icon: 'warning',
-            title: 'Not Logged In',
-            text: 'You need to log in before publishing a story.',
+            title: 'Paumanhin',
+            text: 'Kailangan mo munang mag Login o mag Sign up ng Account',
             confirmButtonText: 'Login',
             showCancelButton: true
         }).then((result) => {
