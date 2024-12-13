@@ -367,11 +367,9 @@ button {
 }
 
 .book-content {
-  background-image: url('../assets/v805-kul-12.jpg');
-  background-size: cover;
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 5px 9px rgba(0.1, 0.1, 0.1, 0.4);
 }
 
 /* Responsive Design */
