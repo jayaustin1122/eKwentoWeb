@@ -5,86 +5,106 @@ import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/fir
 
 const storage = getStorage();
 
-onAuthStateChanged(auth, async (user) => {
-    if (user) {
+// Function to check if user is logged in
+const checkUserLoggedIn = () => {
+    return new Promise((resolve, reject) => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                resolve(user);
+            } else {
+                reject("User is not logged in");
+            }
+        });
+    });
+};
+
+document.querySelector('.publish-button').addEventListener('click', async () => {
+    try {
+        const user = await checkUserLoggedIn(); // Check if user is logged in
         const userDoc = await getDoc(doc(db, "users", user.uid));
         const userData = userDoc.data();
         const firstName = userData.firstName || '';
         const lastName = userData.lastName || '';
 
-    
-        document.querySelector('.publish-button').addEventListener('click', async () => {
-            const storyContent = document.querySelector('textarea').value;
-            const imageInput = document.querySelector('input[type="file"]').files[0];
+        const storyContent = document.querySelector('textarea').value;
+        const imageInput = document.querySelector('input[type="file"]').files[0];
 
-            if (storyContent) {
-         
-                Swal.fire({
-                    title: 'Publishing...',
-                    text: 'Please wait while we publish your story.',
-                    allowOutsideClick: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
+        if (storyContent) {
 
-                try {
-                    let imageUrl = '';
-
-                    if (imageInput) {
-                        const imageRef = ref(storage, `stories/${user.uid}/${imageInput.name}`);
-                        await uploadBytes(imageRef, imageInput);
-                        imageUrl = await getDownloadURL(imageRef);
-                    }
-
- 
-                    const storyData = {
-                        content: storyContent,
-                        imageUrl: imageUrl || null,  
-                        timestamp: serverTimestamp(),
-                        uploader: `${firstName} ${lastName}`
-                    };
-
-                 
-                    await setDoc(doc(collection(db, "stories")), storyData);
-
-    
-                    document.querySelector('textarea').value = '';
-                    document.querySelector('input[type="file"]').value = '';
-
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Story Published',
-                        text: 'Your story has been published successfully!',
-                        timer: 2000,
-                        showConfirmButton: false
-                    });
-                } catch (error) {
-                    console.error("Error publishing story:", error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Failed to Publish',
-                        text: 'An error occurred while publishing your story. Please try again.',
-                    });
+            Swal.fire({
+                title: 'Publishing...',
+                text: 'Please wait while we publish your story.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
                 }
-            } else {
+            });
+
+            try {
+                let imageUrl = '';
+
+                if (imageInput) {
+                    const imageRef = ref(storage, `stories/${user.uid}/${imageInput.name}`);
+                    await uploadBytes(imageRef, imageInput);
+                    imageUrl = await getDownloadURL(imageRef);
+                }
+
+                const storyData = {
+                    content: storyContent,
+                    imageUrl: imageUrl || null,  
+                    timestamp: serverTimestamp(),
+                    uploader: `${firstName} ${lastName}`
+                };
+
+                await setDoc(doc(collection(db, "stories")), storyData);
+
+                document.querySelector('textarea').value = '';
+                document.querySelector('input[type="file"]').value = '';
+
                 Swal.fire({
-                    icon: 'warning',
-                    title: 'Incomplete',
-                    text: 'Please write a story before publishing.',
+                    icon: 'success',
+                    title: 'Story Published',
+                    text: 'Your story has been published successfully!',
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            } catch (error) {
+                console.error("Error publishing story:", error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed to Publish',
+                    text: 'An error occurred while publishing your story. Please try again.',
                 });
             }
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Incomplete',
+                text: 'Please write a story before publishing.',
+            });
+        }
+    } catch (error) {
+        // If user is not logged in, show login prompt
+        Swal.fire({
+            icon: 'warning',
+            title: 'Not Logged In',
+            text: 'You need to log in before publishing a story.',
+            confirmButtonText: 'Login',
+            showCancelButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "../pages/sign_in.html";
+        
+            }
         });
-    } else {
-        console.log("User is not logged in");
     }
 });
+
 const displayStories = async () => {
     const storiesContainer = document.querySelector('.mt-4');
     const storiesSnapshot = await getDocs(collection(db, 'stories'));
 
     if (storiesSnapshot.empty) {
-      
         storiesContainer.innerHTML = `
             <div class="text-center mt-4">
                 <img src="/assets/Community bg.png" alt="Empty feed illustration">
@@ -92,7 +112,6 @@ const displayStories = async () => {
             </div>
         `;
     } else {
-
         let storiesHTML = '';
         storiesSnapshot.forEach(doc => {
             const story = doc.data();
