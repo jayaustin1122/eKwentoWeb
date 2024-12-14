@@ -12,6 +12,7 @@ body {
   background-attachment: fixed; 
   background-position: center; 
 }
+
 .mascot-container {
   position: fixed; /* Keeps the mascot fixed on the page */
   bottom: 20px; /* Adjust the bottom position */
