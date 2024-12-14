@@ -11,6 +11,7 @@ body {
   padding-top: 10vh; /* Changed to vh for more responsiveness */
   font-family: Arial, sans-serif;
   box-sizing: border-box; /* Ensure padding and borders don't overflow */
+  position: relative;
 }
 
 
@@ -18,7 +19,7 @@ body {
   position: fixed; /* Keeps the mascot fixed on the page */
   bottom: 20px; /* Adjust the bottom position */
   left: 20px; /* Adjust the left position */
-  z-index: 10; /* Ensures it appears above other content */
+  z-index: 100; /* Ensures it appears above other content */
   width: 180px; /* Adjust mascot size */
   height: auto;
 }
