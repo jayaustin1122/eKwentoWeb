@@ -22,45 +22,40 @@ body {
   background-position: center; /* Centers the GIF */
 }
 
-
-
-
 .mascot-container {
-  position: fixed; /* Keeps the mascot fixed on the page */
-  bottom: 20px; /* Adjust the bottom position */
-  left: 20px; /* Adjust the left position */
-  z-index: 100; /* Ensures it appears above other content */
-  width: 180px; /* Adjust mascot size */
+  position: sticky;
+  bottom: 20px;
+  left: 20px;
+  z-index: 100;
+  width: 180px;
   height: auto;
 }
 
 .mascot {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease; /* Smooth transition for the animation */
+  transition: transform 0.3s ease;
 }
 
-/* Hover Animation for Mascot */
 .mascot-container:hover .mascot {
-  animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+  animation: waveHand 1.2s ease-in-out;
 }
 
-/* Keyframes for Hover Animation */
 @keyframes waveHand {
   0% {
-    transform: rotate(0deg); /* Initial position */
+    transform: rotate(0deg);
   }
   25% {
-    transform: rotate(10deg); /* Slight rotation to the right */
+    transform: rotate(10deg);
   }
   50% {
-    transform: rotate(-10deg); /* Slight rotation to the left */
+    transform: rotate(-10deg);
   }
   75% {
-    transform: rotate(10deg); /* Back to the right */
+    transform: rotate(10deg);
   }
   100% {
-    transform: rotate(0deg); /* Back to initial position */
+    transform: rotate(0deg);
   }
 }
 
