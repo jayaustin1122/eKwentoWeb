@@ -105,6 +105,7 @@ body {
     transform: scale(1);
   }
 }
+
 /* Navbar Styling */
 .navbar {
   animation: slideInFromTop 1s ease-out;
@@ -167,15 +168,17 @@ body {
 
 
 .hero-section {
-  position: relative;
-  padding: 60px 10%;
-  margin-top: 50px; 
-  border-radius: 30px; 
-  box-shadow: 0 10px 17px rgba(0, 0, 0.1, 0.3);
-  overflow: hidden;
-  animation: tvOpen 1.5s ease-out;
-  margin-bottom: 100px;
-  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth zoom effect */
+    position: relative;
+    padding: 60px 10%;
+    margin-top: 50px; 
+    border-radius: 30px; 
+    box-shadow: 0 10px 17px rgba(0, 0, 0.1, 0.3);
+    overflow: hidden;
+    animation: tvOpen 1.5s ease-out;
+    margin-bottom: 100px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth zoom effect */
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
 }
 
 .hero-section:hover {

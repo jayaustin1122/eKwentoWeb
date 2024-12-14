@@ -12,7 +12,7 @@ body {
     font-family: 'MyCustomFont', Arial, sans-serif;
     background-color: #E7F6FC;
     padding-top: 15vh;
-    background-image: url('../assets/sky.jpg'); 
+    background-image: url('../assets/bg1.jpg');
     background-size: cover;
     background-attachment: fixed; 
     background-position: center; 
@@ -20,6 +20,56 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+  }
+
+  .mascot-container {
+    position: fixed; /* Keeps the mascot fixed on the page */
+    bottom: 20px; /* Adjust the bottom position */
+    left: 20px; /* Adjust the left position */
+    z-index: 10; /* Ensures it appears above other content */
+    width: 180px; /* Adjust mascot size */
+    height: auto;
+    animation: bounce 1.5s infinite ease-in-out; /* Bouncy effect */
+  }
+  
+  .mascot {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for hover animation */
+  }
+  
+  /* Hover Animation for Mascot */
+  .mascot-container:hover .mascot {
+    animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+  }
+  
+  /* Keyframes for Hover Animation */
+  @keyframes waveHand {
+    0% {
+      transform: rotate(0deg); /* Initial position */
+    }
+    25% {
+      transform: rotate(10deg); /* Slight rotation to the right */
+    }
+    50% {
+      transform: rotate(-10deg); /* Slight rotation to the left */
+    }
+    75% {
+      transform: rotate(10deg); /* Back to the right */
+    }
+    100% {
+      transform: rotate(0deg); /* Back to initial position */
+    }
+  }
+  
+  /* Keyframes for Bouncy Effect */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Normal position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up slightly */
+    }
   }
 
 @font-face {
@@ -30,6 +80,40 @@ body {
   @font-face {
     font-family: 'Font2'; 
     src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
+  }
+
+  
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
 /* Genre row style */
@@ -120,20 +204,61 @@ body {
 
 
 .navbar {
-    background-color: #f8f9fa; 
-    box-shadow: none;
-    padding: 10px 20px;
+  animation: slideInFromTop 1s ease-out;
+  background-color: #f8f9fa;
+  box-shadow: none;
+  padding: 0.5% 1%;
+  margin-bottom: 20px;
+}
+
+/* Animation for Sliding In from Top */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%); /* Start above the screen */
+    opacity: 0; /* Start with no visibility */
+  }
+  100% {
+    transform: translateY(0); /* End at the normal position */
+    opacity: 1; /* Fully visible */
+  }
 }
 
 .navbar-brand {
-    color: #0096A0; 
-    font-weight: bold;
-    font-size: 1.25rem; 
+  color: #0096A0;
+  font-weight: bolder;
+  font-size: 1.5rem;
 }
 
 .navbar-brand:hover {
-    color: #007a7d; 
+  color: #007a7d;
 }
+
+.navbar .form-control {
+  border: none;
+  border-bottom: 2px solid #0096A0;
+  border-radius: 0;
+  padding: 0;
+  width: 150px;
+}
+
+.navbar .form-control:focus {
+  box-shadow: none;
+  border-color: #007a7d;
+}
+
+.navbar .btn-outline-primary {
+  color: #0096A0;
+  border: none;
+  background: transparent;
+  font-size: 1.1rem;
+  padding: 0;
+}
+
+.navbar .btn-outline-primary:hover {
+  color: #007a7d;
+  background-color: transparent;
+}
+
 
 .signin-icon {
     text-align: center;
@@ -170,12 +295,16 @@ body {
 
 /* Sign up Form */
 .signup-form {
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    background: transparent;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    position: relative;
+    padding: 60px 10%;
+    margin-top: 50px; 
+    overflow: hidden;
+    animation: tvOpen 1.5s ease-out;
+    margin-bottom: 100px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    border-radius: 30px;
 }
 
 .signup-icon {
