@@ -22,44 +22,6 @@ body {
   background-position: center; /* Centers the GIF */
 }
 
-.mascot-container {
-  position: sticky;
-  bottom: 20px;
-  left: 0;
-  z-index: 100;
-  width: 180px;
-  height: auto;
-}
-
-.mascot {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.mascot-container:hover .mascot {
-  animation: waveHand 1.2s ease-in-out;
-}
-
-@keyframes waveHand {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(-10deg);
-  }
-  75% {
-    transform: rotate(10deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-
 section {
   display: flex;
   justify-content: center;
