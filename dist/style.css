@@ -14,6 +14,32 @@ body {
 }
 
 
+.mascot-container {
+  position: fixed; /* Keeps the mascot fixed in place */
+  bottom: 20px; /* Adjust the bottom position */
+  left: 20px; /* Adjust the left position */
+  z-index: 10; /* Ensures it appears above other content */
+  width: 180px; /* Adjust mascot size */
+  height: auto;
+}
+
+.mascot {
+  width: 100%;
+  height: auto;
+  animation: mascotBounce 2s infinite ease-in-out; /* Adds a subtle bounce animation */
+}
+
+/* Bounce Animation for Mascot */
+@keyframes mascotBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Mascot bounces up */
+  }
+}
+
+
 /* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 

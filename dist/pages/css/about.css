@@ -3,14 +3,39 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  animation: fadeIn 0.6s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
   font-family: 'MyCustomFont', Arial, sans-serif;
   background-color: #E7F6FC;
   padding-top: 10vh;
-  background-image: url('../assets/sky.jpg'); 
+  background-image: url('../assets/bg1.jpg'); 
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
+}
+
+.mascot-container {
+  position: fixed; /* Keeps the mascot fixed in place */
+  bottom: 20px; /* Adjust the bottom position */
+  left: 20px; /* Adjust the left position */
+  z-index: 10; /* Ensures it appears above other content */
+  width: 180px; /* Adjust mascot size */
+  height: auto;
+}
+
+.mascot {
+  width: 100%;
+  height: auto;
+  animation: mascotBounce 2s infinite ease-in-out; /* Adds a subtle bounce animation */
+}
+
+/* Bounce Animation for Mascot */
+@keyframes mascotBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Mascot bounces up */
+  }
 }
 
 @font-face {
@@ -23,15 +48,58 @@ body {
   src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Navbar Styling */
 .navbar {
-  animation: fadeIn 0.6s ease-in-out;
+  animation: slideInFromTop 1s ease-out;
   background-color: #f8f9fa;
   box-shadow: none;
   padding: 0.5% 1%;
   margin-bottom: 20px;
 }
 
-
+/* Animation for Sliding In from Top */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%); /* Start above the screen */
+    opacity: 0; /* Start with no visibility */
+  }
+  100% {
+    transform: translateY(0); /* End at the normal position */
+    opacity: 1; /* Fully visible */
+  }
+}
 
 .navbar-brand {
   color: #0096A0;
@@ -69,7 +137,10 @@ body {
   background-color: transparent;
 }
 
+
 /* Hero Section Styling */
+
+
 .hero-section {
   position: relative;
   padding: 60px 10%;
@@ -77,6 +148,29 @@ body {
   border-radius: 30px; 
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  animation: tvOpen 1.5s ease-out;
+  margin-bottom: 100px;
+}
+
+/* Animation for TV Opening Effect */
+@keyframes tvOpen {
+  0% {
+    width: 0;
+    height: 0;
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    width: 60%;
+    height: 60%;
+    opacity: 0.7;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .hero-content {
@@ -108,6 +202,7 @@ body {
 }
 
 /* Card Section (Menu Links) */
+/* Card Menu Styling */
 .card-menu {
   font-family: 'Font2';
   font-size: 1.2rem;
@@ -121,6 +216,19 @@ body {
   box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
   width: 75%;
   margin-top: 1vh;
+  animation: slideInFromLeft 1s ease-out;
+}
+
+/* Animation for Sliding In from Left */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%); /* Start from off-screen on the left */
+    opacity: 0; /* Start with no visibility */
+  }
+  100% {
+    transform: translateX(0); /* End at its normal position */
+    opacity: 1; /* Fully visible */
+  }
 }
 
 .card-menu a {
@@ -152,6 +260,7 @@ body {
   color: #fff;
   border-radius: 20px;
 }
+
 
 footer {
   background-color: #F3F3F3;
@@ -310,38 +419,5 @@ footer {
 
   .footer-logo {
     font-size: 1.5rem;
-  }
-
-  .footer-description {
-    font-size: 1rem;
-    max-width: 250px;
-  }
-
-  .footer-section a {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .hero-section {
-    padding: 40px 10%;
-  }
-
-  .card-menu {
-    width: 75%;
-    gap: 15px;
-  }
-
-  .footer-logo {
-    font-size: 1.75rem;
-  }
-
-  .footer-description {
-    font-size: 1rem;
-    max-width: 270px;
-  }
-
-  .footer-sections {
-    gap: 30px;
   }
 }
