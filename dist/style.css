@@ -19,6 +19,8 @@ body {
 }
 
 
+
+
 .mascot-container {
   position: fixed; /* Keeps the mascot fixed on the page */
   bottom: 20px; /* Adjust the bottom position */
@@ -57,6 +59,25 @@ body {
     transform: rotate(0deg); /* Back to initial position */
   }
 }
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.section-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
+  height: 85vh;
+  width: 85vh;
+}
+
 
 
 
@@ -146,14 +167,6 @@ body {
 .hero-content p {
   font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
-}
-
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
 }
 
 
