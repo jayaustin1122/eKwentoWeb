@@ -163,6 +163,11 @@ section {
   margin: 0 auto;
 }
 
+.about-img, .work-img :hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* Left and Right Grid Alignment */
 .left-grid, .right-grid {
   display: flex;
