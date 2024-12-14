@@ -15,7 +15,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">AI-BASYANG</a>
+            <a class="navbar-brand fw-bold" href="../index.html">AI-BASYANG</a>
             <form class="d-flex ms-auto">
                 <input class="form-control me-2" type="search" placeholder="Maghanap..." aria-label="Search">
                 <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
@@ -25,11 +25,11 @@
 
     <!-- Card Section -->
     <div class="card-menu" data-aos="fade-down">
-        <a href="#about">Tungkol sa</a>
-        <a href="#work">Tuklasin</a>
-        <a href="#faqs">Tanong</a>
-        <a href="#signup" class="btn signup-button">Mag-sign Up</a> 
-        <a href="#signin">Mag-sign In</a>
+        <a href="../pages/about.html">Tungkol sa</a>
+        <a href="../pages/tuklasin.html">Tuklasin</a>
+        <a href="../pages/faqs.html">Tanong</a>
+        <a href="../pages/sign_up.html" class="btn signup-button">Mag-sign Up</a> 
+        <a href="../pages/sign_in.html">Mag-sign In</a>
     </div>
 
     <!-- Hero Section -->
@@ -62,7 +62,7 @@
                 <div class="left-grid">
                     <h3 class="section-title">Tungkol sa AI-BASYANG</h3>
                     <p>
-                        Ang AI-BASYANG ay isang makabagong website na nagsisilbing e-kagamitan para sa mga mag-aaral na nasa ika-7 baitang. Ito ay idinisenyo upang magbigay ng mga de-kalidad na mga maikling kuwento na nagbibigay ng inspirasyon, kaalaman, at imahinasyon na nagpapalawak ng malikhain at kritikal na pag-iisip ng mga mambabasa. Layunin nito na magbigay aliw at mas malalim na pag-unawa sa mga aral sa buhay.
+                        Ang AI-BASYANG ay isang makabagong website na nagsisilbing e-kagamitan para sa mga mag-aaral na nasa ika-7 baitang. Ito ay idinisenyo upang magbigay ng mga de-kalidad na mga maikling kuwento na nagbibigay ng inspirasyon, kaalaman, at imahinasyon na nagpapalawak ng malikhain at kritikal na pag-iisip ng mga mambabasa.
                     </p>
                     <button class="action-btn" data-aos="zoom-in">Kilalanin pa</button>
                 </div>
@@ -78,16 +78,16 @@
     <section id="work" data-aos="fade-left">
         <div class="section-box">
             <div class="content-grid">
-                <div class="left-grid">
-                    <img src="/pages/assets/gm1.png" class="work-img" alt="Work Section">
-                </div>
-
                 <div class="right-grid">
-                    <h3 class="section-title">Paano ito Gumagana</h3>
+                    <h3 class="section-title">Paano Gumagana ang AI-BASYANG</h3>
                     <p>
-                        Ang AI-BASYANG ay nag-aalok ng madaling gamiting interface upang magbigay ng de-kalidad na mga maikling kuwento. Layunin nitong paunlarin ang malikhaing at kritikal na pag-iisip ng mga mag-aaral.
+                        AI-BASYANG ay nagbibigay ng madaling akses sa mga maikling kuwento sa pamamagitan ng teknolohiya, na nagpapalawak sa kaalaman ng mga mag-aaral habang nagbabasa.
                     </p>
                     <button class="action-btn" data-aos="zoom-in">Alamin pa</button>
+                </div>
+
+                <div class="left-grid" data-aos="fade-right">
+                    <img src="/pages/assets/work-image.png" class="work-img" alt="Work Process">
                 </div>
             </div>
         </div>
@@ -115,14 +115,14 @@
                 <!-- Help Links -->
                 <div class="col-md-2 mb-3">
                     <p>Humingi ng tulong</p>
-                    <a href="#">Tanong</a>
+                    <a href="../pages/faqs.html">Tanong</a>
                 </div>
 
                 <!-- Company Links -->
                 <div class="col-md-2 mb-3">
                     <p>Company</p>
-                    <a href="#about">Tungkol sa</a>
-                    <a href="#work">Tuklasin</a>
+                    <a href="../pages/about.html">Tungkol sa</a>
+                    <a href="../pages/tuklasin.html">Tuklasin</a>
                 </div>
 
                 <!-- QR Code -->
@@ -140,13 +140,12 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1200,
-            once: false,
-            offset: 120
+            duration: 1200, // Animation duration
+            once: false,    // Allows animations to replay
+            offset: 120,    // Trigger animation earlier
+            easing: 'ease-in-out', // Smooth easing
         });
-
-        window.addEventListener('load', AOS.refresh);
-        window.addEventListener('scroll', AOS.refresh);
+        window.addEventListener('load', AOS.refresh); // Refresh AOS on page load
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
