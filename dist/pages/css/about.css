@@ -12,9 +12,8 @@ body {
   background-attachment: fixed; 
   background-position: center; 
 }
-
 .mascot-container {
-  position: fixed; /* Keeps the mascot fixed in place */
+  position: fixed; /* Keeps the mascot fixed on the page */
   bottom: 20px; /* Adjust the bottom position */
   left: 20px; /* Adjust the left position */
   z-index: 10; /* Ensures it appears above other content */
@@ -25,18 +24,33 @@ body {
 .mascot {
   width: 100%;
   height: auto;
-  animation: mascotBounce 2s infinite ease-in-out; /* Adds a subtle bounce animation */
+  transition: transform 0.3s ease; /* Smooth transition for the animation */
 }
 
-/* Bounce Animation for Mascot */
-@keyframes mascotBounce {
-  0%, 100% {
-    transform: translateY(0);
+/* Hover Animation for Mascot */
+.mascot-container:hover .mascot {
+  animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+}
+
+/* Keyframes for Hover Animation */
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg); /* Initial position */
+  }
+  25% {
+    transform: rotate(10deg); /* Slight rotation to the right */
   }
   50% {
-    transform: translateY(-10px); /* Mascot bounces up */
+    transform: rotate(-10deg); /* Slight rotation to the left */
+  }
+  75% {
+    transform: rotate(10deg); /* Back to the right */
+  }
+  100% {
+    transform: rotate(0deg); /* Back to initial position */
   }
 }
+
 
 @font-face {
   font-family: 'MyCustomFont'; 
@@ -150,7 +164,14 @@ body {
   overflow: hidden;
   animation: tvOpen 1.5s ease-out;
   margin-bottom: 100px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth zoom effect */
 }
+
+.hero-section:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+}
+
 
 /* Animation for TV Opening Effect */
 @keyframes tvOpen {
