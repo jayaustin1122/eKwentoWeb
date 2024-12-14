@@ -1,16 +1,55 @@
 body {
-    animation: fadeIn 0.6s ease-in-out;
-    font-family: 'MyCustomFont', Arial, sans-serif;
-    background-color: #E7F6FC;
-    padding-top: 10vh;
-    background-image: url('../assets/sky.jpg'); 
-    background-size: cover;
-    background-attachment: fixed; 
-    background-position: center; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    animation: fadeIn 1s ease-in-out;
+    font-family: 'MyCustomFont', Arial, sans-serif;
+    background-color: #E7F6FC;
+    padding-top: 10vh;
+    background-image: url('../assets/bg1.jpg'); 
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+  }
+
+  .mascot-container {
+    position: fixed; /* Keeps the mascot fixed on the page */
+    bottom: 20px; /* Adjust the bottom position */
+    left: 20px; /* Adjust the left position */
+    z-index: 10; /* Ensures it appears above other content */
+    width: 180px; /* Adjust mascot size */
+    height: auto;
+  }
+  
+  .mascot {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for the animation */
+  }
+  
+  /* Hover Animation for Mascot */
+  .mascot-container:hover .mascot {
+    animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+  }
+  
+  /* Keyframes for Hover Animation */
+  @keyframes waveHand {
+    0% {
+      transform: rotate(0deg); /* Initial position */
+    }
+    25% {
+      transform: rotate(10deg); /* Slight rotation to the right */
+    }
+    50% {
+      transform: rotate(-10deg); /* Slight rotation to the left */
+    }
+    75% {
+      transform: rotate(10deg); /* Back to the right */
+    }
+    100% {
+      transform: rotate(0deg); /* Back to initial position */
+    }
   }
   
   @font-face {
@@ -23,61 +62,116 @@ body {
     src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
   }
 
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleUp {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+
 /* Navbar Styling */
 .navbar {
-    animation: fadeIn 0.6s ease-in-out;
+    animation: slideInFromTop 1s ease-out;
     background-color: #f8f9fa;
     box-shadow: none;
     padding: 0.5% 1%;
     margin-bottom: 20px;
-}
-
-.navbar-brand {
+  }
+  
+  /* Animation for Sliding In from Top */
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-100%); /* Start above the screen */
+      opacity: 0; /* Start with no visibility */
+    }
+    100% {
+      transform: translateY(0); /* End at the normal position */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  .navbar-brand {
     color: #0096A0;
     font-weight: bolder;
     font-size: 1.5rem;
-}
-
-.navbar-brand:hover {
+  }
+  
+  .navbar-brand:hover {
     color: #007a7d;
-}
-
-.navbar .form-control {
+  }
+  
+  .navbar .form-control {
     border: none;
     border-bottom: 2px solid #0096A0;
     border-radius: 0;
     padding: 0;
     width: 150px;
-}
-
-.navbar .form-control:focus {
+  }
+  
+  .navbar .form-control:focus {
     box-shadow: none;
     border-color: #007a7d;
-}
-
-.navbar .btn-outline-primary {
+  }
+  
+  .navbar .btn-outline-primary {
     color: #0096A0;
     border: none;
     background: transparent;
     font-size: 1.1rem;
     padding: 0;
-}
-
-.navbar .btn-outline-primary:hover {
+  }
+  
+  .navbar .btn-outline-primary:hover {
     color: #007a7d;
     background-color: transparent;
-}
+  }
 
 /* Hero Section Styling */
 .hero-section {
-    animation: fadeIn 0.6s ease-in-out;
-    padding: 60px 30px;
-    margin-top: 50px;
-    text-align: center;
-    background-color: transparent;
-    border-radius: 20px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
+    position: relative;
+    padding: 60px 10%;
+    margin-top: 50px; 
+    border-radius: 30px; 
+    box-shadow: 0 10px 17px rgba(0, 0, 0.1, 0.3);
+    overflow: hidden;
+    animation: tvOpen 1.5s ease-out;
+    margin-bottom: 100px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth zoom effect */
+  }
+
+  .hero-section:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+  }
+  
 
 .hero-content h1 {
     font-size: 2rem;
@@ -139,24 +233,56 @@ body {
     margin-bottom: 0;
 }
 
-/* Card Section (Menu Links) */
-.card-menu {
+@keyframes tvOpen {
+    0% {
+      width: 0;
+      height: 0;
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      width: 60%;
+      height: 60%;
+      opacity: 0.7;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+
+  .card-menu {
     font-family: 'Font2';
     font-size: 1.2rem;
     display: flex;
     justify-content: center;
-    gap: 50px;
     padding: 0.5vw 0;
+    gap: 5%;
     margin: 0 auto;
     background-color: #f3f3f3;
     border-radius: 45px;
     box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
     width: 75%;
     margin-top: 1vh;
-}
-
-/* Link Styling */
-.card-menu a {
+    animation: slideInFromLeft 1s ease-out;
+  }
+  
+  /* Animation for Sliding In from Left */
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%); /* Start from off-screen on the left */
+      opacity: 0; /* Start with no visibility */
+    }
+    100% {
+      transform: translateX(0); /* End at its normal position */
+      opacity: 1; /* Fully visible */
+    }
+  }
+  
+  .card-menu a {
     color: #009BA6;
     text-decoration: none;
     font-weight: 600;
@@ -166,26 +292,25 @@ body {
     border-radius: 20px;
     font-size: 1rem;
   }
-
-/* Hover Effect */   
-.card-menu a:hover {
+  
+  .card-menu a:hover {
     color: #fff;
     background-color: #0edae9;
     transform: translateY(-4px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.btn.signup-button {
+  }
+  
+  .btn.signup-button {
     background-color: #009BA6;
     color: #fff;
     border-radius: 20px;
-}
-
-.card-menu :last-child {
+  }
+  
+  .card-menu :last-child {
     background-color: #009BA6;
     color: #fff;
     border-radius: 20px;
-}
+  }
 
 /* Responsive Design */
 @media (max-width: 1024px) {

@@ -19,12 +19,13 @@ body {
   z-index: 10; /* Ensures it appears above other content */
   width: 180px; /* Adjust mascot size */
   height: auto;
+  animation: bounce 1.5s infinite ease-in-out; /* Bouncy effect */
 }
 
 .mascot {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease; /* Smooth transition for the animation */
+  transition: transform 0.3s ease; /* Smooth transition for hover animation */
 }
 
 /* Hover Animation for Mascot */
@@ -48,6 +49,16 @@ body {
   }
   100% {
     transform: rotate(0deg); /* Back to initial position */
+  }
+}
+
+/* Keyframes for Bouncy Effect */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0); /* Normal position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up slightly */
   }
 }
 
@@ -160,7 +171,7 @@ body {
   padding: 60px 10%;
   margin-top: 50px; 
   border-radius: 30px; 
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 17px rgba(0, 0, 0.1, 0.3);
   overflow: hidden;
   animation: tvOpen 1.5s ease-out;
   margin-bottom: 100px;
@@ -222,8 +233,7 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Card Section (Menu Links) */
-/* Card Menu Styling */
+
 .card-menu {
   font-family: 'Font2';
   font-size: 1.2rem;
