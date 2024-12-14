@@ -156,12 +156,15 @@ section {
 }
 
 .about-img, .work-img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
+  width: auto; /* Maintains aspect ratio */
+  max-width: 80%; /* Ensures consistent size */
+  max-height: 400px; /* Ensures images don't exceed a specific height */
   animation: zoomIn 1s ease-in-out;
-  object-fit: contain;
+  object-fit: contain; /* Ensures the image fits within its container */
+  margin: 0 auto; /* Centers the image */
+  display: block; /* Ensures block layout for alignment */
 }
+
 
 .left-grid, .right-grid {
   display: flex;
