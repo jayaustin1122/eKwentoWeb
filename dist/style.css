@@ -172,15 +172,18 @@ section {
   grid-template-columns: 1fr, 1fr;
   height: 100%;
   padding: 0 50px;
+  animation: fadeIn 1s ease-in-out;
 }
 .about-img {
   width: 90%;
+  animation: zoomIn 1s ease-in-out;
 }
 .left-grid,
 .right-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: slideIn 1s ease-in-out;
 }
 #about .right-grid{
   align-items: center;
@@ -211,7 +214,8 @@ section {
   border: 3px solid #009BA6;
   box-sizing: border-box;
   margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease;  
+  transition: background-color 0.3s ease, transform 0.3s ease; 
+  animation: bounceIn 1.5s ease-in-out; 
 }
 .action-btn:hover {
   background-color: #fff;
@@ -220,6 +224,54 @@ section {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* Card Container */
 .card-menu {
