@@ -121,6 +121,8 @@ section {
   font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
 }
+
+
 #about, #work {
   margin-bottom: 150px;
 }
@@ -144,6 +146,15 @@ section {
   margin-bottom: 30px;
 }
 
+#about .content-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+#work .content-grid {
+  grid-template-columns: 1fr 1fr;
+  direction: rtl; /* This reverses the grid direction */
+}
+
 .about-img, .work-img {
   width: 100%;
   max-width: 100%;
@@ -159,6 +170,10 @@ section {
   animation: slideIn 1s ease-in-out;
 }
 
+#about .right-grid, #work .right-grid {
+  align-items: center;
+}
+
 .section-title {
   font-size: 3.5rem;
   font-weight: 800;
@@ -168,7 +183,7 @@ section {
   margin-top: 15px;
 }
 
-#about .left-grid p {
+#about .left-grid p, #work .left-grid p {
   font-size: 20px;
   line-height: 1.8;
   color: black;
