@@ -15,7 +15,11 @@ body {
   background-color: #E7F6FC;
   padding-top: 10vh; /* Changed to vh for more responsiveness */
   font-family: Arial, sans-serif;
-  box-sizing: border-box; /* Ensure padding and borders don't overflow */
+  box-sizing: border-box; 
+  background-image: url('/pages/assets/bg1.jpg'); 
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the GIF covers the body */
+  background-position: center; /* Centers the GIF */
 }
 
 
@@ -114,10 +118,7 @@ section {
 /* Hero Section */
 
 #hero {
-  background-image: url('/pages/assets/bg1.jpg'); 
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the GIF covers the body */
-  background-position: center; /* Centers the GIF */
+
 }
 
 .hero-content {
