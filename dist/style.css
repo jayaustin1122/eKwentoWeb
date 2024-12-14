@@ -9,17 +9,17 @@
 
 /* Body Background */
 body {
-  background: linear-gradient(#cae4ee, #12B8BD); /* This can be adjusted for overlay effect */
+  background: linear-gradient(#cae4ee, #12B8BD);
   color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
-  padding-top: 10vh; /* Changed to vh for more responsiveness */
+  padding-top: 10vh;
   font-family: Arial, sans-serif;
-  box-sizing: border-box; 
-  background-image: url('/pages/assets/bg1.jpg'); 
+  box-sizing: border-box;
+  background-image: url('/pages/assets/bg1.jpg');
   background-repeat: no-repeat;
-  background-size: cover; /* Ensures the GIF covers the body */
-  background-position: center; /* Centers the GIF */
+  background-size: cover;
+  background-position: center;
 }
 
 section {
@@ -29,7 +29,6 @@ section {
   height: 100vh;
   width: 100%;
 }
-
 
 
 /* Custom Fonts */
@@ -145,6 +144,12 @@ section {
 #work .content-grid {
   grid-template-columns: 1fr 1fr;
 }
+
+#work .content-grid {
+  direction: ltr;
+  justify-content: flex-end;
+}
+
 
 /* Image Styling */
 .about-img, .work-img {
