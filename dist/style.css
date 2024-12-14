@@ -39,7 +39,7 @@ section {
   height: 100vh;
   width: 100vh;
   margin-bottom: 50px;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 
@@ -125,6 +125,13 @@ section {
   margin-bottom: 2vh;
 }
 
+#about {
+  margin-bottom: 150px;
+}
+
+#work {
+  margin-bottom: 100px;
+}
 
 /* About Section */
 .content-grid {
