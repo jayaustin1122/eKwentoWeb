@@ -15,7 +15,6 @@ body {
 
 
 .mascot-container {
-  position: fixed; /* Keeps the mascot fixed in place */
   bottom: 20px; /* Adjust the bottom position */
   left: 20px; /* Adjust the left position */
   z-index: 10; /* Ensures it appears above other content */
