@@ -1,17 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-family: 'MyCustomFont', sans-serif;
+}
+
+
 /* Body Background */
 body {
   background: linear-gradient(#cae4ee, #12B8BD); /* This can be adjusted for overlay effect */
   color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
   background-color: #E7F6FC;
-  background-image: url('/pages/assets/bg1.jpg'); 
-  background-repeat: no-repeat;
-  background-size: cover; /* Ensures the GIF covers the body */
-  background-position: center center; /* Centers the GIF */
   padding-top: 10vh; /* Changed to vh for more responsiveness */
   font-family: Arial, sans-serif;
   box-sizing: border-box; /* Ensure padding and borders don't overflow */
-  position: relative;
 }
 
 
@@ -87,6 +91,14 @@ body {
 }
 
 /* Hero Section */
+
+#hero {
+  background-image: url('/pages/assets/bg1.jpg'); 
+  background-repeat: no-repeat;
+  background-size: cover; /* Ensures the GIF covers the body */
+  background-position: center; /* Centers the GIF */
+}
+
 .hero-content {
   position: relative;
   padding: 5vw 10%; /* Adjusted to use vw for more responsiveness */
@@ -94,7 +106,6 @@ body {
   overflow: hidden;
   text-align: center;
   width: 100%;
-
   background-size: cover;
   background-attachment: fixed; 
   background-position: center; 
@@ -136,6 +147,70 @@ body {
   font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
 }
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+
+/* About Section */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  height: 100%;
+  padding: 0 50px;
+}
+.about-img {
+  width: 90%;
+}
+.left-grid,
+.right-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#about .right-grid{
+  align-items: center;
+}
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+#about .left-grid p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: black;
+}
+.action-btn {
+  font-family: 'MyCustomFont';
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
+  padding: 15px 30px;
+  display: inline-block;
+  border: 3px solid #009BA6;
+  box-sizing: border-box;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;  
+}
+.action-btn:hover {
+  background-color: #fff;
+  color: #009BA6;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 
 /* Card Container */
 .card-menu {

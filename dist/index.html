@@ -9,41 +9,31 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
-
 </head>
 <body>
 
-
-<!-- JERSONCORPORAL -->
-
-
     <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand fw-bold" href="../index.html">AI-BASYANG</a>
-                <form class="d-flex ms-auto">
-                    <input class="form-control me-2" type="search" placeholder="Maghanap..." aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
-                </form>
-            </div>
-        </nav>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="../index.html">AI-BASYANG</a>
+            <form class="d-flex ms-auto">
+                <input class="form-control me-2" type="search" placeholder="Maghanap..." aria-label="Search">
+                <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </nav>
 
     <!-- Card Section -->
     <div class="card-menu">
-        <a href="../pages/about.html">Tungkol sa </a>
+        <a href="../pages/about.html">Tungkol sa</a>
         <a href="../pages/tuklasin.html">Tuklasin</a>
         <a href="../pages/faqs.html">Tanong</a>
         <a href="../pages/sign_up.html" class="btn signup-button">Mag-sign Up</a> 
         <a href="../pages/sign_in.html">Mag-sign In</a>
     </div>
-    </div>
-    
-   
 
     <!-- Hero Section -->
-    <!-- Hero Section -->
-    <div class="container hero-section">
+    <section id="hero">
         <div class="hero-content">
             <div class="row">
                 <!-- Image Section (Left) -->
@@ -66,8 +56,27 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
+    <section id="about">
+        <div class="section-box">
+            <div class="content-grid">
+                <div class="left-grid">
+                    <h3 class="section title">Tungkol sa AI-BASYANG</h3>
+                    <p>
+                    Ang AI-BASYANG ay isang e-kagamitan na naglalayon na maging kaagapay at gabay ng bawat mag-aaral sa kanilang paglalakbay sa panitikan!
+                    </p>
+                    <button class="action-btn">Kilalanin pa</button>
+                </div>
+
+                <div class="right-grid">
+                    <img src="/pages/assets/gm1.png" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row align-items-center">
@@ -79,26 +88,27 @@
                     </div>
                     <p class="footer-description">Ang AI-BASYANG ay isang plataporma na nagbibigay ng makabagong pamamaraan upang magbasa, magtuklas, at maglakbay sa mga kuwentong magpapayaman sa iyong kaalaman.</p>
                 </div>
-  
-                <!-- Social Links (Middle) -->
+
+                <!-- Social Links -->
                 <div class="col-md-2 mb-3">
                     <p>Social</p>
                     <a href="#" aria-label="Facebook">Facebook</a>
                 </div>
-                <!-- Help Links (Middle) -->
+
+                <!-- Help Links -->
                 <div class="col-md-2 mb-3">
                     <p>Humingi ng tulong</p>
                     <a href="../pages/faqs.html">Tanong</a>
                 </div>
-                <!-- Company Links (Right) -->
+
+                <!-- Company Links -->
                 <div class="col-md-2 mb-3">
                     <p>Company</p>
                     <a href="../pages/about.html">Tungkol sa</a>
                     <a href="../pages/tuklasin.html">Tuklasin</a>
-            
-        
                 </div>
-                <!-- QR Code (Right) -->
+
+                <!-- QR Code -->
                 <div class="col-md-2 mb-3">
                     <img class="qr-code" src="/pages/assets/qr.png" alt="QR code for E-kwento">
                 </div>
@@ -108,6 +118,8 @@
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script type="module" src="../index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
