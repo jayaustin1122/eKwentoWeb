@@ -302,10 +302,35 @@ body {
     animation: tvOpen 1.5s ease-out;
     margin-bottom: 100px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(12px);
+    background-color: transparent; /* Remove blur effect directly from .signup-form */
     border-radius: 30px;
+    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
 }
+
+.signup-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    backdrop-filter: blur(12px); /* Apply blur to the background only */
+    z-index: -1; /* Place behind the content */
+    border-radius: inherit; /* Matches the border radius of the parent */
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Smooth transition on hover */
+}
+
+.signup-form:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+}
+
+.signup-form:hover::before {
+    transform: scale(1.05); /* Scale the blurred background on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for the blur */
+}
+
 
 .signup-icon {
     width: 100px;
@@ -318,6 +343,8 @@ body {
 
 
 .signup-form h2 {
+    position: relative;
+    text-align: center;
     font-size: 27px;
     font-weight: bold;
     color: #333;
