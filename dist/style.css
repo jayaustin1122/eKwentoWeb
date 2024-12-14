@@ -152,6 +152,11 @@ section {
   object-fit: contain;
   display: block;
   margin: 0 auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-img:hover, .work-img:hover {
+  animation: shake 0.5s ease-in-out;
 }
 
 /* Left and Right Grid Alignment */
@@ -225,6 +230,14 @@ section {
   100% {
     transform: scale(1);
   }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes slideIn {
