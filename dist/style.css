@@ -131,10 +131,12 @@ section {
   height: 100%;
   padding: 0 50px;
   animation: fadeIn 1s ease-in-out;
+  margin-bottom: 30px;
 }
 .about-img {
   width: 90%;
   animation: zoomIn 1s ease-in-out;
+  margin-bottom: 30px;
 }
 .left-grid,
 .right-grid {
@@ -152,6 +154,7 @@ section {
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 20px;
+  margin-top: 10px
 }
 
 #about .left-grid p {
