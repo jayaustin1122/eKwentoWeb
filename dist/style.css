@@ -120,10 +120,9 @@ section {
 .hero-content p {
   font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
-  color: gray;
+  color: rgb(68, 68, 68);
 }
 
-ss
 #about, #work {
   margin-bottom: 150px;
 }
