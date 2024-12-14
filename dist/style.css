@@ -42,9 +42,6 @@ section {
   margin-top: 80px;
 }
 
-
-
-
 /* Custom Fonts */
 @font-face {
   font-family: 'MyCustomFont'; 
@@ -124,46 +121,51 @@ section {
   font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
 }
-
-#about {
+#about, #work {
   margin-bottom: 150px;
 }
 
-#work {
-  margin-bottom: 100px;
+.section-box {
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-/* About Section */
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr, 1fr;
-  height: 100%;
+  grid-template-columns: 1fr 1fr;
   padding: 0 50px;
+  height: 100%;
+  align-items: center;
   animation: fadeIn 1s ease-in-out;
   margin-bottom: 30px;
 }
-.about-img {
-  width: 70%;
+
+.about-img, .work-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   animation: zoomIn 1s ease-in-out;
-  margin-bottom: 30px;
+  object-fit: contain;
 }
-.left-grid,
-.right-grid {
+
+.left-grid, .right-grid {
   display: flex;
   flex-direction: column;
   align-items: center;
   animation: slideIn 1s ease-in-out;
 }
-#about .right-grid{
-  align-items: center;
-}
+
 .section-title {
   font-size: 3.5rem;
   font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-bottom: 20px;
-  margin-top: 15px
+  margin-top: 15px;
 }
 
 #about .left-grid p {
@@ -171,6 +173,7 @@ section {
   line-height: 1.8;
   color: black;
 }
+
 .action-btn {
   font-family: 'MyCustomFont';
   font-size: 2rem;
@@ -184,15 +187,17 @@ section {
   border: 3px solid #009BA6;
   box-sizing: border-box;
   margin-top: 20px;
-  transition: background-color 0.3s ease, transform 0.3s ease; 
-  animation: bounceIn 1.5s ease-in-out; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: bounceIn 1.5s ease-in-out;
 }
+
 .action-btn:hover {
   background-color: #fff;
   color: #009BA6;
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 
 @keyframes fadeIn {
