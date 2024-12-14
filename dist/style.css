@@ -1,57 +1,59 @@
-/* Root Variables */
-:root {
-  --primary-color: #0096A0;
-  --secondary-color: #007a7d;
-  --background-color: #E7F6FC;
-  --footer-text-color: #3F7AA1;
-  --text-dark: #333;
-  --text-light: #f8f9fa;
-}
-
 /* Body Background */
 body {
+  background: linear-gradient(#cae4ee, #12B8BD); /* This can be adjusted for overlay effect */
+  color: #2a2a2a;
   animation: fadeIn 0.5s forwards;
-  font-family: 'MyCustomFont', Arial, sans-serif;
-  background: linear-gradient(#cae4ee, #12B8BD);
+  background-color: #E7F6FC;
   background-image: url('/pages/assets/bg1.jpg'); 
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  padding-top: 10vh;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  color: #2a2a2a;
-  box-sizing: border-box;
+  background-size: cover; /* Ensures the GIF covers the body */
+  background-position: center center; /* Centers the GIF */
+  padding-top: 10vh; /* Changed to vh for more responsiveness */
+  font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Ensure padding and borders don't overflow */
 }
 
-/* Mascot */
+
 .mascot-container {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  z-index: 10;
-  width: 180px;
+  position: fixed; /* Keeps the mascot fixed on the page */
+  bottom: 20px; /* Adjust the bottom position */
+  left: 20px; /* Adjust the left position */
+  z-index: 10; /* Ensures it appears above other content */
+  width: 180px; /* Adjust mascot size */
   height: auto;
 }
 
 .mascot {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; /* Smooth transition for the animation */
 }
 
+/* Hover Animation for Mascot */
 .mascot-container:hover .mascot {
-  animation: waveHand 1.2s ease-in-out;
+  animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
 }
 
+/* Keyframes for Hover Animation */
 @keyframes waveHand {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(10deg); }
-  50% { transform: rotate(-10deg); }
-  75% { transform: rotate(10deg); }
+  0% {
+    transform: rotate(0deg); /* Initial position */
+  }
+  25% {
+    transform: rotate(10deg); /* Slight rotation to the right */
+  }
+  50% {
+    transform: rotate(-10deg); /* Slight rotation to the left */
+  }
+  75% {
+    transform: rotate(10deg); /* Back to the right */
+  }
+  100% {
+    transform: rotate(0deg); /* Back to initial position */
+  }
 }
+
+
 
 /* Custom Fonts */
 @font-face {
@@ -67,79 +69,93 @@ body {
 /* Navbar */
 .navbar {
   animation: fadeIn 0.6s ease-in-out;
-  background-color: #f8f9fa;
-  padding: 0.5% 1%;
+  background-color: #f8f9fa; 
+  box-shadow: none;
+  padding: 0.5% 1%; /* Adjusted for better responsiveness */
   margin-bottom: 5%;
 }
 
 .navbar-brand {
-  color: var(--primary-color);
+  color: #0096A0;
   font-weight: bolder;
   font-size: 1.5rem;
 }
 
 .navbar .navbar-toggler {
-  border: 1px solid var(--primary-color);
+  border: 1px solid #0096A0;
 }
 
 /* Hero Section */
 .hero-content {
   position: relative;
-  padding: 5vw 10%;
+  padding: 5vw 10%; /* Adjusted to use vw for more responsiveness */
   margin-top: 10vh;
   overflow: hidden;
   text-align: center;
   width: 100%;
+
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+  background-attachment: fixed; 
+  background-position: center; 
+  max-width: 100%;
 }
 
-.hero-content img {
-  max-width: 100%;
+.img-fluid {
+  max-width: 100%; /* Ensure image scales correctly */
   height: auto;
-  animation: zoomIn 0.9s ease-in-out;
+}
+
+
+.e-kwento-button {
+  font-family: 'MyCustomFont';
+  font-size: 3vw; /* Adjusted for better scalability */
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
+  padding: 3vh 5vw; /* Adjusted for responsive padding */
+  display: inline-block; 
+  border: 3px solid #009BA6; 
+  box-sizing: border-box; 
+  margin-bottom: 5vh;
+}
+
+.fw-bold {
+  font-weight: bolder;
+  color: #009BA6;
+}
+
+.hero-text {
+  max-width: 80%; /* Updated to be more responsive */
+  margin: 0 auto;
 }
 
 .hero-content p {
-  font-size: 2rem;
+  font-size: 2rem; /* Adjusted for better scaling */
   margin-bottom: 2vh;
 }
 
-/* Button */
-.e-kwento-button {
-  font-family: 'MyCustomFont';
-  font-size: 3vw;
-  font-weight: bold;
-  text-transform: uppercase;
-  background-color: var(--primary-color);
-  color: #fff;
-  border-radius: 20px;
-  padding: 3vh 5vw;
-  border: 3px solid var(--primary-color);
-  margin-bottom: 5vh;
-  box-sizing: border-box;
-}
-
-/* Card Menu */
+/* Card Container */
 .card-menu {
   font-family: 'Font2';
-  font-size: 1.8rem;
+  font-size: 1.8rem; /* Adjusted font-size for responsiveness */
   display: flex;
   justify-content: center;
   padding: 0.5vw 0;
   gap: 5%;
-  margin: 1vh auto 0;
+  margin: 0 auto;
+  margin-top: 1vh;
   background-color: #f3f3f3;
   border-radius: 45px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-  width: 75%;
+  box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.5);
+  width: 75%; /* Adjusted to be more responsive */
 }
 
 .card-menu a {
-  color: var(--primary-color);
+  color: #009BA6;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjusted for better readability */
   font-weight: 600;
   text-align: center;
   padding: 8px 13px;
@@ -154,14 +170,27 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
+.btn.signup-button {
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.card-menu :last-child {
+  background-color: #009BA6;
+  color: #fff;
+  border-radius: 20px;
+}
+
 /* Footer */
 footer {
   background-color: #F3F3F3;
   color: #333;
   padding: 5vw;
   font-family: 'MyCustomFont';
-  width: 100%;
   margin-top: auto;
+  height: auto;
+  width: 100%;
   box-sizing: border-box;
 }
 
@@ -173,26 +202,28 @@ footer {
   width: 100%;
 }
 
+.footer-logo-section, .footer-sections {
+  flex: 1;
+  min-width: 250px;
+}
+
 .footer-logo {
   font-size: 2rem;
-  color: var(--footer-text-color);
+  color: #008b8b;
   font-weight: bold;
+}
+
+.footer-logo-icon {
+  height: 50px;
+  width: 50px;
 }
 
 .footer-description {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjusted font size */
   color: #000000;
   line-height: 1.5;
-}
-
-.footer a {
-  color: var(--text-dark);
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: var(--secondary-color);
+  max-width: 300px;
 }
 
 .footer-bottom {
@@ -202,22 +233,146 @@ footer {
   margin-top: 20px;
 }
 
-/* Animations */
+.footer-sections {
+  display: flex;
+  gap: 40px;
+  flex: 3;
+  justify-content: flex-end;
+  min-width: 300px;
+}
+
+.footer-section {
+  color: #008b8b;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.footer-section a {
+  display: block;
+  color: #333;
+  font-size: 1.4rem;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.footer-section a:hover {
+  color: #008b8b;
+}
+
+.qr-code {
+  width: 100px;
+  margin-left: 20px;
+}
+
+.col-md-2 {
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+}
+
+.col-md-2 p {
+  font-size: 1.8rem; /* Adjusted font size */
+  font-weight: 900;
+  margin-bottom: 12px;
+  color: #009BA6;
+}
+
+.col-md-2 a {
+  font-weight: bold;
+  color: #010305;
+  text-decoration: none;
+  margin-right: 20px; /* Space between the links */
+  display: block; /* Ensures the links are inline and horizontal */
+}
+
+.col-md-2 a:hover {
+  color: #007a7d;
+}
+
+/* Apply Animations */
+.navbar {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.card {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.hero-section {
+  animation: slideIn 1s ease-in-out;
+}
+
+.hero-content img {
+  animation: zoomIn 0.9s ease-in-out;
+}
+
+.footer {
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Ensure smooth appearance */
+body {
+  animation: fadeIn 0.5s forwards;
+}
+
+/* Keyframes */
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes zoomIn {
-  0% { opacity: 0; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Responsive Design */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small screens (mobile devices) */
 @media (max-width: 767px) {
   .hero-content {
     padding: 10vw 10%;
     margin-top: 20vh;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
+
+  .hero-text {
+    width: 90%;
+    margin: 0 auto;
   }
 
   .e-kwento-button {
@@ -230,8 +385,15 @@ footer {
     width: 90%;
   }
 
+  .card-menu a {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+
   .footer-container {
     flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
@@ -239,13 +401,23 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
   }
+
+  .footer-section {
+    margin-top: 10px;
+  }
+
+  /* Image visibility on mobile */
+  .hero-content img {
+    display: block;
+  }
 }
 
+/* Medium screens (tablets) */
 @media (min-width: 768px) and (max-width: 991px) {
   .hero-content {
     padding: 5vw 15%;
   }
-
+  
   .card-menu {
     width: 80%;
   }
