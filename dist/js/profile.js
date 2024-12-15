@@ -140,7 +140,9 @@ async function handleChangePassword(event) {
         form.classList.add('was-validated');
         return;
     }
-
+    document.getElementById("back-button").addEventListener("click", function() {
+        window.history.back(); // Navigate back to the previous page
+    });
     const user = auth.currentUser;
     if (user) {
         const oldPassword = document.getElementById('oldPassword').value;
