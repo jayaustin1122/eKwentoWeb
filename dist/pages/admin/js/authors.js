@@ -6,6 +6,78 @@ const usersTableBody = document.querySelector('tbody');
 const usersCollectionRef = collection(db, 'users');  // Path to 'users' collection
 const searchInput = document.getElementById('searchInput');
 
+function attachLogoutEventListener() {
+    const logoutButton = document.getElementById('logout');
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', async () => {
+            // Ask the user if they are sure about logging out
+            Swal.fire({
+                title: 'Sigurado ka ba?',
+                text: 'Gusto mo ba talagang mag log out?',
+                icon: 'warning', // Corrected icon
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Oo',
+                cancelButtonText: 'Kanselahin',
+                buttonsStyling: true 
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    // Show loading indicator
+                    Swal.fire({
+                        title: 'Nagla-log out...',
+                        text: 'Mangyaring maghintay...',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading(); // Show loading
+                        }
+                    });
+
+                    try {
+                        // Attempt to sign out
+                        await signOut(auth);
+                        console.log('Matagumpay na naka-sign out');
+
+                        // Show success message
+                        Swal.fire({
+                            title: 'Logged Out!',
+                            text: 'Matagumpay kang na-log out.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            // Redirect to homepage after logout
+                            window.location.href = '../../index.html';
+                        });
+
+                    } catch (error) {
+                        console.error('Logout failed:', error.message);
+                        Swal.fire({
+                            title: 'Logout Failed',
+                            text: 'An error occurred while logging out. Please try again.',
+                            icon: 'error',
+                            confirmButtonText: 'Okay'
+                        });
+                    }
+                }
+            });
+        });
+    } else {
+        console.error("Logout button not found!");
+    }
+}
+
+window.addEventListener('load', attachLogoutEventListener);
+const storage = getStorage();
+onAuthStateChanged(auth, (user) => {
+   if (user) {
+       console.log("User is logged in:", user);
+     
+   } else {
+       console.log("No user is authenticated, redirecting to login.");
+   }
+});
+
 // Array to hold rows for search functionality
 let rows = [];
 
@@ -125,7 +197,7 @@ async function handleStatusClick(event) {
 
             // Show success message
             Swal.fire({
-                icon: 'tagumpay',
+                icon: 'success',
                 title: 'Na-update ang Katayuan!',
                 text: `Ang gumagamit ay naging ${newStatus.toLowerCase()}.`
             });

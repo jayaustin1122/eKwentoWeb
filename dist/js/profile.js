@@ -23,18 +23,24 @@ function fetchUserProfile(userId) {
             const userData = docSnap.data();
             console.log("User profile data:", userData);
 
-        
+            // Set user data fields
             document.getElementById('firstName').value = userData.firstName || '';
             document.getElementById('lastName').value = userData.lastName || '';
             document.getElementById('birthdate').value = userData.birthdate || '';
             document.getElementById('gender').value = userData.gender || '';
             document.getElementById('address').value = userData.address || 'Not Set';
 
-      
-           const profilePictureImg = document.querySelector('img[alt="Profile Placeholder"]');
-           if (userData.profilePicture) {
-               profilePictureImg.src = userData.profilePicture;
-           }
+            // Select the profile picture element
+            const profilePictureImg = document.querySelector('img[alt="Profile Placeholder"]');
+
+            // If profile picture exists, set the image source; otherwise, use placeholder
+            if (userData.profilePicture) {
+                profilePictureImg.src = userData.profilePicture;
+            } else {
+                // Set a Bootstrap placeholder image
+                profilePictureImg.src = "https://via.placeholder.com/150";  // Default image link
+                profilePictureImg.alt = "Profile Placeholder";
+            }
         } else {
             console.log("No such document!");
         }
@@ -42,6 +48,7 @@ function fetchUserProfile(userId) {
         console.error("Error fetching user profile:", error);
     });
 }
+
 
 async function handleProfileUpdate(event) {
     event.preventDefault();
@@ -140,7 +147,9 @@ async function handleChangePassword(event) {
         form.classList.add('was-validated');
         return;
     }
-
+    document.getElementById("back-button").addEventListener("click", function() {
+        window.history.back(); // Navigate back to the previous page
+    });
     const user = auth.currentUser;
     if (user) {
         const oldPassword = document.getElementById('oldPassword').value;
