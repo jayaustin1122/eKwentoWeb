@@ -18,7 +18,8 @@ function attachLogoutEventListener() {
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oo',
-                cancelButtonText: 'Kanselahin'
+                cancelButtonText: 'Kanselahin',
+                buttonsStyling: true 
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
@@ -41,7 +42,8 @@ function attachLogoutEventListener() {
                             title: 'Logged Out!',
                             text: 'Matagumpay kang na-log out.',
                             icon: 'tagumpay',
-                            confirmButtonText: 'OK'
+                            confirmButtonText: 'OK',
+                            buttonsStyling: true 
                         }).then(() => {
                             // Redirect to homepage after logout
                             window.location.href = '../../index.html';
@@ -266,6 +268,7 @@ async function handleStatusClick(bookPath, currentStatus) {
         confirmButtonColor: '#3085d6',
         denyButtonColor: '#d33',
         cancelButtonColor: '#aaa',
+        buttonsStyling: true 
     });
 
     console.log('User action - isConfirmed:', isConfirmed, 'isDenied:', isDenied);

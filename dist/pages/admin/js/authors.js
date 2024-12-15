@@ -15,12 +15,13 @@ function attachLogoutEventListener() {
             Swal.fire({
                 title: 'Sigurado ka ba?',
                 text: 'Gusto mo ba talagang mag log out?',
-                icon: 'babala',
+                icon: 'warning', // Corrected icon
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oo',
-                cancelButtonText: 'Kanselahin'
+                cancelButtonText: 'Kanselahin',
+                buttonsStyling: true 
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
@@ -42,7 +43,7 @@ function attachLogoutEventListener() {
                         Swal.fire({
                             title: 'Logged Out!',
                             text: 'Matagumpay kang na-log out.',
-                            icon: 'tagumpay',
+                            icon: 'success',
                             confirmButtonText: 'OK'
                         }).then(() => {
                             // Redirect to homepage after logout
@@ -74,9 +75,9 @@ onAuthStateChanged(auth, (user) => {
      
    } else {
        console.log("No user is authenticated, redirecting to login.");
-
    }
 });
+
 // Array to hold rows for search functionality
 let rows = [];
 
@@ -196,7 +197,7 @@ async function handleStatusClick(event) {
 
             // Show success message
             Swal.fire({
-                icon: 'tagumpay',
+                icon: 'success',
                 title: 'Na-update ang Katayuan!',
                 text: `Ang gumagamit ay naging ${newStatus.toLowerCase()}.`
             });
