@@ -278,7 +278,6 @@ section {
   transition: all 0.3s ease;
   border-radius: 20px;
 }
-
 .card-menu a:hover {
   color: #fff;
   background-color: #0edae9;
@@ -286,16 +285,16 @@ section {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.btn.signup-button {
-  background-color: #009BA6;
-  color: #fff;
-  border-radius: 20px;
-}
-
-.card-menu :last-child {
-  background-color: #009BA6;
-  color: #fff;
-  border-radius: 20px;
+.btn-sign {
+  display: inline-block;
+  text-decoration: none; /* Remove underline */
+  color: #fff;   /* Text color */
+  background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+  border-radius: 8px; /* Rounded corners for a modern feel */
+  font-size: 16px; /* Font size */
+  font-family: 'MyCustomFont', sans-serif; /* Use your custom font */
+  transition: all 0.3s ease-in-out; /* Smooth transition effect */
+  box-shadow: 0 6px 9px rgba(0, 0, 0.1, 0.2); /* Subtle shadow for depth */
 }
 
 /* Footer */

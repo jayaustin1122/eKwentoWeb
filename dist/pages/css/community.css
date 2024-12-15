@@ -22,11 +22,62 @@
     font-family: 'MyCustomFont', Arial, sans-serif;
     background-color: #E7F6FC;
     padding-top: 10vh;
-    background-image: url('../assets/sky.jpg'); 
+    background-image: url('../assets/bg1.jpg'); 
     background-size: cover;
     background-attachment: fixed; 
     background-position: center; 
   }
+
+  .mascot-container {
+    position: fixed; /* Keeps the mascot fixed on the page */
+    bottom: 20px; /* Adjust the bottom position */
+    left: 20px; /* Adjust the left position */
+    z-index: 10; /* Ensures it appears above other content */
+    width: 180px; /* Adjust mascot size */
+    height: auto;
+    animation: bounce 1.5s infinite ease-in-out; /* Bouncy effect */
+  }
+  
+  .mascot {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for hover animation */
+  }
+  
+  /* Hover Animation for Mascot */
+  .mascot-container:hover .mascot {
+    animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+  }
+  
+  /* Keyframes for Hover Animation */
+  @keyframes waveHand {
+    0% {
+      transform: rotate(0deg); /* Initial position */
+    }
+    25% {
+      transform: rotate(10deg); /* Slight rotation to the right */
+    }
+    50% {
+      transform: rotate(-10deg); /* Slight rotation to the left */
+    }
+    75% {
+      transform: rotate(10deg); /* Back to the right */
+    }
+    100% {
+      transform: rotate(0deg); /* Back to initial position */
+    }
+  }
+  
+  /* Keyframes for Bouncy Effect */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0); /* Normal position */
+    }
+    50% {
+      transform: translateY(-10px); /* Move up slightly */
+    }
+  }
+
   /* Navbar Styles */
   .navbar {
     font-family: 'MyCustomFont', sans-serif;
@@ -39,7 +90,7 @@
   
   .navbar-brand {
     font-family: 'MyCustomFont', sans-serif;
-    font-size: 2.0rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #0096A0;
     letter-spacing: 2px;
@@ -52,15 +103,16 @@
   }
   
   .navbar-nav .nav-link {
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'MyCustomFont', sans-serif;
     color: #0db3be;
-    font-size: 22px;
+    font-size: 15px;
     padding: 8px 15px;
     text-transform: uppercase;
     margin-right: 50px;
     margin-top: 10px;
     border-radius: 15px;
+    text-decoration: underline;
   }
   
   .navbar-nav .nav-link:hover {

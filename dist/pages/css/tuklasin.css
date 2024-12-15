@@ -16,55 +16,61 @@
     src: url('../assets/fonts/Kanit-Regular.ttf') format('truetype'); 
   }
 
-  .mascot-container {
-    position: fixed; /* Keeps the mascot fixed on the page */
-    bottom: 20px; /* Adjust the bottom position */
-    left: 20px; /* Adjust the left position */
-    z-index: 10; /* Ensures it appears above other content */
-    width: 180px; /* Adjust mascot size */
-    height: auto;
-    animation: bounce 1.5s infinite ease-in-out; /* Bouncy effect */
+/* Mascot Container Styling */
+.mascot-container {
+  position: fixed; /* Keeps the mascot fixed on the page */
+  bottom: 20px; /* Adjust the bottom position */
+  right: 20px; /* Position on the right side of the page */
+  z-index: 10; /* Ensures it appears above other content */
+  width: 180px; /* Adjust mascot size */
+  height: auto;
+  animation: bounce 1.5s infinite ease-in-out; /* Bouncy effect */
+}
+
+/* Mascot Image Styling */
+.mascot {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease; /* Smooth transition for hover animation */
+}
+
+/* Hover Animation for Mascot */
+.mascot-container:hover .mascot {
+  animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+}
+
+/* Keyframes for Hover Animation */
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg); /* Initial position */
   }
-  
-  .mascot {
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease; /* Smooth transition for hover animation */
+  25% {
+    transform: rotate(10deg); /* Slight rotation to the right */
   }
-  
-  /* Hover Animation for Mascot */
-  .mascot-container:hover .mascot {
-    animation: waveHand 1.2s ease-in-out; /* Trigger waving hand animation */
+  50% {
+    transform: rotate(0deg); /* Back to initial position */
   }
-  
-  /* Keyframes for Hover Animation */
-  @keyframes waveHand {
-    0% {
-      transform: rotate(0deg); /* Initial position */
-    }
-    25% {
-      transform: rotate(10deg); /* Slight rotation to the right */
-    }
-    50% {
-      transform: rotate(-10deg); /* Slight rotation to the left */
-    }
-    75% {
-      transform: rotate(10deg); /* Back to the right */
-    }
-    100% {
-      transform: rotate(0deg); /* Back to initial position */
-    }
+  75% {
+    transform: rotate(-10deg); /* Slight rotation to the left */
   }
-  
-  /* Keyframes for Bouncy Effect */
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(0); /* Normal position */
-    }
-    50% {
-      transform: translateY(-10px); /* Move up slightly */
-    }
+  100% {
+    transform: rotate(0deg); /* Back to initial position */
   }
+}
+
+/* Bounce Effect Keyframes */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px); /* Upward bounce */
+  }
+  60% {
+    transform: translateY(-5px); /* Slight downward movement */
+  }
+}
+
   
   /* General Body Styles */
   body {
