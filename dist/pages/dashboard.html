@@ -6,6 +6,7 @@
     <title>E-kwento</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Custom CSS -->
@@ -22,14 +23,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto"  data-aos="fade-down">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/dashboard.html">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/tuklasin.html">Tuklasin</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/community.html">Kuminidad</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/faqs.html">Tanong</a></li>
-        
-                    <li class="nav-item"><a class="nav-link" href="../pages/dashboard.html"><i class="fas fa-user"></i></a></li>
                     <li class="logout">
                         <a href="javascript:void(0);" id="logout">
                             <i class="lni lni-exit"></i>
@@ -45,8 +44,8 @@
     </nav>
 
     <!-- Main Content -->
-    <div class="container mt-4  pt-1 ms-8">
-        <div class="row">
+    <div class="container mt-4  pt-1 ms-8" data-aos="fade-left">
+        <div class="row" >
             <!-- Profile Card -->
             <div class="col-sm-3">
                 <div class="profile-card">
@@ -71,6 +70,9 @@
                     </div>
                     <a href="../pages/profile.html" class="profile-button">I-edit ang Profile</a>
                 </div>
+                <div class="book-img" data-aos="fade-right">
+                    <img src="assets/book circle.png" class="book-circle" alt="Work Process">
+                </div>
             </div>
             
 
@@ -82,14 +84,14 @@
                     <h4 class="nav-item1" onclick="showCards('story-cards3')">Aklatan</h4>
                 </div>
                 <!--All Books-->
-                <div class="container story-cards">
+                <div class="container story-cards" data-aos="fade-up">
                     <div class="row g-10 "> 
                         <!-- Dynamic Cards for 'All' will be inserted here -->
                     </div>
                 </div>
             
                                <!--Library-->
-                <div class="container story-cards3" style="display: none;"> <!-- Initially hidden -->
+                <div class="container story-cards3" data-aos="fade-up" style="display: none;"> <!-- Initially hidden -->
                     <div class="row g-10"> 
                         <!-- Dynamic Cards for 'Library' will be inserted here -->
                     </div>
@@ -99,8 +101,8 @@
                
 
                 <!-- Recommended Books Section -->
-                <h4 class="mt-10">Mga Inirerekomendang Aklat para sa Iyo</h4>
-                <div class="story-cardss">
+                <h4 class="mt-10" data-aos="fade-up">Mga Inirerekomendang Aklat para sa Iyo</h4>
+                <div class="story-cardss" data-aos="fade-up">
                     <div class="row g-10"> <!-- Adjust the gutter space -->
                         <!-- Dynamic Cards will be inserted here -->
                     </div>
@@ -109,7 +111,7 @@
         </div>
     </div>
 
-    <footer class="footer fixed-buttom">
+    <footer class="footer fixed-buttom" data-aos="fade-up">
         <div class="container">
             <div class="row align-items-center">
   
@@ -178,6 +180,17 @@
         });
         
     </script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 1200, // Animation duration
+                once: false,    // Allows animations to replay
+                offset: 120,    // Trigger animation earlier
+                easing: 'ease-in-out', // Smooth easing
+            });
+            window.addEventListener('load', AOS.refresh); // Refresh AOS on page load
+        </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
