@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const userStatus = userData.status;  // Check the user's status
 
                 // Check if the user's account is approved
-                if (userStatus !== 'Approved') {
+                if (userStatus !== 'Approved' && userStatus !== 'Naaprubahan') {
                     Swal.fire({
                         icon: 'warning',
                         title: 'Account Hindi Pa-Naaprubahan',
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                     return;
                 }
-
+                
                 // If the account is approved, proceed to check the userType
                 Swal.fire({
                     icon: 'success',
