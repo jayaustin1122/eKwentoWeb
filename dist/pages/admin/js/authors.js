@@ -1,10 +1,9 @@
-import { auth, db } from './index.js';
-import { collection, getDocs, setDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
 
-// Select the table body and search input
-const usersTableBody = document.querySelector('tbody');
-const usersCollectionRef = collection(db, 'users');  // Path to 'users' collection
-const searchInput = document.getElementById('searchInput');
+import { collection, getDocs, setDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { auth, db } from './index.js';
+import { getStorage} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js';
+import { onAuthStateChanged , signOut} from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
+
 function attachLogoutEventListener() {
     const logoutButton = document.getElementById('logout');
 
@@ -14,17 +13,13 @@ function attachLogoutEventListener() {
             Swal.fire({
                 title: 'Sigurado ka ba?',
                 text: 'Gusto mo ba talagang mag log out?',
-                icon: 'warning',
+                icon: 'babala',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oo',
                 cancelButtonText: 'Kanselahin',
-                buttonsStyling: false,  // Disable default SweetAlert2 button styling
-                customClass: {
-                    confirmButton: 'btn btn-primary',  // Apply Bootstrap styles
-                    cancelButton: 'btn btn-danger ml-2'  // Add margin for spacing
-                }
+                buttonsStyling: true 
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
@@ -33,7 +28,7 @@ function attachLogoutEventListener() {
                         text: 'Mangyaring maghintay...',
                         allowOutsideClick: false,
                         didOpen: () => {
-                            Swal.showLoading();  // Show loading
+                            Swal.showLoading(); // Show loading
                         }
                     });
 
@@ -46,8 +41,9 @@ function attachLogoutEventListener() {
                         Swal.fire({
                             title: 'Logged Out!',
                             text: 'Matagumpay kang na-log out.',
-                            icon: 'success',
-                            confirmButtonText: 'OK'
+                            icon: 'tagumpay',
+                            confirmButtonText: 'OK',
+                            buttonsStyling: true 
                         }).then(() => {
                             // Redirect to homepage after logout
                             window.location.href = '../../index.html';
@@ -70,16 +66,21 @@ function attachLogoutEventListener() {
     }
 }
 
-
 window.addEventListener('load', attachLogoutEventListener);
+const storage = getStorage();
 onAuthStateChanged(auth, (user) => {
    if (user) {
        console.log("User is logged in:", user);
      
    } else {
        console.log("No user is authenticated, redirecting to login.");
+
    }
 });
+// Select the table body and search input
+const usersTableBody = document.querySelector('tbody');
+const usersCollectionRef = collection(db, 'users');  // Path to 'users' collection
+const searchInput = document.getElementById('searchInput');
 
 // Array to hold rows for search functionality
 let rows = [];
