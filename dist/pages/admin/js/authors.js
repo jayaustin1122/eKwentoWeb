@@ -10,8 +10,8 @@ function attachLogoutEventListener() {
     if (logoutButton) {
         logoutButton.addEventListener('click', async () => {
             // Ask the user if they are sure about logging out
-            Swal.fire({
-                title: 'Sigurado ka ba?',
+                        Swal.fire({
+                            title: 'Sigurado ka ba?',
                 text: 'Gusto mo ba talagang mag log out?',
                 icon: 'warning',  // Keep 'warning' as the valid icon value
                 showCancelButton: true,
@@ -24,8 +24,6 @@ function attachLogoutEventListener() {
                     confirmButton: 'btn btn-primary swal-confirm-btn',  // Apply Bootstrap and custom classes
                     cancelButton: 'btn btn-danger swal-cancel-btn',      // Custom class for margin and tint control
                 }
-            });
-            
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
