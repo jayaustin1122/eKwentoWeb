@@ -5,7 +5,6 @@ import { collection, getDocs, setDoc, doc, serverTimestamp } from 'https://www.g
 const usersTableBody = document.querySelector('tbody');
 const usersCollectionRef = collection(db, 'users');  // Path to 'users' collection
 const searchInput = document.getElementById('searchInput');
-
 function attachLogoutEventListener() {
     const logoutButton = document.getElementById('logout');
 
@@ -15,13 +14,17 @@ function attachLogoutEventListener() {
             Swal.fire({
                 title: 'Sigurado ka ba?',
                 text: 'Gusto mo ba talagang mag log out?',
-                icon: 'warning', // Corrected icon
+                icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oo',
                 cancelButtonText: 'Kanselahin',
-                buttonsStyling: true 
+                buttonsStyling: false,  // Disable default SweetAlert2 button styling
+                customClass: {
+                    confirmButton: 'btn btn-primary',  // Apply Bootstrap styles
+                    cancelButton: 'btn btn-danger ml-2'  // Add margin for spacing
+                }
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
@@ -30,7 +33,7 @@ function attachLogoutEventListener() {
                         text: 'Mangyaring maghintay...',
                         allowOutsideClick: false,
                         didOpen: () => {
-                            Swal.showLoading(); // Show loading
+                            Swal.showLoading();  // Show loading
                         }
                     });
 
@@ -67,8 +70,8 @@ function attachLogoutEventListener() {
     }
 }
 
+
 window.addEventListener('load', attachLogoutEventListener);
-const storage = getStorage();
 onAuthStateChanged(auth, (user) => {
    if (user) {
        console.log("User is logged in:", user);

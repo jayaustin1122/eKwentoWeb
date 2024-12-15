@@ -443,7 +443,7 @@ function fetchUserProfile(userId) {
             const username = userData.firstName && userData.lastName ? `${userData.firstName} ${userData.lastName}` : "N/A";
             const bio = userData.gender || "N/A";
             const email = userData.email || "N/A";
-            const profileImage = userData.profilePicture || "../assets/bg no.png"; // Default image if profile image is not provided
+            const profileImage = userData.profilePicture || "assets/logo.png"; // Default image if profile image is not provided
 
             // Fetch and calculate age if birthdate exists
             let age = "N/A"; // Default value
