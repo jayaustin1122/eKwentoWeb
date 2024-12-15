@@ -1,0 +1,57 @@
+body {
+    background-image: url('../assets/bg1.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#back-button {
+    align-items: center;
+    background-color: #0096A0;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+
+  /* Hover Effects */
+  #back-button:hover {
+    background-color: #02b7c4; /* Lighter background on hover */
+    border-color: #333; /* Darken the border on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow to create a "lifted" effect */
+    transform: scale(1.05); /* Slightly scale up the button */
+  }
+
+
+  #back-button:hover:after {
+    transform: translate(0, 0);
+  }
+
+  @media (min-width: 768px) {
+    #back-button {
+      padding: 0 40px;
+    }
+  }
