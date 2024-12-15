@@ -305,40 +305,96 @@
     margin-bottom: 30px;
   }
   
-  /* Filter Section */
-  .filter {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* Filter container */
+.filter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  opacity: 0;  /* Start invisible */
+  animation: fadeInUp 1s forwards;  /* Fade in with upward motion */
+}
+
+/* Select box styles */
+.filter select {
+  width: 200px;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 40px 10px 10px;  /* Add padding for the arrow */
+  font-size: 1rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scale(1);  /* Initial scale */
+  opacity: 0;  /* Start invisible */
+  animation: fadeInSelect 1s ease-out forwards 0.5s;  /* Delay to appear after filter */
+  position: relative;  /* Positioning for the custom arrow */
+}
+
+/* Hover effect */
+.filter select:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);  /* Slightly increase the size */
+}
+
+/* Focus effect */
+.filter select:focus {
+  background-color: #0056b3;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  color: #ffffff;  /* Change text color on focus */
+  transform: scale(1.05);  /* Slight zoom effect */
+}
+
+/* Active or focused state */
+.filter select:focus,
+.filter select:active {
+  background-color: transparent;
+  color: #0096A0;
+}
+
+/* Custom arrow using ::after */
+.filter select::after {
+  content: '▼';  /* Downward arrow character */
+  font-size: 1.2rem;
+  color: #0096A0;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%); /* Center vertically */
+  transition: transform 0.3s ease;  /* Smooth transition for rotation */
+}
+
+/* Rotate arrow when select is clicked (or focused) */
+.filter select:focus::after,
+.filter select:active::after {
+  transform: translateY(-50%) rotate(180deg);  /* Rotate the arrow when clicked */
+}
+
+/* Animation for filter appearing (fade and slide up) */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .filter select {
-    width: 200px;
-    background-color: transparent;
-    color: rgb(0, 0, 0);
-    border: none;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 25px;
-    transition: background-color 0.3s ease;
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .filter select:hover {
-    background-color: #0056b3;
+}
+
+/* Animation for select element */
+@keyframes fadeInSelect {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  .filter select:focus {
-    background-color: #0056b3;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  .filter select:focus,
-  .filter select:active {
-    background-color: transparent;
-    color: #0096A0;
-  }
+}
+
   
 /* Story Cards */
 .story-card {
