@@ -13,13 +13,17 @@ function attachLogoutEventListener() {
             Swal.fire({
                 title: 'Sigurado ka ba?',
                 text: 'Gusto mo ba talagang mag log out?',
-                icon: 'babala',
+                icon: 'warning', // Ensure 'icon' is set to a valid value like 'warning'
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Oo',
                 cancelButtonText: 'Kanselahin',
-                buttonsStyling: true 
+                buttonsStyling: false,  // Disable SweetAlert2 default styling
+                customClass: {
+                    confirmButton: 'btn btn-primary',   // Bootstrap button style
+                    cancelButton: 'btn btn-danger',     // Apply Bootstrap styling or add your custom classes
+                }
             }).then(async (result) => {
                 if (result.isConfirmed) {
                     // Show loading indicator
