@@ -38,7 +38,7 @@
                         <h5 class="fw-bold border-bottom mb-3 pb-2">I-Update ang Profile</h5>
                         <form id="profileForm" class="needs-validation mx-2" novalidate>
                             <div class="mb-3">
-                                <img src="../assets/Vector (1).png" alt="Profile Placeholder" class="img-fluid mt-2" style="max-width: 50px; height: auto;">
+                                <img src="https://via.placeholder.com/150" alt="Profile Placeholder" class="img-thumbnail rounded-circle mb-3">
                                 <label for="profilePicture" class="form-label">Larawan sa Profile</label>
                                 <input type="file" class="form-control" id="profilePicture" accept="image/*" placeholder="Pumili ng larawan sa profile">
                             </div>
@@ -114,7 +114,12 @@
     <script type="module" src="../js/profile.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script>
+      
+        document.getElementById("back-button").addEventListener("click", function() {
+            window.history.back(); 
+        });
+    </script>
 
 </body>
 
