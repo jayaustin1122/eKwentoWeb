@@ -11,7 +11,18 @@ body {
     color: #333;
     font-family: 'MyCustomFont', sans-serif;
 }
+.swal-confirm-btn {
+    margin-right: 10px;  /* Adds space between confirm and cancel buttons */
+}
 
+.swal-cancel-btn {
+    background-color: #d33;  /* Red tint */
+    color: white;            /* Ensures the text is visible */
+}
+
+.swal-cancel-btn:hover {
+    background-color: #b22;  /* Darker red tint on hover */
+}
 @font-face {
     font-family: 'MyCustomFont'; 
     src: url('/dist/assets/fonts/BalooTammudu2-VariableFont_wght.ttf') format('truetype'); 

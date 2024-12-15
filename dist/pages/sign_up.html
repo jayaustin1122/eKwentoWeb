@@ -26,80 +26,75 @@
         </div>
     </nav>
 
-        <div class="transparent-container">
-            <!-- sign up Section -->
-            <section class="sign_up-section">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8 col-lg-6"> <!-- Adjusted size -->
-                            <div class="signup-form">
-                                <img src="../pages/assets/logo.png" alt="Sign Up Icon" class="signup-icon">
-                                <h2>Mag Sign-Up</h2>
-                                <form id="registrationForm" novalidate>
-                                    <div class="input-group">
-                                        <i class="fas fa-user"></i>
-                                        <input type="text" placeholder="Pangalan" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <i class="fas fa-user"></i>
-                                        <input type="text" placeholder="Apelyido" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <i class="fas fa-envelope"></i>
-                                        <input type="email" placeholder="Email" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <i class="fas fa-lock"></i>
-                                        <input type="password" placeholder="Password" required>
-                                    </div>
-                                    <div class="input-group">
-                                        <i class="fas fa-lock"></i>
-                                        <input type="password" placeholder="Confirm Password" required>
-                                    </div>  
-                                    <!-- Add Genre Selection in the Form -->
-                                    <div class="input-group genre-row">
-                                        <div class="input-group genre-row">
-                                            <label for="genres">Piliin ang Iyong Mga Genre:</label>
-                                            <div id="genres" class="genre-list">
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="fiction" value="Fiction">
-                                                    <label for="fiction">Piksyon</label>
-                                                </div>
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="fantasy" value="Fantasy">
-                                                    <label for="fantasy">Pantasya</label>
-                                                </div>
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="mystery" value="Mystery">
-                                                    <label for="mystery">Misteryo</label>
-                                                </div>
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="nonfiction" value="Non-fiction">
-                                                    <label for="nonfiction">Di-Piksyon</label>
-                                                </div>
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="horror" value="Horror">
-                                                    <label for="nonfiction">Katatakutan</label>
-                                                </div>
-                                                <div class="genre-item">
-                                                    <input type="checkbox" id="comedy" value="Comedy">
-                                                    <label for="nonfiction">Komedya</label>
-                                                </div>
-                                                <!-- Add more genres as needed -->
-                                            </div>
+    <div class="transparent-container">
+        <!-- sign up Section -->
+        <section class="sign_up-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-6"> <!-- Adjusted size -->
+                        <div class="signup-form">
+                            <img src="../pages/assets/logo.png" alt="Sign Up Icon" class="signup-icon">
+                            <h2>Mag Sign-Up</h2>
+                            <form id="registrationForm" novalidate>
+                                <div class="input-group">
+                                    <i class="material-icons">person</i>
+                                    <input type="text" placeholder="Pangalan" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class="material-icons">person_outline</i>
+                                    <input type="text" placeholder="Apelyido" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class="material-icons">email</i>
+                                    <input type="email" placeholder="Email" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class="material-icons">lock</i>
+                                    <input type="password" placeholder="Password" required>
+                                </div>
+                                <div class="input-group">
+                                    <i class="material-icons">lock_outline</i>
+                                    <input type="password" placeholder="Confirm Password" required>
+                                </div>
+                                <!-- Genre Selection -->
+                                <div class="input-group genre-row">
+                                    <label for="genres">Piliin ang Iyong Mga Genre:</label>
+                                    <div id="genres" class="genre-list">
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="fiction" value="Fiction">
+                                            <label for="fiction">Piksyon</label>
                                         </div>
-                                                                        
-                                                                    <!-- Replace this button text -->
-                                        <button type="submit" class="btn-signin">Mag - Sign Up</button>
-                                    </div>                        
-                                </form>
-                            </div>
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="fantasy" value="Fantasy">
+                                            <label for="fantasy">Pantasya</label>
+                                        </div>
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="mystery" value="Mystery">
+                                            <label for="mystery">Misteryo</label>
+                                        </div>
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="nonfiction" value="Non-fiction">
+                                            <label for="nonfiction">Di-Piksyon</label>
+                                        </div>
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="horror" value="Horror">
+                                            <label for="horror">Katatakutan</label>
+                                        </div>
+                                        <div class="genre-item">
+                                            <input type="checkbox" id="comedy" value="Comedy">
+                                            <label for="comedy">Komedya</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-signin">Mag - Sign Up</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </section>            
-        </div>
-
+            </div>
+        </section>
+    </div>
+    
         <div id="footer-placeholder"></div>  <!-- The placeholder for the footer -->
 
 
