@@ -23,8 +23,6 @@ const messages = [
     { text: "Huwag kalimutang magpahinga at mag-relax habang nagbabasa.", image: "/pages/assets/lolakausap.png" },
     { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/pages/assets/lolawithsimangut.png" },
 ];
-
-
 document.getElementById("download-btn").addEventListener("click", function() {
     // Get book details
     const title = document.getElementById('book-title').textContent;
@@ -57,9 +55,6 @@ document.getElementById("download-btn").addEventListener("click", function() {
     doc.save(`${title}.pdf`);
 });
 
-
-
-
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
@@ -72,7 +67,6 @@ if (selectedBookTimestamp) {
     document.querySelector('.book-content').innerHTML = '<p>No book data available.</p>';
 }
 
-
 function showLoadingSwal() {
     Swal.fire({
         title: 'Loading...',
@@ -84,6 +78,7 @@ function showLoadingSwal() {
         }
     });
 }
+
 let bookContentChunks = [];
 let currentPage = 0;
 const wordsPerPage = 300; 
@@ -98,6 +93,7 @@ function splitContentIntoPages(content) {
 
     return pages;
 }
+
 function displayPage(pageIndex) {
     const bookContentElement = document.getElementById('book-content');
     if (bookContentChunks.length > 0) {
@@ -111,6 +107,7 @@ function displayPage(pageIndex) {
     document.querySelector('.back-btn').disabled = (pageIndex === 0);
     document.querySelector('.next-btn').disabled = (pageIndex === bookContentChunks.length - 1);
 }
+
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
@@ -237,6 +234,7 @@ document.querySelector('.back-btn').addEventListener('click', () => {
         displayPage(currentPage);
     }
 });
+
 function showMascotPopup2() {
     const mascotPopup = document.getElementById('mascot-popup');
     const messageElement = mascotPopup.querySelector('p');
