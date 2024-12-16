@@ -60,7 +60,6 @@
             const element = document.querySelector('.book-details-section'); 
             const bookTitle = document.getElementById('book-title').textContent.trim();
             const bookCoverSrc = document.getElementById('book-cover').src; 
-            
             const clone = element.cloneNode(true); 
 
           
@@ -81,14 +80,14 @@
                 clone.style.textAlign = "center";
 
                 const opt = {
-                    margin:       10,
+                    margin:       0.8,
                     filename:     bookTitle ? `${bookTitle}.pdf` : 'book_content.pdf', 
                     image:        { type: 'jpeg', quality: 0.98 },
                     html2canvas:  { scale: 2 },
                     jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
                 };
 
-                // Generate the PDF with the loaded content
+        
                 html2pdf().set(opt).from(clone).save();
             };
         });
