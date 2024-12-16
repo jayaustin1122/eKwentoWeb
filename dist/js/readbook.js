@@ -1,6 +1,5 @@
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-import { jsPDF } from "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
 
 const messages = [
     { text: "Maligayang pagdating! Basahin at tuklasin ang aklat na ito.", image: "/pages/assets/lola.png" },
