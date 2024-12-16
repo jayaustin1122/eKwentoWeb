@@ -44,7 +44,7 @@ async function getBookDetails() {
         const booksCollectionRef = db.collection(`users/${userId}/books`);
         
         // Query for books by timestamp
-        const booksQuery = booksCollectionRef.where('timestampEpoch', '==', timestampInt);
+        const booksQuery = booksCollectionRef.where('timestamp', '==', timestampInt);
 
         try {
             const querySnapshot = await booksQuery.get();
