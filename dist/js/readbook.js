@@ -24,15 +24,13 @@ const messages = [
     { text: "Huwag kalimutang magpahinga at mag-relax habang nagbabasa.", image: "/pages/assets/lolakausap.png" },
     { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/pages/assets/lolawithsimangut.png" },
 ];
+
 document.getElementById('download-btn').addEventListener('click', function() {
     downloadBookAsPDF();
 });
 
-// Function to download the entire book as PDF
 function downloadBookAsPDF() {
     const doc = new jsPDF();
-
-    // Add title and author to the PDF
     const title = document.getElementById('book-title').textContent;
     const author = document.getElementById('book-author').textContent;
 
@@ -41,8 +39,7 @@ function downloadBookAsPDF() {
     doc.setFontSize(16);
     doc.text(author, 10, 30);
 
-    // Add book content
-    let yPosition = 40;  // Starting position for content
+    let yPosition = 40;
     for (let i = 0; i < bookContentChunks.length; i++) {
         const pageContent = bookContentChunks[i];
         doc.setFontSize(12);
@@ -51,16 +48,14 @@ function downloadBookAsPDF() {
         doc.text(pageContent, 10, yPosition);
 
         yPosition += 10;
-        if (yPosition > 270) {  // New page if content is too long
+        if (yPosition > 270) {
             doc.addPage();
             yPosition = 10;
         }
     }
 
-    // Save the PDF
     doc.save(`${title}.pdf`);
 }
-
 
 
 
