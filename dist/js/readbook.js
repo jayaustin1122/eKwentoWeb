@@ -23,21 +23,60 @@ const messages = [
     { text: "Huwag kalimutang magpahinga at mag-relax habang nagbabasa.", image: "/pages/assets/lolakausap.png" },
     { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/pages/assets/lolawithsimangut.png" },
 ];
-document.getElementById("download-btn").addEventListener("click", function() {
-    // Get book details
-    const title = document.getElementById('book-title').textContent;
-    const author = document.getElementById('book-author').textContent;
-    const genre = document.getElementById('book-genre').textContent;
-    const content = bookContentChunks.join('\n\n');  // Join all content pages
+async function getBookDetails() {
+    const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
+    if (!selectedBookTimestamp) {
+        console.error("No timestamp found in localStorage.");
+        return;
+    }
 
-    // Create a PDF document
+    const timestampInt = selectedBookTimestamp
+
+    // Assuming you're using Firebase Firestore and have the necessary setup
+    const db = firebase.firestore();
+    
+    // Get all users (assuming you have a collection `users`)
+    const usersSnapshot = await db.collection('users').get();
+
+    // Iterate through all users' books
+    for (const userDoc of usersSnapshot.docs) {
+        const userId = userDoc.id;
+        const booksCollectionRef = db.collection(`users/${userId}/books`);
+        
+        // Query for books by timestamp
+        const booksQuery = booksCollectionRef.where('timestampEpoch', '==', timestampInt);
+
+        try {
+            const querySnapshot = await booksQuery.get();
+            if (!querySnapshot.empty) {
+                // Found the book with matching timestamp
+                const bookDoc = querySnapshot.docs[0];
+                const bookData = bookDoc.data();
+                return bookData;  // Return book details
+            }
+        } catch (error) {
+            console.error("Error fetching book data:", error);
+        }
+    }
+
+    console.error("No book found with the provided timestamp.");
+    return null;
+}
+
+// Event listener for the download button
+document.getElementById("download-btn").addEventListener("click", async function() {
+    const bookDetails = await getBookDetails();
+    if (!bookDetails) return;
+
+    const { title, author, genre, content, coverImageUrl } = bookDetails;
+
+    // Create a PDF document using jsPDF
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
     // Add cover image if available
-    const coverImage = document.getElementById('book-cover');
-    if (coverImage.src) {
-        doc.addImage(coverImage.src, 'JPEG', 10, 10, 180, 180); // Adjust position and size
+    if (coverImageUrl) {
+        doc.addImage(coverImageUrl, 'JPEG', 10, 10, 180, 180); // Adjust position and size
     }
 
     // Add title, author, and genre
@@ -54,7 +93,6 @@ document.getElementById("download-btn").addEventListener("click", function() {
     // Save the PDF with the book title as filename
     doc.save(`${title}.pdf`);
 });
-
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
