@@ -33,7 +33,6 @@
                     <button class="next-btn button-73">Sunod na Pahina</button>
                     <button id="download-btn" class="button-73">I-download ang PDF</button>
                 </div>
-             
             </div>
         </div>
     </div>
@@ -52,21 +51,44 @@
                 confirmButtonText: 'Got it!'
             });
         };
+
         document.getElementById("back-button").addEventListener("click", function() {
             window.history.back(); // Navigate back to the previous page
         });
+
         document.getElementById('download-btn').addEventListener('click', function() {
-            const element = document.querySelector('.book-details-section'); // The section you want to convert to PDF
+            const element = document.querySelector('.book-details-section'); // The section to convert to PDF
+            const bookTitle = document.getElementById('book-title').textContent.trim(); // Get the book title for the filename
+            const bookCoverSrc = document.getElementById('book-cover').src; // Get the book cover image source
+            
+            const clone = element.cloneNode(true); // Clone the content to be modified for the PDF
+
+            // Remove the buttons from the cloned content
+            const buttons = clone.querySelector('.pagination-buttons');
+            if (buttons) {
+                buttons.remove();
+            }
+
+            // Center the content in the PDF
+            clone.style.display = "flex";
+            clone.style.flexDirection = "column";
+            clone.style.alignItems = "center";
+            clone.style.textAlign = "center";
+
+            // Ensure that the cloned content's book cover is properly loaded
+            const clonedCover = clone.querySelector('.book-cover');
+            clonedCover.src = bookCoverSrc; // Set the cloned cover's src to the original book cover src
+
             const opt = {
                 margin:       0.5,
-                filename:     'book_content.pdf',
+                filename:     bookTitle ? `${bookTitle}.pdf` : 'book_content.pdf', // Dynamic filename
                 image:        { type: 'jpeg', quality: 0.98 },
                 html2canvas:  { scale: 2 },
                 jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
 
-            // Generate PDF
-            html2pdf().set(opt).from(element).save();
+            // Generate the PDF without the buttons and centered content
+            html2pdf().set(opt).from(clone).save();
         });
     </script>
 
