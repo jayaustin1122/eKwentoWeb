@@ -57,31 +57,31 @@
         });
 
         document.getElementById('download-btn').addEventListener('click', function() {
-            const element = document.querySelector('.book-details-section'); // The section to convert to PDF
-            const bookTitle = document.getElementById('book-title').textContent.trim(); // Get the book title for the filename
-            const bookCoverSrc = document.getElementById('book-cover').src; // Get the book cover image source
+            const element = document.querySelector('.book-details-section'); 
+            const bookTitle = document.getElementById('book-title').textContent.trim();
+            const bookCoverSrc = document.getElementById('book-cover').src; 
             
-            const clone = element.cloneNode(true); // Clone the content to be modified for the PDF
+            const clone = element.cloneNode(true); 
 
-            // Remove the buttons from the cloned content
+          
             const buttons = clone.querySelector('.pagination-buttons');
             if (buttons) {
                 buttons.remove();
             }
 
-            // Ensure the image is fully loaded before generating the PDF
+          
             const clonedCover = clone.querySelector('.book-cover');
             clonedCover.src = bookCoverSrc; 
             
             clonedCover.onload = function () {
-                // Adjust the cloned content style for the PDF
+               
                 clone.style.display = "flex";
                 clone.style.flexDirection = "column";
                 clone.style.alignItems = "center";
                 clone.style.textAlign = "center";
 
                 const opt = {
-                    margin:       0.5,
+                    margin:       10,
                     filename:     bookTitle ? `${bookTitle}.pdf` : 'book_content.pdf', 
                     image:        { type: 'jpeg', quality: 0.98 },
                     html2canvas:  { scale: 2 },
