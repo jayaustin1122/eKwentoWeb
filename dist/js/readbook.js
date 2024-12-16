@@ -1,6 +1,5 @@
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-
 const messages = [
     { text: "Maligayang pagdating! Basahin at tuklasin ang aklat na ito.", image: "/pages/assets/lola.png" },
     { text: "Alam mo ba? Ang aklat na ito ay may mga nakakatuwang impormasyon.", image: "/pages/assets/lolakausap.png" },
@@ -23,76 +22,48 @@ const messages = [
     { text: "Huwag kalimutang magpahinga at mag-relax habang nagbabasa.", image: "/pages/assets/lolakausap.png" },
     { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/pages/assets/lolawithsimangut.png" },
 ];
-async function getBookDetails() {
-    const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
-    if (!selectedBookTimestamp) {
-        console.error("No timestamp found in localStorage.");
-        return;
-    }
+document.getElementById('download-btn').addEventListener('click', function() {
+    downloadBookAsPDF();
+});
 
-    const timestampInt = selectedBookTimestamp
+// Function to download the entire book as PDF
+function downloadBookAsPDF() {
+    const doc = new jsPDF();
 
-    // Assuming you're using Firebase Firestore and have the necessary setup
-    const db = firebase.firestore();
-    
-    // Get all users (assuming you have a collection `users`)
-    const usersSnapshot = await db.collection('users').get();
+    // Add title and author to the PDF
+    const title = document.getElementById('book-title').textContent;
+    const author = document.getElementById('book-author').textContent;
 
-    // Iterate through all users' books
-    for (const userDoc of usersSnapshot.docs) {
-        const userId = userDoc.id;
-        const booksCollectionRef = db.collection(`users/${userId}/books`);
-        
-        // Query for books by timestamp
-        const booksQuery = booksCollectionRef.where('timestamp', '==', timestampInt);
+    doc.setFontSize(22);
+    doc.text(title, 10, 20);
+    doc.setFontSize(16);
+    doc.text(author, 10, 30);
 
-        try {
-            const querySnapshot = await booksQuery.get();
-            if (!querySnapshot.empty) {
-                // Found the book with matching timestamp
-                const bookDoc = querySnapshot.docs[0];
-                const bookData = bookDoc.data();
-                return bookData;  // Return book details
-            }
-        } catch (error) {
-            console.error("Error fetching book data:", error);
+    // Add book content
+    let yPosition = 40;  // Starting position for content
+    for (let i = 0; i < bookContentChunks.length; i++) {
+        const pageContent = bookContentChunks[i];
+        doc.setFontSize(12);
+        doc.text(`Pahina ${i + 1}:`, 10, yPosition);
+        yPosition += 10;
+        doc.text(pageContent, 10, yPosition);
+
+        yPosition += 10;
+        if (yPosition > 270) {  // New page if content is too long
+            doc.addPage();
+            yPosition = 10;
         }
     }
 
-    console.error("No book found with the provided timestamp.");
-    return null;
+    // Save the PDF
+    doc.save(`${title}.pdf`);
 }
 
-// Event listener for the download button
-document.getElementById("download-btn").addEventListener("click", async function() {
-    const bookDetails = await getBookDetails();
-    if (!bookDetails) return;
 
-    const { title, author, genre, content, coverImageUrl } = bookDetails;
 
-    // Create a PDF document using jsPDF
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
 
-    // Add cover image if available
-    if (coverImageUrl) {
-        doc.addImage(coverImageUrl, 'JPEG', 10, 10, 180, 180); // Adjust position and size
-    }
 
-    // Add title, author, and genre
-    doc.setFontSize(18);
-    doc.text(title, 10, 200); // Title below the image
-    doc.setFontSize(12);
-    doc.text(`Author: ${author}`, 10, 210);
-    doc.text(`Genre: ${genre}`, 10, 220);
 
-    // Add book content
-    doc.setFontSize(10);
-    doc.text(content, 10, 230);
-
-    // Save the PDF with the book title as filename
-    doc.save(`${title}.pdf`);
-});
 const selectedBookTimestamp = localStorage.getItem('selectedBookTimestamp');
 
 if (selectedBookTimestamp) {
@@ -105,6 +76,7 @@ if (selectedBookTimestamp) {
     document.querySelector('.book-content').innerHTML = '<p>No book data available.</p>';
 }
 
+
 function showLoadingSwal() {
     Swal.fire({
         title: 'Loading...',
@@ -116,7 +88,6 @@ function showLoadingSwal() {
         }
     });
 }
-
 let bookContentChunks = [];
 let currentPage = 0;
 const wordsPerPage = 300; 
@@ -131,7 +102,6 @@ function splitContentIntoPages(content) {
 
     return pages;
 }
-
 function displayPage(pageIndex) {
     const bookContentElement = document.getElementById('book-content');
     if (bookContentChunks.length > 0) {
@@ -145,7 +115,6 @@ function displayPage(pageIndex) {
     document.querySelector('.back-btn').disabled = (pageIndex === 0);
     document.querySelector('.next-btn').disabled = (pageIndex === bookContentChunks.length - 1);
 }
-
 async function queryBookAcrossAllUsersByTimestamp(timestampEpoch) {
     try {
         const timestampInt = Math.floor(parseInt(timestampEpoch, 10));
@@ -272,7 +241,6 @@ document.querySelector('.back-btn').addEventListener('click', () => {
         displayPage(currentPage);
     }
 });
-
 function showMascotPopup2() {
     const mascotPopup = document.getElementById('mascot-popup');
     const messageElement = mascotPopup.querySelector('p');
