@@ -69,26 +69,28 @@
                 buttons.remove();
             }
 
-            // Center the content in the PDF
-            clone.style.display = "flex";
-            clone.style.flexDirection = "column";
-            clone.style.alignItems = "center";
-            clone.style.textAlign = "center";
-
-            // Ensure that the cloned content's book cover is properly loaded
+            // Ensure the image is fully loaded before generating the PDF
             const clonedCover = clone.querySelector('.book-cover');
-            clonedCover.src = bookCoverSrc; // Set the cloned cover's src to the original book cover src
+            clonedCover.src = bookCoverSrc; 
+            
+            clonedCover.onload = function () {
+                // Adjust the cloned content style for the PDF
+                clone.style.display = "flex";
+                clone.style.flexDirection = "column";
+                clone.style.alignItems = "center";
+                clone.style.textAlign = "center";
 
-            const opt = {
-                margin:       0.5,
-                filename:     bookTitle ? `${bookTitle}.pdf` : 'book_content.pdf', // Dynamic filename
-                image:        { type: 'jpeg', quality: 0.98 },
-                html2canvas:  { scale: 2 },
-                jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                const opt = {
+                    margin:       0.5,
+                    filename:     bookTitle ? `${bookTitle}.pdf` : 'book_content.pdf', 
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2 },
+                    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+
+                // Generate the PDF with the loaded content
+                html2pdf().set(opt).from(clone).save();
             };
-
-            // Generate the PDF without the buttons and centered content
-            html2pdf().set(opt).from(clone).save();
         });
     </script>
 
