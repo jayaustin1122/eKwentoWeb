@@ -1,6 +1,5 @@
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
-import jsPDF from 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
 
 const messages = [
     { text: "Maligayang pagdating! Basahin at tuklasin ang aklat na ito.", image: "/pages/assets/lola.png" },
@@ -25,37 +24,6 @@ const messages = [
     { text: "Bawat kwento ay isang paglalakbay sa kamangha-manghang mundo.", image: "/pages/assets/lolawithsimangut.png" },
 ];
 
-document.getElementById('download-btn').addEventListener('click', function() {
-    downloadBookAsPDF();
-});
-
-function downloadBookAsPDF() {
-    const doc = new jsPDF();
-    const title = document.getElementById('book-title').textContent;
-    const author = document.getElementById('book-author').textContent;
-
-    doc.setFontSize(22);
-    doc.text(title, 10, 20);
-    doc.setFontSize(16);
-    doc.text(author, 10, 30);
-
-    let yPosition = 40;
-    for (let i = 0; i < bookContentChunks.length; i++) {
-        const pageContent = bookContentChunks[i];
-        doc.setFontSize(12);
-        doc.text(`Pahina ${i + 1}:`, 10, yPosition);
-        yPosition += 10;
-        doc.text(pageContent, 10, yPosition);
-
-        yPosition += 10;
-        if (yPosition > 270) {
-            doc.addPage();
-            yPosition = 10;
-        }
-    }
-
-    doc.save(`${title}.pdf`);
-}
 
 
 
