@@ -1,5 +1,7 @@
 import { auth, db } from './index.js';
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js';
+import { jsPDF } from "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js";
+
 const messages = [
     { text: "Maligayang pagdating! Basahin at tuklasin ang aklat na ito.", image: "/pages/assets/lola.png" },
     { text: "Alam mo ba? Ang aklat na ito ay may mga nakakatuwang impormasyon.", image: "/pages/assets/lolakausap.png" },
@@ -24,7 +26,37 @@ const messages = [
 ];
 
 
+document.getElementById("download-btn").addEventListener("click", function() {
+    // Get book details
+    const title = document.getElementById('book-title').textContent;
+    const author = document.getElementById('book-author').textContent;
+    const genre = document.getElementById('book-genre').textContent;
+    const content = bookContentChunks.join('\n\n');  // Join all content pages
 
+    // Create a PDF document
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Add cover image if available
+    const coverImage = document.getElementById('book-cover');
+    if (coverImage.src) {
+        doc.addImage(coverImage.src, 'JPEG', 10, 10, 180, 180); // Adjust position and size
+    }
+
+    // Add title, author, and genre
+    doc.setFontSize(18);
+    doc.text(title, 10, 200); // Title below the image
+    doc.setFontSize(12);
+    doc.text(`Author: ${author}`, 10, 210);
+    doc.text(`Genre: ${genre}`, 10, 220);
+
+    // Add book content
+    doc.setFontSize(10);
+    doc.text(content, 10, 230);
+
+    // Save the PDF with the book title as filename
+    doc.save(`${title}.pdf`);
+});
 
 
 
