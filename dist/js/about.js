@@ -25,14 +25,13 @@ const searchBooks = async (searchQuery) => {
 
     renderSearchResults(books);
 };
-
 const renderSearchResults = (books) => {
     const booksContainer = document.querySelector('.books-container');
     booksContainer.innerHTML = '';
     Swal.close();
 
     if (books.length === 0) {
-        Swal.fire('No books found', '', 'warning');
+        Swal.fire('Walang nahanap na libro', '', 'warning');
         return;
     }
 
@@ -43,7 +42,7 @@ const renderSearchResults = (books) => {
         bookElement.innerHTML = `
             <div class="card-body">
                 <h5 class="card-title">${book.title}</h5>
-                <p class="card-text">${book.description}</p>
+             
                 <small>By: ${book.author}</small><br>
                 <small>${new Date(book.timestampEpoch).toLocaleDateString()}</small>
             </div>  
@@ -58,7 +57,7 @@ const renderSearchResults = (books) => {
         booksContainer.appendChild(bookElement);
     });
 
-    Swal.fire('Search complete', '', 'success');
+    Swal.fire('Tapos na ang paghahanap', '', 'success');
 };
 
 
@@ -70,8 +69,8 @@ searchForm.addEventListener('submit', async (e) => {
     if (searchInput) {
 
         Swal.fire({
-            title: 'Searching...',
-            text: 'Please wait while we search for books.',
+            title: 'Naghahanap...',
+            text: 'Pakiusap, maghintay habang hinahanap namin ang mga libro.',
             allowOutsideClick: false,
             didOpen: () => {
                 Swal.showLoading();
@@ -81,6 +80,6 @@ searchForm.addEventListener('submit', async (e) => {
 
         await searchBooks(searchInput);
     } else {
-        Swal.fire('Please enter a search term.', '', 'info');
+        Swal.fire('Mangyaring maglagay ng salita para hanapin.', '', 'info');
     }
 });
