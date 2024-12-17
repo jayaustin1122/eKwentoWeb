@@ -41,7 +41,7 @@ async function fetchBooks() {
         );
 
         if (filteredBooks.length === 0) {
-            storyCardsContainer.innerHTML = '<p>No books found for the selected genre or search term.</p>';
+            storyCardsContainer.innerHTML = '<p>Walang nakitang mga aklat para sa napiling genre o termino para sa paghahanap.</p>';
             return;
         }
 
