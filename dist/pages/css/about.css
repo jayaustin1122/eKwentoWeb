@@ -307,6 +307,107 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
   box-shadow: 0 8px 12px rgba(0, 0, 0.2, 0.4); 
 }
 
+/* Basic container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile image */
+.card-img-top {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%; /* Makes the image circular */
+  margin: 0 auto; /* Centers the image */
+}
+
+/* Card text */
+.card-body {
+  padding: 15px;
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Card text (description) styling */
+.card-text {
+  font-size: 1rem;
+  color: #555555; /* Light color for description text */
+  margin-bottom: 15px;
+}
+
+/* Social media icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Space between social icons */
+}
+
+.social-icon {
+  color: blue;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #00aaff; /* Change color on hover */
+}
+
+/* Styling for the header */
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+  .card-img-top {
+      width: 120px; /* Adjust image size on smaller screens */
+      height: 120px;
+  }
+
+  .card-body {
+      padding: 10px;
+  }
+
+  .card-title {
+      font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .card-text {
+      font-size: 0.9rem; /* Smaller description text */
+  }
+}
+
+
 
 footer {
   background-color: #F3F3F3;
