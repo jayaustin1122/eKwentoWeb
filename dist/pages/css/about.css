@@ -307,10 +307,8 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
   box-shadow: 0 8px 12px rgba(0, 0, 0.2, 0.4); 
 }
 
-/* Basic container styling */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+#about {
+  margin-top: 50px;
 }
 
 /* Card styling */
@@ -318,14 +316,14 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
   border: 1px solid #ddd;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px); /* Dark background color */
   color: black;
-  display: flex;
+  display: flex; /* Using flexbox for uniform height */
   flex-direction: column;
-  height: 100%;
+  height: 100%; /* Ensures all cards are of equal height */
 }
 
 /* Card hover effect */
@@ -343,9 +341,13 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
   margin: 0 auto; /* Centers the image */
 }
 
-/* Card text */
+/* Card body text */
 .card-body {
   padding: 15px;
+  display: flex; /* Flexbox to align the content */
+  flex-direction: column;
+  justify-content: space-between; /* Ensures content is spaced evenly */
+  flex-grow: 1; /* Ensures card body takes up the remaining space */
 }
 
 /* Card title styling */
@@ -358,33 +360,50 @@ box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
 /* Card text (description) styling */
 .card-text {
   font-size: 1rem;
-  color: #555555; /* Light color for description text */
+  color: #303030; /* Light color for description text */
   margin-bottom: 15px;
 }
 
-/* Social media icons */
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 10px; /* Space between social icons */
-}
 
 .social-icon {
-  color: blue;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
+  font-size: 1.5rem; /* Size of the icon */
+  color: white; /* Default color before applying gradient */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease; /* Smooth transition on hover */
 }
 
-.social-icon:hover {
+.social-icon.instagram i {
+  background-image: linear-gradient(to right, #ff4213, #ff913c); /* Gradient color */
+  -webkit-background-clip: text; /* Clipping the gradient to the text */
+  color: transparent; /* Make text color transparent to show the gradient */
+  transition: background-image 0.3s ease; /* Smooth transition for gradient */
+}
+
+.social-icon.instagram:hover i {
+  background-image: linear-gradient(to right, #6a11cb, #2575fc); /* Change gradient on hover */
+}
+
+/* Default color for the Facebook icon */
+.social-icon i {
+  color: blue; /* Default color for the Facebook icon */
+}
+
+/* Hover effect for the Facebook icon */
+.social-icon:hover i {
   color: #00aaff; /* Change color on hover */
 }
-
 /* Styling for the header */
 h2 {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 30px;
-  color: #333;
+  color: #202020;
+}
+
+.guro-left {
+  text-align: left;
+  margin-top: 40px;
+  margin-bottom: -20px;
 }
 
 /* Responsive tweaks for smaller screens */
@@ -407,16 +426,41 @@ h2 {
   }
 }
 
+/* Flexbox for equal height rows */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between the columns */
+}
+
+/* Ensure columns are responsive */
+.col-md-4 {
+  flex: 1 1 calc(33.333% - 20px); /* Ensures 3 items per row in medium and larger screens */
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+      flex: 1 1 calc(50% - 20px); /* Ensures 2 items per row on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .col-md-4 {
+      flex: 1 1 100%; /* Stacks all cards on extra small screens */
+  }
+}
 
 
+/* Footer */
 footer {
   background-color: #F3F3F3;
   color: #333;
-  padding: 30px;
+  padding: 5vw;
   font-family: 'MyCustomFont';
+  margin-top: auto;
+  height: auto;
   width: 100%;
   box-sizing: border-box;
-  margin-top: auto;  /* Pushes the footer to the bottom of the page */
 }
 
 .footer-container {
@@ -445,7 +489,7 @@ footer {
 
 .footer-description {
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1rem; /* Adjusted font size */
   color: #000000;
   line-height: 1.5;
   max-width: 300px;
@@ -453,7 +497,7 @@ footer {
 
 .footer-bottom {
   text-align: center;
-  font-size: 12px;
+  font-size: 1rem;
   color: #aaa;
   margin-top: 20px;
 }
@@ -469,13 +513,13 @@ footer {
 .footer-section {
   color: #008b8b;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.6rem;
 }
 
 .footer-section a {
   display: block;
   color: #333;
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   text-decoration: none;
   margin-top: 5px;
 }
@@ -491,12 +535,11 @@ footer {
 
 .col-md-2 {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: column; /* Stack the content vertically */
 }
 
 .col-md-2 p {
-  font-size: 1.2rem;
+  font-size: 1.8rem; /* Adjusted font size */
   font-weight: 900;
   margin-bottom: 12px;
   color: #009BA6;
@@ -506,14 +549,13 @@ footer {
   font-weight: bold;
   color: #010305;
   text-decoration: none;
-  margin-right: 20px;
-  display: block;
+  margin-right: 20px; /* Space between the links */
+  display: block; /* Ensures the links are inline and horizontal */
 }
 
 .col-md-2 a:hover {
   color: #007a7d;
 }
-
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
   body {

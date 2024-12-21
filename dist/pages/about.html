@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../pages/css/about.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 </head>
 <body>  
@@ -26,7 +27,7 @@
     </nav>
   
 `
-    <div class="card-menu">
+    <div class="card-menu" data-aos="fade-down">
         <a href="../pages/about.html">Tungkol sa</a>
         <a href="../pages/tuklasin.html">Tuklasin</a>
         <a href="../pages/faqs.html">Tanong</a>
@@ -38,8 +39,9 @@
 <div class="container mt-4">
     <div class="books-container"></div>
 </div>
-  
-    <div class="container hero-section">
+    
+<section>
+    <div class="container hero-section" data-aos="fade-up">
         <div class="hero-content text-center">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -56,74 +58,79 @@
             </div>
         </div>
     </div>
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">Mga Kasamahan</h2>
-        <div class="row">
-            <!-- First Person Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="assets/image1.jpg" alt="Person 1" class="card-img-top rounded-circle" />
-                        <h5 class="card-title">Khristine A. Pihawan</h5>
-                        <p class="card-text">Mayo 2024</p>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+</section>
+
+<section id="about" data-aos="fade-right">
+            <div class="container mt-4">
+                <h2 class="text-left mb-4">MGA MANANALKSIK</h2>
+                <div class="row">
+            
+                    <!-- Right Column for Cards -->
+
+                        <div class="row">
+                            <!-- Fourth Person Card with Social Icons (Mayo 2024) -->
+                            <div class="col-md-4">
+                                <div class="card" data-aos="flip-left">
+                                    <div class="card-body text-center">
+                                        <img src="assets/image1.jpg" alt="Person 1" class="card-img-top rounded-circle" />
+                                        <h5 class="card-title">Khristine A. Pihawan</h5>
+                                        <p class="card-text">Mananaliksik</p>
+                                        <div class="social-links">
+                                            <a href="https://www.facebook.com/ma.althea.paderon" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <div class="col-md-4">
+                                <div class="card" data-aos="flip-left">
+                                    <div class="card-body text-center">
+                                        <img src="assets/image2.jpg" alt="Person 1" class="card-img-top rounded-circle" />
+                                        <h5 class="card-title">GIL ANTHONY D. DE VERA</h5>
+                                        <p class="card-text">Mananaliksik</p>
+                                        <div class="social-links">                                           
+                                            <a href="https://www.facebook.com/GilAnthonyDiaz.Devera" target="_blank" class="social-icon">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a href="https://www.instagram.com/gian20.02/profilecard/" target="_blank" class="social-icon instagram">
+                                                <i class="fab fa-instagram"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Second Person Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="assets/image2.jpg" alt="Person 2" class="card-img-top rounded-circle" />
-                        <h5 class="card-title">Danica C. Pihawan</h5>
-                        <p class="card-text">Mayo 2024</p>
-                        <div class="social-links">
-                            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Third Person Card -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="assets/image3.jpg" alt="Person 3" class="card-img-top rounded-circle" />
-                        <h5 class="card-title">Edwin H. Ichiban</h5>
-                        <p class="card-text">Tagapayo</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="assets/image3.jpg" alt="Person 4" class="card-img-top rounded-circle" />
-                        <h5 class="card-title">Edwin H. Ichiban</h5>
-                        <p class="card-text">Tagapayo</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body text-center">
-                        <img src="assets/image3.jpg" alt="Person 5" class="card-img-top rounded-circle" />
-                        <h5 class="card-title">Edwin H. Ichiban</h5>
-                        <p class="card-text">Tagapayo</p>
+            
+                        <!-- Row for Tagapayo Cards -->
+                        <div class="row">
+                            <!-- Second Person Card (Tagapayo) -->
+                            <h2 class="guro-left">MGA TAGAPAYO</h2>
+                            <div class="col-md-4 mb-4">
+                                <div class="card" data-aos="flip-left">
+                                    <div class="card-body text-center">
+                                        <img src="assets/image 5.jpg" alt="Person 4" class="card-img-top rounded-circle" />
+                                        <h5 class="card-title">MELCHOR R. AMOR, PhD</h5>
+                                        <p class="card-text">GURO/PROPESOR</p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Third Person Card (Tagapayo) -->
+                            <div class="col-md-4 mb-4">
+                                <div class="card" data-aos="flip-left">
+                                    <div class="card-body text-center">
+                                        <img src="assets/image3.jpg" alt="Person 5" class="card-img-top rounded-circle" />
+                                        <h5 class="card-title">ROZEL A. GENOVA, PhD</h5>
+                                        <p class="card-text">Tagapayo</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-        </div>
-    </div>
-    
+</section>
     
     <footer class="footer fixed-buttom">
         <div class="container">
@@ -174,7 +181,16 @@
         </div>
     </footer>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, // Animation duration
+            once: false,    // Allows animations to replay
+            offset: 120,    // Trigger animation earlier
+            easing: 'ease-in-out', // Smooth easing
+        });
+        window.addEventListener('load', AOS.refresh); // Refresh AOS on page load
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="../js/about.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
